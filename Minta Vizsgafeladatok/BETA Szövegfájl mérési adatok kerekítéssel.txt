@@ -1,0 +1,60 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Fájlváltozó                     F             Szövegfájl                      I       
+Akt Sor                         SOR           Sztring                         M       
+EV                              EV            Egész                           M,O     
+HNAP                            HNAP          Egész                           M,O     
+NAP                             NAP           Egész                           M,O     
+VALSZAM                         VALSZAM       Valós                           M,O     
+DB                              DB            Egész                           M,O     
+OSSZEG                          OSSZEG        Valós                           M,O     
+ATL                             ATL           Valós                           M,O     
+KEREKÍR                         KER           Sztring                         M       
+HOSSZ                           HOSSZ         Egész                           M       
+MILYEN                          MILYEN        Egész                           M       
+                                                                                      
+
+/*Az Adatok.txt szövegfájl mérési adatokat tartalmaz. Minden egyes sorban két adat található, az */
+/*elso adat a mérés dátuma (éééé.hh.nn alakban), a második adat a mért érték (valós szám), ahol az */
+/*adatokat pontosan egy db szóköz választja el.*/
+/*Határozza meg a fájlban található adatokra azt, hogy mennyi a mért értékek átlaga a második negyedévben! */
+/*Az eredményt egy tizedesjegyre kerekítve adja meg!*/
+/*Mr_HumanRebel*/
+
+
+NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\mérési adatok két adattal.txt","I")
+DB<-OSSZEG<-0
+
+while NOT FAJLVEGE(F)
+  Be F: SOR
+  EV<- VAL(COPY(SOR,1,4))
+  /*Ki: EV*/
+  HNAP<- VAL(COPY(SOR,6,2))
+  /*Ki: HNAP*/
+  NAP<- VAL(COPY(SOR,9,2))
+  /*Ki: NAP*/
+  VALSZAM<- VAL(COPY(SOR,11,6))
+  /*Ki: VALSZAM*/
+  if (HNAP>=4) AND (HNAP<7)
+    OSSZEG<-OSSZEG+VALSZAM
+    DB<-DB+1
+    ATL<-OSSZEG/DB
+
+Ki: "A mért értékek összege a második negyedévben: ",OSSZEG
+Ki: "A mért értékek darabszáma a második negyedévben: ",DB
+
+KER<-COPY(STR(ATL),1,4)
+Ki: "Kerekítendo adat: ",KER
+MILYEN<-LENGTH(KER)
+Ki: "A számolt átlag karakterhossza: ",MILYEN
+if KER[MILYEN]>="5"
+  if MILYEN = 4
+    KER<-COPY(KER,1,3)
+    ATL<-VAL(KER)+0.1
+  if MILYEN = 5
+    KER<-COPY(KER,1,4)
+    ATL<-VAL(KER)+0.1
+
+Ki: "A mért értékek átlaga a második negyedévben: ",ATL
+
+ZAR(F)

@@ -51,13 +51,9 @@ ER                              ER            Sztring                         M,
 
 STR_MTX_GEN(A,10,5,25,1)
 
-/* A két ciklus a buborékrendezés implementálásához szükséges */
 for I <- 1, 9
-  for J <- 1, 9 - I
-    /* A cserét akkor hajtjuk végre, ha a következo sztring hátrább van, mint kéne */
+  for J <- 1, 9-I
     if A[J, 3] > A[J + 1, 3]
-      /* A K ciklusváltozó segítségével végigmegyünk */
-      /* a sorok oszlopain, hogy ki tudjuk cserélni */
       for K <- 1, 5
         CS <- A[J, K]
         A[J, K] <- A[J + 1, K]
