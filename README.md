@@ -7,6 +7,8 @@ A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a leg
 
 #algovizsganebukjmeg
 
+Extra .pdf/.png anyagokért ZH-ra és vizsgára bármilyen alkoholtartalmú "üdítőért" cserébe keresd @MrHumanRebel-t.
+
 
 
 Linkek:
