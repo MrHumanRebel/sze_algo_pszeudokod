@@ -1,0 +1,17 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A kiirandó sztring mátrix       A             STR_MTX                         I       
+Sorok száma                     N             Egész                           I       
+Oszlopok száma                  M             Egész                           I       
+Segédváltozó                    I             Egész                           M       
+Segédváltozó                    J             Egész                           M       
+                                                                                      
+
+/* Egy sztring mátrix kiírása */
+/* Az elemeket mátrix alakban írjuk ki (egy sorban egy-egy szóközzel elválasztva) */
+/* A mátrix megfelelő elrendezéséhez feltesszük, hogy a sztringek egyforma hosszúak */
+STR_MTX_KI(A,N,M)
+for I<-1,N
+  for J<-1,M
+    Ki:A[I,J],' ',
+  Ki:""

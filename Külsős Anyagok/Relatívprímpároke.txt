@@ -1,0 +1,20 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Elsõ szám                       A             Egész                           I       
+Második szám                    B             Egész                           I       
+Relatív prím-e                  RPRIM         Logikai                         M,O     
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+Be:A,B
+RPRIM<-igaz
+I<-2
+while RPRIM AND (I<=A) AND (I<=B)
+  if (A MOD I=0) AND (B MOD I=0)
+    RPRIM<-hamis
+  else
+    I<-I+1
+if RPRIM
+  Ki:"A számok relatív prímek!"
+else
+  Ki:"A számok nem relatív prímek!"

@@ -1,0 +1,52 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A vizsgált név                  NEV           Sztring                         I       
+Ciklusváltozó                   I             Egész                           M       
+Eredmény                        ER            Logikai                         M,O     
+Sztring hossza                  H             Egész                           M       
+Szóközök számaDB                DB            Egész                           M       
+                                                                                      
+
+/*Input név vizsgálat*/
+/*Legalább 5 karakter hisszú, pontosan egy szóközt tartalmazó, szóköz nem lehet elsõ vagy utolsó karakter, csak angol betûk szerepelhetnek, vezetés és keresztnév elsõ betûje nagy*/
+Be:NEV
+H<-LENGTH(NEV)
+/*if H<5*/
+  /*ER<-hamis*/
+/*else*/
+  /*ER<-igaz*/
+/*5karakter hosszú*/
+ER<-H>=5
+I<-1
+DB<-0
+/*Pontosan egy szóközt tartalmaz*/
+while (I<=H) AND (DB<=1)
+  if NEV[I]=' '
+    DB<-DB+1
+  I<-I+1
+if DB<>1
+  ER<-hamis
+/*Szóköz nem lehet elsõ se utolsó*/
+if ER
+  if (NEV[1]=' ') OR (NEV[H]=' ')
+    ER<-hamis
+/*csak angol betûk és kezdõ betû nagy*/
+I<-1
+while (I<=H) AND ER
+  if ((I=1) OR (I=POS(' ',NEV)+1)) 
+    if NOT (NEV[I] IN ['A'..'Z'])
+      ER<-hamis
+  else if NOT (NEV[I] IN ['a'..'z',' '])
+    ER<-hamis
+  I<-I+1
+if ER
+  Ki:"OK"
+else
+  Ki:"NEM OKÉ"
+
+
+
+
+
+
+

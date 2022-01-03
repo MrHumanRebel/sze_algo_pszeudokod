@@ -1,0 +1,14 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Ciklusváltozó                   I             Egész                           M       
+Eredmény                        DB            Egész                           M,O     
+A szám sztringként              ST            Sztring                         M       
+                                                                                      
+
+/*Hány olyan egész szám van [1234,3456] intervallumban, melyek közül az adott szám mindegyik számjegye páros.*/
+DB<-0
+for I<-1234,3456
+  ST<-STR(I)
+  if ((ST[1]="2") OR (ST[1]="4") OR (ST[1]="6") OR (ST[1]="8")) AND ((ST[2]="0") OR (ST[2]="2") OR (ST[2]="4") OR (ST[2]="6") OR (ST[2]="8")) AND ((ST[3]="0") OR (ST[3]="2") OR (ST[3]="4") OR (ST[3]="6") OR (ST[3]="8")) AND ((ST[4]="0") OR (ST[4]="2") OR (ST[4]="4") OR (ST[4]="6") OR (ST[4]="8"))
+    DB<-DB+1
+Ki:DB

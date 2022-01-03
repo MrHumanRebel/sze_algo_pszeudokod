@@ -1,0 +1,30 @@
+Típus
+
+ADATREK Rekord
+  DATUM Sztring[10] /* A mérés dátuma éééé.hh.nn alakban */
+  ADAT  Valós       /* A mért adat */
+
+Funkció                         Azonosító     Típus                                       Jelleg  
+__________________________________________________________________________________________________
+Fájlváltozó                     F             ADATREK típusú adatokból álló típusos fájl  M       
+Egy rekord                      A             ADATREK                                     M       
+Az eredmény                     MAX           Valós                                       M,O     
+Darabszám                       DB            Egész                                       M       
+                                                                                                  
+
+NYIT(F,"Adatok.dat","I")
+DB<-0
+while NOT FAJLVEGE(F)
+  Be F: A
+  if COPY(A.DATUM,6,2)="07"
+    DB<-DB+1
+    if DB=1
+      MAX<-A.ADAT
+    else
+      if A.ADAT>MAX
+        MAX<-A.ADAT
+ZAR(F)
+if DB=0
+  Ki:"Nincs ilyen adat!"
+else
+  Ki:"Az eredmény:",MAX

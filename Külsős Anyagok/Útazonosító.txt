@@ -1,0 +1,63 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Útazonosító                     UT            Sztring                         I,O     
+Képernyõ pozíció oszlop         OSZL          Egész                           M       
+Képernyõ pozíció sor            SOR           Egész                           M       
+Érkezett e helyes adat          VANADAT       Logikai                         M,O     
+                                                                                      
+
+/*Egy út azonosítójáak a bekérése/módosítása ellenõrzött input szubrutin*/
+/*max 5 karakter*/
+/*számjegyeket tartalmaz, de az elsõ lehet angol nagybetû is*/
+/*az elsõ karakter nem lehet 0*/
+/*ha betûvel kezdõdik akkor legalább 2 karakter hosszúnak kell lennie->számjeggyel kell végzõdnie*/
+UT<-"A123"
+OSZL<-1
+SOR<-1
+UTAZONBE(UT,OSZL,SOR,VANADAT)
+Ki:UT
+
+Funkció                               Azonosító     Típus                           Jelleg  
+____________________________________________________________________________________________
+Útazonosító                           UT            Sztring                         I,M,O   
+Képernyõpozíció oszlop                OSZL          Egész                           I       
+Képernyõpozíció sor                   SOR           Egész                           I       
+Érkezett e érvényes adat              VANADAT       Logikai                         O       
+Aktuális adat                         JEL           Karakter                        M       
+Aktuálisan elfogadható jelek halmaza  JOJEL         Karakterhalmaz                  M       
+Aktuális valódi hossz                 HOSSZ         Egész                           M       
+                                                                                            
+
+UTAZONBE(UT,OSZL,SOR,VANADAT)
+HOSSZ<-LENGTH(UT)
+UT<-JOBBTOLT(UT,5)
+INVERZIR
+KIIRAS(UT,OSZL,SOR,HOSSZ)
+repeat
+  JOJEL<-[KILEP]
+  if HOSSZ=0
+    JOJEL<-JOJEL+['A'..'Z','1'..'9']
+  else
+    if HOSSZ<5
+      JOJEL<-JOJEL+['0'..'9']
+    if UT[HOSSZ] IN ['0'..'9']
+      JOJEL<-JOJEL+[ADATVEG]
+    JOJEL<-JOJEL+[TOROL]
+  JEL<-JELBE(JOJEL)
+  if JEL IN ['A'..'Z','0'..'9']
+    HOSSZ<-HOSSZ+1
+    UT[HOSSZ]<-JEL
+  else if JEL=TOROL
+    UT[HOSSZ]<-' '
+    HOSSZ<-HOSSZ-1
+  KIIRAS(UT,OSZL,SOR,HOSSZ)
+until JEL IN [KILEP,ADATVEG]
+NORMALIR
+if JEL=KILEP
+  KIIRAS(JOBBTOLT("",5),OSZL,SOR,HOSSZ)
+  UT<-""
+  VANADAT<-hamis
+else
+  KIIRAS(UT,OSZL,SOR,HOSSZ)
+  VANADAT<-igaz
+

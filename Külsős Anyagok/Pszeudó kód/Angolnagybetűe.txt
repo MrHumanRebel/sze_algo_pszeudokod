@@ -1,0 +1,10 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A karakter                      C             Karakter                        I       
+                                                                                      
+
+Be: C
+if (C>='A') AND (C<='Z')
+  Ki: "Angol nagybetû"
+else
+  Ki: "Nem angol nagybetû"

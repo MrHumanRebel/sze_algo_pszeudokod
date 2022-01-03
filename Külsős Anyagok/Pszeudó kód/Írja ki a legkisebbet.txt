@@ -1,0 +1,14 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Egyik szám                      A             Valós                           I       
+Második szám                    B             Valós                           I       
+Harmadik szám                   C             Valós                           I       
+                                                                                      
+
+Be:A,B,C
+if (A<B) AND (A<C)
+  Ki:A
+  if (B<A) AND (B<C)
+    Ki: B
+else
+  Ki:C

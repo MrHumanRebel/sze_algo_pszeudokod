@@ -1,0 +1,23 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+
+Funkció                         Azonosító     Típus                                               Jelleg  
+__________________________________________________________________________________________________________
+Elemek száma                    N             Egész                                               I       
+Eredmény                        T             Egydimenziós Egész típusú adatokból álló tömb[100]  M,O     
+A már generált adatok halmaza   H             Egészhalmaz                                         M       
+Ciklusváltozó                   I             Egész                                               M       
+Aktuálisan generált szám        AKT           Egész                                               M       
+                                                                                                          
+
+GENERAL(N,T)
+H<-[]
+for I<-1,N
+  repeat 
+    AKT<-RANDOM(N)+1
+  until NOT (AKT IN H)
+  H<-H+[AKT]
+  T[I]<-AKT
+

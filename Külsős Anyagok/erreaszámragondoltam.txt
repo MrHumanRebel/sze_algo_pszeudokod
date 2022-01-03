@@ -1,0 +1,17 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A gondolt szám                  G             Egész                           M,O     
+Tipp                            T             Egész                           I       
+                                                                                      
+
+Ki:"Gondoltam egy számra, tippelj!"
+G<-RANDOM(10)+1
+repeat 
+  Ki:"Kérem a tippet!"
+  Be: T
+  if T>G
+    Ki: "A szám ennél a számnál kisebb."
+  else if T<G
+    Ki: "A szám ennél a számnál nagyobb."
+until T=G
+Ki:"Erre a számra gondoltam"

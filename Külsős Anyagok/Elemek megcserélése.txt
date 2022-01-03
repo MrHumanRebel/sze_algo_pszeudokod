@@ -1,0 +1,18 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Elsõ szám                       A             Egész                           I,M,O   
+Második szám                    B             Egész                           I,M,O   
+Csereváltozó                    CS            Egész                           M       
+                                                                                      
+
+Ki:"Az elsõ szám: "
+Be:A
+Ki:"A második szám: "
+Be:B
+
+CS<-A
+A<-B
+B<-CS
+
+Ki:"Elsõ szám: ", A
+Ki:"Második szám: ",B

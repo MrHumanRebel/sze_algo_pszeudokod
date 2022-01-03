@@ -1,0 +1,15 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A oldal                         A             Valós                           I       
+B oldal                         B             Valós                           I       
+C oldal                         C             Valós                           I       
+Térfogat                        T             Valós                           M,O     
+Felszín                         F             Valós                           M,O     
+                                                                                      
+
+Be: A, B, C
+T<-A*B*C
+F<-2*(A*C+B*C+A*B)
+Ki: "A Térfogat: ", T
+Ki: "A Felület: ", F
+

@@ -1,0 +1,20 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Egyik szám                      A             Egész                           I       
+Másik szám                      B             Egész                           I       
+Ciklusváltozó                   I             Egész                           M,O     
+Megtaláltae LNKOt               VAN           Logikai                         M       
+                                                                                      
+
+Be: A,B
+VAN<-hamis
+if A<B 
+  I<-A
+else
+  I<-B
+while NOT VAN AND (I>=1)
+  if (A MOD I = 0) AND (B MOD I = 0)
+    VAN<-igaz
+  else
+    I<-I-1
+Ki:I
