@@ -5,6 +5,8 @@
 
 **Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák**
 
+<img src="https://github.com/MrHumanRebel/Pszeudokod/blob/main/Log%C3%B3/pszkod.png?raw=true" alt="PszKod" width="200" height="200">
+
 *Pszeudokód mintafeladatok by @MrHumanRebel and @szkly // © 2022*
 
 
@@ -35,5 +37,5 @@ Program: http://www.sze.hu/~pusztai/PszKodIDE.zip
 
 Impera: https://impera.sze.hu/letoltes/impera_beszamolo_x64.zip
 
-<img src="https://github.com/MrHumanRebel/Pszeudokod/blob/main/Log%C3%B3/pszkod.png?raw=true" alt="PszKod" width="200" height="200">
+
 
