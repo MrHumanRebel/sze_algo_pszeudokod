@@ -22,7 +22,7 @@ Discord: Mr_HumanRebel#0023
 
 
 
-Linkek:
+**Linkek**
 
 Egyetem: https://www.uni.sze.hu/
 
