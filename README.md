@@ -17,7 +17,7 @@ A formátum .txt vagy .dat lehet!
 
 #algovizsganebukjmeg
 
-## Extra anyagok
+## Tananyag
 
 Extra .pdf/.png anyagokért ZH-ra és vizsgára bármilyen "alkoholtartalmú üdítőért" vagy "fagyipénzért" cserébe keresd @MrHumanRebel-t.
 
