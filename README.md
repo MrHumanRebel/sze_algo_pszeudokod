@@ -5,8 +5,8 @@ Pszeudokód mintafeladatok by @MrHumanRebel and @szkly // © 2022
 
 A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak.
 
-Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez! 
-Például:[NYIT(VALAMI,"CSERÉLJ KI","VALAMI"]
+Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez!
+Például:[NYIT(VALAMI,"CSERÉLJ KI.formátum","VALAMI"] A formátum .txt vagy .dat lehet.
 
 #algovizsganebukjmeg
 
