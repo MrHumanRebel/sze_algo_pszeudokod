@@ -1,8 +1,4 @@
 # Pszeudokod
-![GitHub repo size](https://img.shields.io/github/repo-size/MrHumanRebel/Pszeudokod)
-![GitHub repo file count](https://img.shields.io/github/directory-file-count/MrHumanRebel/Pszeudokod)
-![GitHub all releases](https://img.shields.io/github/downloads/MrHumanRebel/Pszeudokod/total)
-
 **Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák**
 
 <img src="Repo/pszkod.png" alt="PszKod" width="200" height="200">
@@ -11,7 +7,9 @@
 
 
 ## Információk
-**Csak oktatási célokra használd saját felelősségre! A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak!**
+**Csak oktatási célokra használd, saját felelősségre!**
+
+*A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak!*
 
 Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez!
 Például: [NYIT(VALAMI,"CSERÉLJ KI.formátum","VALAMI"] 
@@ -25,7 +23,7 @@ Például: [NYIT(VALAMI,"CSERÉLJ KI.formátum","VALAMI"]
 
 Discord: [Mr_HumanRebel#0023](discord.com/users/283988657851990017)
 
-## Linkek
+## Hasznos linkek
 
 [Egyetem](https://www.uni.sze.hu/)
 
