@@ -1,0 +1,96 @@
+Konstans
+
+/* Az adatok maximális száma */
+NMAX 20
+
+Típus
+
+/* Az adatsor elemeinek típusa */
+ELEM Egész
+/* Az adatsor */
+TOMB Egydimenziós ELEM típusú adatokból álló tömb[NMAX]
+
+Funkció                             Azonosító     Típus                           Jelleg  
+__________________________________________________________________________________________
+A megjelenítendõ adatsor            A             TOMB                            I,M,O   
+Az adatsor elemeinek száma          N             Egész                           I,M     
+Egy képernyõre írandó adatok száma  DB            Egész                           I,M     
+Segédváltozó a feltöltéshez         I             Egész                           M       
+                                                                                          
+
+/* Adatok bekérése */
+Ki:"Az adatok száma:",
+Be:N
+for I<-1,N
+  Ki:I,". adat:",
+  Be:A[I]
+Ki:"Az egy képernyõn lévõ adatok száma (1-",NMAX,"):"
+Be:DB
+
+/* Adatok megjelenítése */
+KIIR(A,N,DB)
+
+Funkció                                                       Azonosító     Típus                           Jelleg  
+____________________________________________________________________________________________________________________
+A megjelenítendõ adatsor                                      A             TOMB                            I       
+Az adatsor elemeinek száma                                    N             Egész                           I       
+Egy képernyõre írandó adatok száma                            DB            Egész                           I       
+Az aktuálisan kiírandó elemek kezdõ indexe                    KEZD          Egész                           M       
+Az aktuálisan kiírandó elemek befejezõ indexe                 BEF           Egész                           M       
+Az aktuálisan kiírandó elem indexe                            I             Egész                           M       
+Az aktuálisan elfogadható normálkódú billentyûk jelei         NORMAL        Karakterhalmaz                  M       
+Az aktuálisan elfogadható duplakódú billentyûk második jelei  DUPLA         Karakterhalmaz                  M       
+Az aktuálisan bekért jel                                      JEL           Karakter                        M       
+Duplakódú-e a leütött billentyû                               DUPLAE        Logikai                         M       
+                                                                                                                    
+
+/* Az IR eljárással írunk ki, mert a KEPTORLES a 40x80-as képernyõn töröl */
+KIIR(A,N,DB)
+if N=0
+  KEPTORLES
+  IR("Nincsenek elemek!",1,1)
+  /* Várakozás (normál) bill. leütésre */
+  VARAKOZAS
+else
+  KEZD<-1
+  repeat
+    /* A befejezõ index beállítása */
+    BEF<-KEZD+DB-1
+    if BEF>N 
+      BEF<-N
+    /* Adatkiírás */
+    KEPTORLES
+    IR("Ssz. Elem",1,1)
+    for I<-KEZD,BEF
+      /* A sorszám oszlop 5 karakter széles */
+      IR(JOBBTOLT(STR(I)+".",5)+STR(A[I]),1,I-KEZD+2)
+    /* Az elfogadható jelek beállítása */
+    NORMAL<-[ESC]
+    DUPLA<-[]
+    if KEZD>1
+      DUPLA<-DUPLA+[HOME,UP,PGUP]
+    if BEF<N
+      DUPLA<-DUPLA+[END,DOWN,PGDN]
+    /* Billentyûzetrõl való bekérés */
+    JEL<-BILLBE(NORMAL,DUPLA,DUPLAE)
+    /* Pozícionálás */
+    if JEL=HOME
+      KEZD<-1
+    else if JEL=END
+      KEZD<-N-DB+1
+    else if JEL=PGDN
+      if BEF<N-DB+1
+        KEZD<-KEZD+DB
+      else
+        KEZD<-N-DB+1
+    else if JEL=PGUP
+      if KEZD-DB>=1
+        KEZD<-KEZD-DB
+      else
+        KEZD<-1
+    else if JEL=DOWN
+      KEZD<-KEZD+1
+    else if JEL=UP
+      KEZD<-KEZD-1
+  until JEL=ESC
+

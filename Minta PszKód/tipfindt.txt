@@ -1,0 +1,227 @@
+Konstans
+
+/* Az adatok maximális száma */
+MAXDB 5
+/* Az adatok maximális számánál eggyel nagyobb érték */
+/* A 0. elem helyett az ennyiedik elemet fogjuk használni */
+/* a 'létezõ/élõ' adatrekordok darabszámának a tárolására */ 
+MAXDB1 MAXDB+1
+/* Az azonosító maximális hossza */
+MAXAZHOSSZ 1
+/* Az információ maximális hossza */
+MAXINFOHOSSZ 3
+/* Az adatfájl neve */
+AFNEV "ADAT.DAT"
+/* Az indextáblát tartalmazó fájl neve */
+IFNEV "ADAT.IND"
+/* Üres azonosító */
+URESAZ " " 
+
+Típus
+
+/* Az azonosítóhoz */
+TAZ Sztring[MAXAZHOSSZ]
+/* Az információhoz */
+TINFO Sztring[MAXINFOHOSSZ]
+/* Az adatrekord */
+TADAT Rekord
+  /* Azonosító */
+  AZ TAZ
+  /* Információs rész */
+  INFO TINFO
+/* Az indextábla rekordja */
+TITADAT Rekord
+  /* Eszerint rendezünk */
+  AZ TAZ
+  /* Az adatfájlbeli rekordpozíció */
+  POZ Egész
+/* Az indextábla */
+TIT Egydimenziós TITADAT rekordokat tartalmazó tömb[MAXDB1]
+/* Az adatrekordokat tartalmazó fájl */
+ADATFAJL TADAT rekordokból álló típusos fájl
+/* Az indextáblát tartalmazó fájl */
+INDEXFAJL TIT adatot tartalmazó típusos fájl
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az adatfájl                     AF            ADATFAJL                        I,O     
+Az indextáblát tartalmazó fájl  ITF           INDEXFAJL                       I,O     
+Az indextábla                   IT            TIT                             M       
+A kiválasztott funkció          C             Karakter                        M       
+Segédváltozó                    I             Egész                           M       
+                                                                                      
+
+if FAJLVAN(AFNEV) AND FAJLVAN(IFNEV)
+  /* Az adatfájl megnyitása */
+  NYIT(AF,AFNEV,"I+")
+  /* Az indextábla betöltése */
+  NYIT(ITF,IFNEV,"I")
+  Be ITF:IT
+  ZAR(ITF)
+else
+  /* Az adatfájl megnyitása */
+  NYIT(AF,AFNEV,"O+")
+  /* Az indextábla inicializálása */
+  for I<-1,MAXDB1
+    IT[I].AZ<-URESAZ
+    if I=MAXDB1
+      /* A létezõ adatok száma */
+      IT[I].POZ<-0
+    else
+      /* A leendõ rekordsorszámok */
+      IT[I].POZ<-I-1
+repeat
+  Ki:"Felvétel:1 Törlés:2 Kiírás:3 Kilépés:0"
+  C<-JELBE(['0'..'3'])
+  if C='1'
+    FELVETEL(IT,IT[MAXDB1].POZ,AF)
+  else if C='2'
+    TORLES(IT,IT[MAXDB1].POZ)
+  else if C='3'
+    KIIRAS_(IT,AF)
+until C='0'
+/* Az adatfájl zárása */
+ZAR(AF)
+/* Az indextábla mentése */
+NYIT(ITF,IFNEV,"O")
+Ki ITF:IT
+ZAR(ITF)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A keresett azonosító            MIT           TAZ                             I       
+Az indextábla                   MIBEN         TIT                             I       
+Az indextábla elemeinek száma   DB            Egész                           I       
+A keresett elem helye           HOL           Egész                           O       
+A keresett elem létezése        VAN           Logikai                         O       
+Az aktuális kezdõindex          I             Egész                           M       
+Az aktuális végindex            J             Egész                           M       
+A középsõ elem indexe           K             Egész                           M       
+                                                                                      
+
+BINKER(MIT,MIBEN,DB,HOL)
+I<-1
+J<-DB
+VAN<-hamis
+while (I<=J) AND NOT VAN
+  /* Felezés */
+  K<-(I+J) DIV 2
+  if MIT=MIBEN[K].AZ
+    VAN<-igaz
+  else if MIT<MIBEN[K].AZ
+    J<-K-1
+  else
+    I<-K+1
+if VAN
+  HOL<-K
+else
+  HOL<-I
+return VAN
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A beszúrandó elem               MIT           TITADAT                         I       
+Az indextábla                   MIBE          TIT                             I,M,O   
+A beszúrás helye                HOVA          Egész                           I       
+Az indextábla elemeinek száma   DB            Egész                           I,O     
+Segédváltozó a helykészítéshez  I             Egész                           M       
+                                                                                      
+
+BESZUR(MIT,MIBE,HOVA,DB)
+/* Helykészítés */
+for I<-DB,HOVA,-1
+  MIBE[I+1]<-MIBE[I]
+/* Beszúrás */
+MIBE[HOVA]<-MIT
+/* Darabszám növelés */
+DB<-DB+1
+
+Funkció                           Azonosító     Típus                           Jelleg  
+________________________________________________________________________________________
+Az indextábla                     MIBOL         TIT                             I,M,O   
+A törlendõ elem indexe            HONNAN        Egész                           I       
+Az indextábla elemeinek száma     DB            Egész                           I,O     
+A törlendõ elem tárolásához       S             TITADAT                         M       
+Segédváltozó az elõreléptetéshez  I             Egész                           M       
+                                                                                        
+
+/* A TOROL azonosító már 'foglalt', ezért TOROL_ a szubrutin azonosítója */
+TOROL_(MIBOL,HONNAN,DB)
+/* A törlendõ elem megjegyzése */
+S<-MIBOL[HONNAN]
+/* Törlés */
+for I<-HONNAN+1,DB
+  MIBOL[I-1]<-MIBOL[I]
+/* Hogy az adatfájlba ide vegyünk fel legközelebb */
+MIBOL[DB]<-S
+/* Darabszám csökkentés */
+DB<-DB-1
+if DB=0
+  /* Az elejérõl töltsük fel az adatfájlt */
+  for I<-1,MAXDB
+    MIBOL[I].POZ<-I-1
+
+Funkció                            Azonosító     Típus                           Jelleg  
+_________________________________________________________________________________________
+Az indextábla                      MIBE          TIT                             I,O     
+Az indextábla elemeinek száma      DB            Egész                           I,O     
+Az adatfájl                        AF            ADATFAJL                        O       
+Az új elem adatrekordja            ADAT          TADAT                           M       
+Az új elem indextábla rekordja     ITADAT        TITADAT                         M       
+Az új elem helye az indextáblában  HOL           Egész                           M       
+                                                                                         
+
+FELVETEL(MIBE,DB,AF)
+if DB=MAXDB
+  Ki:"Nem vehetõ fel több elem!"
+else
+  Ki:"A felveendõ új rekord azonosítója:",
+  Be:ADAT.AZ
+  if BINKER(ADAT.AZ,MIBE,DB,HOL)
+    Ki:"Van már ilyen azonosítójú rekord!"
+  else
+    Ki:"A felveendõ új rekord információs része:",
+    Be:ADAT.INFO
+    /* Beírás az adatfájlba */
+    POZICIONAL(AF,MIBE[DB+1].POZ)
+    Ki AF:ADAT
+    /* Felvétel az indextáblába */
+    ITADAT.AZ<-ADAT.AZ
+    ITADAT.POZ<-MIBE[DB+1].POZ
+    BESZUR(ITADAT,MIBE,HOL,DB)
+
+Funkció                                 Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________________
+Az indextábla                           MIBOL         TIT                             I,O     
+Az indextábla elemeinek száma           DB            Egész                           I,O     
+A törlendõ elem azonosítója             MIT           TAZ                             M       
+A törlendõ elem helye az indextáblában  HOL           Egész                           M       
+                                                                                              
+
+TORLES(MIBOL,DB)
+if DB=0
+  Ki:"Nincs mit törölni!"
+else
+  Ki:"A törlendõ rekord azonosítója:",
+  Be:MIT
+  if NOT BINKER(MIT,MIBOL,DB,HOL)
+    Ki:"Nincs ilyen azonosítójú rekord!"
+  else
+    TOROL_(MIBOL,HOL,DB)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az indextábla                   IT            TIT                             I       
+Az adatfájl                     AF            ADATFAJL                        I       
+Az aktuális rekord              ADAT          TADAT                           M       
+Segédváltozó                    I             Egész                           M       
+                                                                                      
+
+/* A KIIRAS azonosító már 'foglalt', ezért KIIRAS_ a szubrutin azonosítója */
+KIIRAS_(IT,AF)
+Ki:"Ssz Azon Inf"
+for I<-1,IT[MAXDB1].POZ
+  POZICIONAL(AF,IT[I].POZ)
+  Be AF:ADAT
+  Ki:JOBBTOLT(STR(I)+".",4),JOBBTOLT(ADAT.AZ,5),ADAT.INFO
+

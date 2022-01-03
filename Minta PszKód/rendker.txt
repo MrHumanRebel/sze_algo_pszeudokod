@@ -1,0 +1,344 @@
+Konstans
+
+/* A rendezendõ adatok maximális száma */
+MAXELEMSZAM 10
+/* A generálandó adatok maximális értéke */
+MAXELEM 20
+
+Típus
+
+/* A rendezendõ elemek típusa */
+ELEM Egész
+/* A rendezendõ elemek tömbje */
+TOMB Egydimenziós ELEM típusú adatokból álló tömb[MAXELEMSZAM]
+/* Az indextábla típusa */
+INDEXTABLA Egydimenziós Egész tömb[MAXELEMSZAM]
+
+Funkció                                   Azonosító     Típus                           Jelleg  
+________________________________________________________________________________________________
+A rendezendõ adatok                       A             TOMB                            M       
+Segédtömb az eredeti sorrend tárolásához  B             TOMB                            M       
+Indextábla                                IT            INDEXTABLA                      M       
+A keresendõ elem                          X             ELEM                            I       
+A találat helye                           HOL           Egész                           M,O     
+                                                                                                
+
+/* Generálás */
+GENERAL(B,MAXELEMSZAM)
+TOMBKIIR("Rendezések elõtt:",B,MAXELEMSZAM)
+
+/* Rendezések */
+ATRAK(B,A,MAXELEMSZAM)
+BUBREND(A,MAXELEMSZAM)
+TOMBKIIR("Buborék rendezés után:",A,MAXELEMSZAM)
+
+ATRAK(B,A,MAXELEMSZAM)
+KIVALREND(A,MAXELEMSZAM)
+TOMBKIIR("Kiválasztásos rendezés után:",A,MAXELEMSZAM)
+
+ATRAK(B,A,MAXELEMSZAM)
+BESZURREND(A,MAXELEMSZAM)
+TOMBKIIR("Beszúrásos rendezés után:",A,MAXELEMSZAM)
+
+KIVALRENDIT(B,IT,MAXELEMSZAM)
+TOMBKIIRIT("Egy indextáblás rendezés után:",B,IT,MAXELEMSZAM)
+
+/* Keresések */
+Ki:"Mit keressünk:",
+Be:X
+if LINKER(B,MAXELEMSZAM,X,HOL)
+  Ki:"A rendezetlen adatok közötti indexe:",HOL
+else
+  Ki:"Nincs a rendezetlen adatok között!"
+if LINKERREND(A,MAXELEMSZAM,X,HOL)
+  Ki:"A rendezett adatok közötti indexe (LINKERREND):",HOL
+else
+  Ki:"Nincs a rendezett adatok között (LINKERREND), helye:",HOL
+if BINKER(A,MAXELEMSZAM,X,HOL)
+  Ki:"A rendezett adatok közötti indexe (BINKER):",HOL
+else
+  Ki:"Nincs a rendezett adatok között (BINKER), helye:",HOL
+if BINKERIT(B,IT,MAXELEMSZAM,X,HOL)
+  Ki:"Indextáblabeli indexe:",HOL
+else
+  Ki:"Indextáblabeli helye:",HOL
+
+Funkció                                     Azonosító     Típus                           Jelleg  
+__________________________________________________________________________________________________
+A rendezendõ elemek                         A             TOMB                            I,M,O   
+A rendezendõ elemek száma                   N             Egész                           I       
+Csereváltozó                                CS            ELEM                            M       
+A helyére kerülõ elem indexe                I             Egész                           M       
+Egy elemet a helyére vivõ ciklus változója  J             Egész                           M       
+                                                                                                  
+
+/* Buborékrendezés */
+BUBREND(A,N)
+for I<-1,N-1
+  /* I. elemet a helyére */
+  for J<-N,I+1,-1
+    if A[J]<A[J-1]
+      /* A J. és J-1. elemek cseréje */
+      CS<-A[J]
+      A[J]<-A[J-1]
+      A[J-1]<-CS
+
+Funkció                                     Azonosító     Típus                           Jelleg  
+__________________________________________________________________________________________________
+A rendezendõ elemek                         A             TOMB                            I,M,O   
+A rendezendõ elemek száma                   N             Egész                           I       
+Csereváltozó                                CS            ELEM                            M       
+A helyére kerülõ elem indexe                I             Egész                           M       
+Az aktuálisan legkisebb elem indexe         K             Egész                           M       
+A legkisebb elemet keresõ ciklus változója  J             Egész                           M       
+                                                                                                  
+
+/* Rendezés kiválasztással */
+KIVALREND(A,N)
+for I<-1,N-1
+  /* I. elemet a helyére */
+  K<-I
+  for J<-I+1,N
+    if A[J]<A[K]
+      K<-J
+  if K>I 
+    /* Az I. és K. elemek cseréje */
+    CS<-A[I]
+    A[I]<-A[K]
+    A[K]<-CS
+
+Funkció                                     Azonosító     Típus                           Jelleg  
+__________________________________________________________________________________________________
+A rendezendõ elemek                         A             TOMB                            I       
+Az indextábla                               IT            INDEXTABLA                      I,M,O   
+A rendezendõ elemek száma                   N             Egész                           I       
+Csereváltozó                                CS            Egész                           M       
+A helyére kerülõ index indexe               I             Egész                           M       
+Az aktuálisan legkisebb elem indexe         K             Egész                           M       
+A legkisebb elemet keresõ ciklus változója  J             Egész                           M       
+                                                                                                  
+
+/* Rendezés kiválasztással, indextáblával */
+KIVALRENDIT(A,IT,N)
+/* Az indextábla feltöltése */
+for I<-1,N
+  IT[I]<-I
+/* Rendezés */
+for I<-1,N-1
+  /* I. elemet a helyére */
+  K<-I
+  for J<-I+1,N
+    if A[IT[J]]<A[IT[K]]
+      K<-J
+  if K>I 
+    /* Az I. és K. indexek cseréje */
+    CS<-IT[I]
+    IT[I]<-IT[K]
+    IT[K]<-CS
+
+Funkció                             Azonosító     Típus                           Jelleg  
+__________________________________________________________________________________________
+A rendezendõ elemek                 A             TOMB                            I,M,O   
+A rendezendõ elemek száma           N             Egész                           I       
+A helyére kerülõ elem               X             ELEM                            M       
+A helyére kerülõ elem indexe        I             Egész                           M       
+A keresõ ciklus változója           J             Egész                           M       
+Vége van-e a helykészítõ ciklusnak  VEGE          Logikai                         M       
+                                                                                          
+
+/* Rendezés beszúrással */
+BESZURREND(A,N)
+for I<-2,N
+  /* Az i. elem beszúrása az elõtte lévõ rendezett részbe */
+  X<-A[I]
+  /* Helykészítés hátraléptetéssel */
+  J<-I-1
+  VEGE<-hamis
+  while NOT VEGE 
+    if J>=1 
+      if A[J]>X
+        A[J+1]<-A[J]
+        J<-J-1
+      else
+        VEGE<-igaz
+    else
+      VEGE<-igaz
+  /* I. elemet a helyére */
+  A[J+1]<-X
+
+Funkció                                  Azonosító     Típus                           Jelleg  
+_______________________________________________________________________________________________
+Az elemek                                A             TOMB                            I       
+Az elemek száma                          N             Egész                           I       
+A keresendõ elem                         X             ELEM                            I       
+Hol van, vagy hol lenne a keresett elem  HOL           Egész                           M,O     
+Megvan-e a keresett elem                 VAN           Logikai                         M,O     
+A keresõ ciklus változója                I             Egész                           M       
+                                                                                               
+
+/* Lineáris keresés rendezetlen adatok között */
+LINKER(A,N,X,HOL)
+I<-1
+VAN<-hamis
+while (I<=N) AND NOT VAN
+  if A[I]=X
+    VAN<-igaz
+  else
+    I<-I+1
+if VAN
+  HOL<-I
+return VAN
+
+Funkció                                  Azonosító     Típus                           Jelleg  
+_______________________________________________________________________________________________
+Az elemek                                A             TOMB                            I       
+Az elemek száma                          N             Egész                           I       
+A keresendõ elem                         X             ELEM                            I       
+Hol van, vagy hol lenne a keresett elem  HOL           Egész                           M,O     
+Megvan-e a keresett elem                 VAN           Logikai                         M,O     
+A keresõ ciklus változója                I             Egész                           M       
+Befejezzük-e a ciklust vagy sem          VEGE          Logikai                         M       
+                                                                                               
+
+/* Lineáris keresés rendezett adatok között */
+LINKERREND(A,N,X,HOL)
+I<-1
+VEGE<-hamis
+while NOT VEGE
+  if I<=N
+    if A[I]<X
+      I<-I+1
+    else 
+      VEGE<-igaz
+  else
+    VEGE<-igaz
+if I<=N
+  if A[I]=X
+    VAN<-igaz
+  else
+    VAN<-hamis
+else
+  VAN<-hamis
+HOL<-I
+return VAN
+
+Funkció                                    Azonosító     Típus                           Jelleg  
+_________________________________________________________________________________________________
+Az elemek                                  A             TOMB                            I       
+Az elemek száma                            N             Egész                           I       
+A keresendõ elem                           X             ELEM                            I       
+Hol van, vagy hol lenne a keresett elem    HOL           Egész                           M,O     
+Megvan-e a keresett elem                   VAN           Logikai                         M,O     
+Az aktuális tömbrész baloldalának indexe   I             Egész                           M       
+Az aktuális tömbrész jobboldalának indexe  J             Egész                           M       
+Az aktuális tömbrész középének indexe      K             Egész                           M       
+                                                                                                 
+
+/* Bináris keresés */
+BINKER(A,N,X,HOL)
+I<-1
+J<-N
+VAN<-hamis
+while (I<=J) AND NOT VAN
+  K<-(I+J) DIV 2
+  if A[K]=X 
+    VAN<-igaz
+  else
+    if X<A[K]
+      J<-K-1
+    else 
+      I<-K+1
+if VAN
+  HOL<-K
+else 
+  HOL<-I
+return VAN
+
+Funkció                                    Azonosító     Típus                           Jelleg  
+_________________________________________________________________________________________________
+Az elemek                                  A             TOMB                            I       
+Az indextábla                              IT            INDEXTABLA                      I,M,O   
+Az elemek száma                            N             Egész                           I       
+A keresendõ elem                           X             ELEM                            I       
+Hol van, vagy hol lenne a keresett elem    HOL           Egész                           M,O     
+Megvan-e a keresett elem                   VAN           Logikai                         M,O     
+Az aktuális tömbrész baloldalának indexe   I             Egész                           M       
+Az aktuális tömbrész jobboldalának indexe  J             Egész                           M       
+Az aktuális tömbrész középének indexe      K             Egész                           M       
+                                                                                                 
+
+/* Bináris keresés indextáblával */
+BINKERIT(A,IT,N,X,HOL)
+I<-1
+J<-N
+VAN<-hamis
+while (I<=J) AND NOT VAN
+  K<-(I+J) DIV 2
+  if A[IT[K]]=X 
+    VAN<-igaz
+  else
+    if X<A[IT[K]]
+      J<-K-1
+    else 
+      I<-K+1
+if VAN
+  HOL<-K
+else 
+  HOL<-I
+return VAN
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az elemek                       A             TOMB                            M,O     
+Az elemek száma                 N             Egész                           I       
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+/* Elemek generálása */
+GENERAL(A,N)
+for I<-1,N
+  A[I]<-RANDOM(MAXELEM+1)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az elején kiírandó szöveg       SZOVEG        Sztring                         I       
+A kiírandó elemek               A             TOMB                            I       
+Az elemek száma                 N             Egész                           I       
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+/* Egy tömb elemeinek a kiírása */
+TOMBKIIR(SZOVEG,A,N)
+Ki:SZOVEG
+for I<-1,N
+  Ki:A[I],' ',
+Ki:""
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az elején kiírandó szöveg       SZOVEG        Sztring                         I       
+A kiírandó elemek               A             TOMB                            I       
+Az indextábla                   IT            INDEXTABLA                      I       
+Az elemek száma                 N             Egész                           I       
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+/* Egy tömb elemeinek a kiírása indextáblával */
+TOMBKIIRIT(SZOVEG,A,IT,N)
+Ki:SZOVEG
+for I<-1,N
+  Ki:A[IT[I]],' ',
+Ki:""
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A forrás tömb                   HONNAN        TOMB                            I       
+A cél tömb                      HOVA          TOMB                            O       
+Az elemek száma                 N             Egész                           I       
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+ATRAK(HONNAN,HOVA,N)
+for I<-1,N
+  HOVA[I]<-HONNAN[I]
+

@@ -1,0 +1,57 @@
+Konstans
+
+/* Az adatok maximális száma */
+NMAX 10 
+
+Típus
+
+/* Az adatok típusa */
+ELEM Egész
+/* Az adatokat tároló tömb típusa */
+ADATSOR Egydimenziós ELEM típusú adatokból álló tömb[NMAX]
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az adatok száma                 N             Egész                           I       
+Az adatok                       A             ADATSOR                         I       
+Az adatok átlaga                ATL           Valós                           M,O     
+Az adatok szórása               SZ            Valós                           M,O     
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+/* Adatbekérés */
+repeat
+  Ki:"Adatok száma (1-",NMAX,"):",
+  Be:N
+until (N>=1) AND (N<=NMAX)
+for I<-1,N
+  Ki:I,". adat:",
+  Be:A[I]
+/* Az eredményt meghatározó eljárás meghívása */
+SZAMOL(A,N,ATL,SZ)
+/* Eredménykiírás */
+Ki:"Átlag:",ATL
+Ki:"Szórás:",SZ
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az adatsor                      A             ADATSOR                         I       
+Az adatok száma                 N             Egész                           I       
+Az adatok átlaga                ATL           Valós                           M,O     
+Az adatok szórása               SZ            Valós                           M,O     
+Az összegzéshez                 OSSZ          Valós                           M       
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+SZAMOL(A,N,ATL,SZ)
+/* Átlag */
+OSSZ<-0
+for I<-1,N
+  OSSZ<-OSSZ+A[I]
+ATL<-OSSZ/N
+/* Szórás */
+OSSZ<-0
+for I<-1,N
+  OSSZ<-OSSZ+SQR(A[I]-ATL)
+SZ<-SQRT(OSSZ/N)
+

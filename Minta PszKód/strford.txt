@@ -1,0 +1,54 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A megfordítandó sztring         S             Sztring                         I       
+Az eredmény sztring             ER            Sztring                         M,O     
+                                                                                      
+
+Ki:"A megfordítandó sztring:",
+Be:S
+FORDIT1(S,ER)
+Ki:"FORDIT1 eredménye:",ER
+FORDIT2(S,ER)
+Ki:"FORDIT2 eredménye:",ER
+FORDIT3(S)
+Ki:"FORDIT3 eredménye:",S
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A megfordítandó sztring         S             Sztring                         I       
+Az eredmény sztring             ER            Sztring                         M,O     
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+FORDIT1(S,ER)
+ER<-""
+for I<-LENGTH(S),1,-1
+  ER<-ER+S[I]
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A megfordítandó sztring         S             Sztring                         I       
+Az eredmény sztring             ER            Sztring                         M,O     
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+FORDIT2(S,ER)
+ER<-""
+for I<-1,LENGTH(S)
+  ER<-S[I]+ER
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A megfordítandó sztring         S             Sztring                         I,M,O   
+A sztringek hossza              H             Egész                           M       
+Két karakter cseréjéhez         CS            Karakter                        M       
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+FORDIT3(S)
+H<-LENGTH(S)
+for I<-1,H DIV 2
+  CS<-S[I]
+  S[I]<-S[H+1-I]
+  S[H+1-I]<-CS
+

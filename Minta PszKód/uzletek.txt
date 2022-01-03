@@ -1,0 +1,90 @@
+Konstans
+
+/* Termékek maximális száma */
+NMAX 10
+/* Üzletek maximális száma */
+MMAX 20
+/* Terméknevek maximális hossza */
+NEVMAXH 30
+
+Típus
+
+/* Termék */
+TERMEK Rekord
+  NEV Sztring[NEVMAXH]   /* Név */
+  EAR Egész              /* Egységár */
+/* Üzlet */
+UZLET Rekord
+  DB Egydimenziós Egész tömb[NMAX]   /* Szállított mennyiségek */
+  TART Egész                         /* Tartozás */
+/* Termékek */
+TERMEKTOMB Egydimenziós TERMEK tömb[NMAX]
+/* Üzletek */
+UZLETTOMB Egydimenziós UZLET tömb[MMAX]
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Termékek száma                  N             Egész                           I       
+Üzletek száma                   M             Egész                           I       
+Termékek adata                  T             TERMEKTOMB                      I       
+Üzletek adatai                  U             UZLETTOMB                       I,M,O   
+Segédváltozó                    I             Egész                           M       
+Segédváltozó                    J             Egész                           M       
+                                                                                      
+
+/* Adatbekérés */
+repeat 
+  Ki:"Termékek száma (1-",NMAX,"):",
+  Be:N
+until (N>=1) AND (N<=NMAX)
+repeat
+  Ki:"Üzletek száma (1-",MMAX,"):",
+  Be:M
+until (M>=1) AND (M<=MMAX)
+/* Termékek */
+for I<-1,N
+  Ki:I,". termék"
+  repeat
+    Ki:"Neve:",
+    Be:T[I].NEV
+  until JONEV(T[I].NEV)
+  repeat
+    Ki:"Egységára (>0):",
+    Be:T[I].EAR
+  until T[I].EAR>0
+/* Szállított mennyiségek */
+for I<-1,M
+  Ki:I,". üzletnek szállított mennyiségek (>=0)"
+  for J<-1,N
+    repeat
+      Ki:T[J].NEV,":",
+      Be:U[I].DB[J]
+    until U[I].DB[J]>=0
+/* Tartozások kiszámítása */
+for I<-1,M
+  U[I].TART<-0
+  for J<-1,N
+    U[I].TART<-U[I].TART+U[I].DB[J]*T[J].EAR
+/* Eredménykiírás */
+Ki:"Tartozások"
+for I<-1,M
+  Ki:I,". üzlet:",U[I].TART
+
+Funkció                             Azonosító     Típus                           Jelleg  
+__________________________________________________________________________________________
+A vizsgálandó név                   NEV           Sztring                         I       
+Van-e szóköztõl különbözõ karakter  VAN           Logikai                         M,O     
+Segédváltozó                        I             Egész                           M       
+                                                                                          
+
+/* Akkor jó egy név, ha van szóköztõl különbözõ karaktere */
+JONEV(NEV)
+VAN<-hamis
+I<-1
+while (I<=LENGTH(NEV)) AND NOT VAN
+  if NEV[I]<>' '
+    VAN<-igaz
+  else
+    I<-I+1
+return VAN
+

@@ -1,0 +1,35 @@
+Konstans
+
+SZAMJEGYEK "0123456789ABCDEF"
+
+Funkció                                   Azonosító     Típus                           Jelleg  
+________________________________________________________________________________________________
+Mit fogunk konvertálni                    A             Egész                           I       
+Milyen alapú számrendszerbe konvertálunk  B             Egész                           I       
+                                                                                                
+
+repeat
+  Ki:"A konvertálandó nemnegatív decimális egész szám:",
+  Be:A
+until A>=0
+repeat
+  Ki:"A cél számrendszer alapszáma (2-16):",
+  Be:B
+until (B>=2) AND (B<=16)
+Ki:"Az eredmény:",KONVERTAL(A,B)
+
+Funkció                               Azonosító     Típus                           Jelleg  
+____________________________________________________________________________________________
+A konvertálandó decimális egész szám  A             Egész                           I       
+A cél számrendszer alapszáma          B             Egész                           I       
+Az eredmény                           ER            Sztring                         M,O     
+                                                                                            
+
+KONVERTAL(A,B)
+ER<-""
+repeat
+  ER<-SZAMJEGYEK[A MOD B+1]+ER
+  A<-A DIV B
+until A=0
+return ER
+

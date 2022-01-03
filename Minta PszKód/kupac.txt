@@ -1,0 +1,115 @@
+Konstans
+
+/* A rendezendõ adatok maximális száma */
+MAXELEMSZAM 10
+/* A generálandó adatok maximális értéke */
+MAXELEM 20
+
+Típus
+
+/* Az elemek típusa */
+ELEM Egész
+/* Az elemeket tároló tömb típusa */
+TOMB Egydimenziós ELEM tömb[MAXELEMSZAM] 
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A rendezendõ elemek             A             TOMB                            M       
+                                                                                      
+
+/* Generálás */
+GENERAL(A,MAXELEMSZAM)
+TOMBKIIR("Rendezés elõtt:",A,MAXELEMSZAM)
+/* Rendezés */
+KUPACREND(A,MAXELEMSZAM)
+/* Eredménykiírás */
+TOMBKIIR("Rendezés után:",A,MAXELEMSZAM)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A rendezendõ elemek             A             TOMB                            I,M,O   
+Az elemek száma                 N             Egész                           I       
+A kupac elsõ elemének indexe    L             Egész                           M       
+A kupac utolsó elemének indexe  R             Egész                           M       
+Két elem cseréjéhez             X             ELEM                            M       
+                                                                                      
+
+/* Kupacrendezés */
+KUPACREND(A,N)
+/* Kezdõkupac */
+L<-N DIV 2+1
+R<-N
+while L>1
+  L<-L-1
+  SULLYESZT(A,L,R)
+while R>1
+  /* Legkisebbet hátra */
+  X<-A[1]
+  A[1]<-A[R]
+  A[R]<-X
+  /* Kupacot kisebbre */
+  R<-R-1
+  /* A hátul volt elem besüllyesztése */
+  SULLYESZT(A,L,R)
+
+Funkció                            Azonosító     Típus                           Jelleg  
+_________________________________________________________________________________________
+Az elemek                          A             TOMB                            I,M,O   
+A besüllyesztendõ elem indexe      L             Egész                           I       
+Az utolsó elem indexe              R             Egész                           I       
+A besüllyesztendõ elem tárolására  X             ELEM                            M       
+A vizsgált elem indexe             I             Egész                           M       
+A kisebbik gyerek indexe           J             Egész                           M       
+Helyére süllyedt-e az elem         VEGE          Logikai                         M       
+                                                                                         
+
+/* A[L] besüllyesztése az A[L+1],...,A[R] elemek közé */
+SULLYESZT(A,L,R)
+X<-A[L]
+I<-L
+J<-2*I
+VEGE<-hamis
+/* Helykészítés */
+while (J<=R) AND NOT VEGE
+  /* A kisebb gyerekkel hasonlítsunk */
+  if J<R 
+    if A[J+1]<A[J]
+      J<-J+1
+  if X<=A[J]
+    /* Megvan a helye */
+    VEGE<-igaz
+  else
+    /* A gyerek feljebb léptetése */
+    A[I]<-A[J]
+    I<-J
+    J<-2*I
+/* Elemet a helyére */
+A[I]<-X
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az elemek                       A             TOMB                            M,O     
+Az elemek száma                 N             Egész                           I       
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+/* Elemek generálása */
+GENERAL(A,N)
+for I<-1,N
+  A[I]<-RANDOM(MAXELEM+1)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az elején kiírandó szöveg       SZOVEG        Sztring                         I       
+A kiírandó elemek               A             TOMB                            I       
+Az elemek száma                 N             Egész                           I       
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+/* Egy tömb elemeinek a kiírása */
+TOMBKIIR(SZOVEG,A,N)
+Ki:SZOVEG
+for I<-1,N
+  Ki:A[I],' ',
+Ki:""
+

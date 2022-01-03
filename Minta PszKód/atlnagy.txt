@@ -1,0 +1,37 @@
+Konstans
+
+/* Az adatok maximális száma */
+NMAX 10 
+
+Típus
+
+/* Az adatokat tároló tömb típusa */
+TOMB Egydimenziós Valós típusú adatokból álló tömb[NMAX]
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az adatok száma                 N             Egész                           I       
+Az adatok                       A             TOMB                            I       
+Az adatok összege               OSSZ          Valós                           M       
+Az adatok átlaga                ATL           Valós                           M,O     
+Ciklusváltozó                   I             Egész                           M       
+                                                                                      
+
+/* Adatbekérés */
+repeat
+  Ki:"Adatok száma (1-",NMAX,"):",
+  Be:N
+until (N>=1) AND (N<=NMAX)
+for I<-1,N
+  Ki:STR(I)+". adat:",
+  Be:A[I]
+/* Átlagszámolás */
+OSSZ<-0
+for I<-1,N
+  OSSZ<-OSSZ+A[I]
+ATL<-OSSZ/N
+/* Eredménykiírás */
+Ki:"Az átlagnál nagyobb elemek:"
+for I<-1,N
+  if A[I]>ATL
+    Ki:A[I]

@@ -1,0 +1,36 @@
+Funkció                                          Azonosító     Típus                           Jelleg  
+_______________________________________________________________________________________________________
+A szám, aminek a faktoriálisát ki kell számolni  N             Egész                           I       
+Segédváltozó                                     I             Egész                           M       
+Ciklussal kiszámolt valós típusú eredmény        ER            Valós                           M       
+                                                                                                       
+
+repeat
+  Ki:"N értéke (N>=0):",
+  Be:N
+until N>=0
+/* A rekurzív kiszámítás belefér-e még a maximális veremmélységbe (ami 10)? */
+/* Ha a veremmélységet kisebbre állítjuk (lásd Beállítások), akkor veremtúlcsordulást is kaphatunk */
+if N<=9
+  /* Igen -> számolhatunk a rekurzív függvénnyel */
+  Ki:N," faktoriális (rekurzívan kiszámolt egész számként):",FAKT(N)
+/* Ciklussal és valós típusú gyûjtõváltozóval (a pontosságot és a nagyságrendet szemléltetendõ) */
+ER<-1
+for I<-2,N
+  ER<-ER*I
+/* A beállításokban normálalakban történõ valós szám megjelenítés is kérhetõ */
+Ki:N," faktoriális (ciklussal kiszámolt valós számként):",ER
+
+Funkció                                          Azonosító     Típus                           Jelleg  
+_______________________________________________________________________________________________________
+A szám, aminek a faktoriálisát ki kell számolni  N             Egész                           I       
+Az eredmény                                      ER            Egész                           M,O     
+                                                                                                       
+
+FAKT(N)
+if N=0
+  ER<-1
+else
+  ER<-FAKT(N-1)*N
+return ER
+

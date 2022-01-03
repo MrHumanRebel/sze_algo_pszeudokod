@@ -1,0 +1,125 @@
+Konstans
+
+/* A tábla maximális mérete */
+MAXMERET 8
+/* Az átlók száma */
+ATLOMERET 2*MAXMERET+1
+
+Funkció                                   Azonosító     Típus                                                       Jelleg  
+____________________________________________________________________________________________________________________________
+A tábla mérete                            N             Egész                                                       I       
+A királynõk helye                         HOL           Egydimenziós Egész típusú adatokból álló tömb[MAXMERET]     M,O     
+A fõátlók foglaltsága                     FATL          Egydimenziós Logikai típusú adatokból álló tömb[ATLOMERET]  M       
+A mellékátlók foglaltsága                 MATL          Egydimenziós Logikai típusú adatokból álló tömb[ATLOMERET]  M       
+Az oszlopok foglaltsága                   OSZL          Egydimenziós Logikai típusú adatokból álló tömb[MAXMERET]   M       
+Az összes megoldás darabszáma             DB            Egész                                                       M,O     
+A megoldások megjelenítési 'módja'        TABLAS        Logikai                                                     M       
+A TABLAS változó értékének beállításához  CH            Karakter                                                    I       
+Segédváltozó                              I             Egész                                                       M       
+                                                                                                                            
+
+/* Adatbekérés */
+repeat
+  Ki:"A sakktábla mérete (1..",MAXMERET,"):",
+  Be:N
+until (N>=1) AND (N<=MAXMERET)
+Ki:"A megoldásokat 'táblásan' jelenítsük meg (i/n)"
+CH<-JELBE(['i','n'])
+TABLAS<-CH='i'
+/* Kezdõértékek beállítása */
+for I<-1,N
+  OSZL[I]<-hamis
+for I<-1,2*N-1
+  FATL[I]<-hamis
+  MATL[I]<-hamis
+/* A megoldások darabszáma */
+DB<-0
+/* A rekurzív eljárás kezdõhívása (az elsõ királynõt az elsõ sorba) */
+PROBAL(1)
+/* A megoldások darabszámának kiírása */
+if TABLAS AND (DB>0) 
+  /* A 'képernyõn' lévõ utolsó megoldás alá írjunk */
+  if DB=0
+    IR("Nincs megoldás!",1,N+2)
+  else 
+    IR(STR(DB)+" db megoldás létezett!",1,N+2)
+else 
+  if DB=0
+    Ki:"Nincs megoldás!"
+  else 
+    Ki:DB," db megoldás létezett!"
+
+Funkció                                            Azonosító     Típus                           Jelleg  
+_________________________________________________________________________________________________________
+A sor, ahová megpróbálunk 'letenni' egy királynõt  S             Egész                           I       
+Az aktuális oszlop                                 O             Egész                           M       
+                                                                                                         
+
+PROBAL(S)
+/* Az összes választáson */
+for O<-1,N
+  /* S. sorba az O. oszlopba téve az S. királynõt */
+  /* Megfelelõ? */
+  if NOT OSZL[O] AND NOT FATL[S-O+N] AND NOT MATL[S+O-1]
+    /* Jegyezzük fel */
+    HOL[S]<-O
+    OSZL[O]<-igaz
+    FATL[S-O+N]<-igaz
+    MATL[S+O-1]<-igaz
+    /* A megoldás nem teljes? */
+    if S<N
+      /* Rekurzív hívás */
+      PROBAL(S+1)
+    else
+      MEGOKIIR
+    /* A feljegyzés törlése */
+    OSZL[O]<-hamis
+    FATL[S-O+N]<-hamis
+    MATL[S+O-1]<-hamis
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Segédváltozó                    I             Egész                           M       
+Segédváltozó                    J             Egész                           M       
+Egy sorba kiírandó szöveg       ST            Sztring                         M       
+                                                                                      
+
+MEGOKIIR()
+/* A megoldások számának növelése */
+DB<-DB+1
+if NOT TABLAS 
+  /* Sima kiírás */
+  Ki:DB,". megoldás:"
+  ST<-""
+  for I<-1,N
+    ST<-ST+STR(HOL[I])+" "
+  Ki:ST
+else
+  /* Táblás megjelenítés */
+  /* A képernyõ törlése */
+  KEPTORLES
+  KARSZIN(0)
+  /* Az elsõ sorba az aktuális megoldás sorszámát */
+  IR(STR(DB)+". megoldás:",1,1)
+  for I<-1,N
+    for J<-1,N
+      /* Királynõ van az adott mezõn (a tábla I-dik sorában az O-dik oszlopban)? */
+      if HOL[I]=J 
+        /* Igen -> piros karakterszínt állítunk */
+        KARSZIN(12)
+        /* A királynõ egy '*' karakter lesz */
+        IR('*',J,I+1)
+      else
+        /* Sötét vagy világos 'mezõ' kell-e? */
+        if (I MOD 2=0) AND (J MOD 2=0) OR (I MOD 2=1) AND (J MOD 2=1)
+          /* Sötétkék karakterszínt állítunk */
+          KARSZIN(9)
+        else 
+          /* Kék karakterszínt állítunk */
+          KARSZIN(11)
+        /* Az üres mezõ 'O' karakter lesz */   
+        IR('O',J,I+1)
+  /* Várakozás billentyû leütésre */
+  VARAKOZAS
+  KARSZIN(0)
+

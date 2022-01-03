@@ -1,0 +1,168 @@
+Konstans
+
+/* A számjegye halmaza */
+SZAMJEGYEK ['0'..'9']
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A rendszám                      STRSZ         Sztring                         M       
+Adtak-e meg rendszámot          VANRSZ        Logikai                         M       
+Az egész szám sztringként       STESZ         Sztring                         M       
+Az egész szám számként          ESZ           Egész                           M       
+Adtak-e meg egész számot        VANESZ        Logikai                         M       
+                                                                                      
+
+/* Kezdõértékek */
+STRSZ<-STESZ<-""
+repeat
+  KEPTORLES
+  IR("Rendszám bekérés:",1,1)
+  RENDSZAMBE(STRSZ,18,1,VANRSZ)
+  IR("Egész szám [-128,127]:",1,2)
+  EGSZAMBE(STESZ,23,2,-128,127,VANESZ,ESZ)
+  IR("Jók az adatok (i/n)",1,3)
+until JELBE(['i','I','n','N']) IN ['i','I']
+if VANRSZ
+  IR("A megadott rendszám:"+STRSZ,1,4)
+else
+  IR("Nem adott meg rendszámot!",1,4)
+if VANESZ 
+  IR("A megadott egész szám sztringként:"+STESZ,1,5)
+  IR("A megadott egész szám számként:"+STR(ESZ),1,6)
+else
+  IR("Nem adott meg egész számot!",1,5)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A rendszám                      RENDSZAM      Sztring                         I,M,O   
+Képernyõ pozíció oszlop         OSZL          Egész                           I       
+Képernyõ pozíció sor            SOR           Egész                           I       
+Az adat létezése, érvényessége  VANADAT       Logikai                         O       
+Az aktuális jel                 JEL           Karakter                        M       
+Az aktuális jelhalmaz           JOJEL         Karakterhalmaz                  M       
+Az aktuális valódi hossz        HOSSZ         Egész                           M       
+                                                                                      
+
+/* Rendszám bekérés/módosítás */
+RENDSZAMBE(RENDSZAM,OSZL,SOR,VANADAT)
+/* Elõkészítés */
+HOSSZ<-LENGTH(RENDSZAM)
+RENDSZAM<-JOBBTOLTCH(RENDSZAM,'_',6)
+INVERZIR
+KIIRAS(RENDSZAM,OSZL,SOR,HOSSZ)
+/* Beolvasás */
+repeat
+  /* Jó jelek beállítása */
+  JOJEL<-[KILEP]
+  if HOSSZ IN [0,1]
+    JOJEL<-JOJEL+['A'..'Z']
+  else if HOSSZ=2
+    JOJEL<-JOJEL+['A'..'Z','0'..'9']
+  else if HOSSZ IN [3..5]
+    JOJEL<-JOJEL+['0'..'9']
+  if HOSSZ>0
+    JOJEL<-JOJEL+[TOROL]
+  if HOSSZ=5
+    if (RENDSZAM[3] IN ['A'..'Z','0']) AND (COPY(RENDSZAM,4,2)="00")
+      JOJEL<-JOJEL-['0']
+  if HOSSZ=6
+    JOJEL<-JOJEL+[ADATVEG]
+  /* Jel beolvasása */
+  JEL<-JELBE(JOJEL)
+  /* Jel feldolgozása */
+  if JEL IN ['A'..'Z','0'..'9']
+    HOSSZ<-HOSSZ+1
+    RENDSZAM[HOSSZ]<-JEL
+  else if JEL=TOROL
+    RENDSZAM[HOSSZ]<-'_'
+    HOSSZ<-HOSSZ-1
+  /* Kiírás */
+  KIIRAS(RENDSZAM,OSZL,SOR,HOSSZ)
+until JEL IN [KILEP,ADATVEG]
+/* Befejezés */
+NORMALIR
+if JEL=KILEP
+  KIIRAS(JOBBTOLT("",6),OSZL,SOR,6)
+  RENDSZAM<-""
+  VANADAT<-hamis
+else
+  KIIRAS(RENDSZAM,OSZL,SOR,HOSSZ)
+  VANADAT<-igaz
+
+Funkció                           Azonosító     Típus                           Jelleg  
+________________________________________________________________________________________
+Az egész szám sztringként         SZAMSZOV      Sztring                         I,M,O   
+Képernyõ pozíció oszlop           OSZL          Egész                           I       
+Képernyõ pozíció sor              SOR           Egész                           I       
+Az elfogadható legkisebb érték    TOL           Egész                           I       
+Az elfogadható legnagyobb érték   IG            Egész                           I       
+Az adat létezése, érvényessége    VANADAT       Logikai                         O       
+Az egész szám számként            SZAMERT       Egész                           O       
+Az aktuális jel                   JEL           Karakter                        M       
+Az aktuális jelhalmaz             JOJEL         Karakterhalmaz                  M       
+Az aktuális valódi hossz          HOSSZ         Egész                           M       
+A maximális mezõszélesség         MAXH          Egész                           M       
+Munkaváltozó a konverzióhoz       X             Valós                           M       
+Jó-e a megadott adat tartalmilag  JOADAT        Logikai                         M       
+                                                                                        
+
+/* Egész szám bekérés/módosítás */
+EGSZAMBE(SZAMSZOV,OSZL,SOR,TOL,IG,VANADAT,SZAMERT)
+/* Elõkészítés */
+MAXH<-LENGTH(STR(TOL))
+if LENGTH(STR(IG))>MAXH
+  MAXH<-LENGTH(STR(IG))
+HOSSZ<-LENGTH(SZAMSZOV)
+SZAMSZOV<-JOBBTOLTCH(SZAMSZOV,'_',MAXH)
+INVERZIR
+KIIRAS(SZAMSZOV,OSZL,SOR,HOSSZ)
+/* Beolvasás */
+repeat
+  /* Formailag helyes adat bekérése */
+  repeat
+    /* Jó jelek beállítása */
+    JOJEL<-[KILEP]
+    if HOSSZ>0
+      JOJEL<-JOJEL+[TOROL]
+    if (HOSSZ=0) AND (TOL<0)
+      JOJEL<-JOJEL+['-']
+    if HOSSZ<MAXH
+      JOJEL<-JOJEL+SZAMJEGYEK
+    if HOSSZ>0
+      if SZAMSZOV[HOSSZ] IN SZAMJEGYEK
+        JOJEL<-JOJEL+[ADATVEG]
+    /* Jel beolvasása */
+    JEL<-JELBE(JOJEL)
+    /* Jel feldolgozása */
+    if JEL IN SZAMJEGYEK+['-']
+      HOSSZ<-HOSSZ+1
+      SZAMSZOV[HOSSZ]<-JEL
+    else if JEL=TOROL
+      SZAMSZOV[HOSSZ]<-'_'
+      HOSSZ<-HOSSZ-1
+    /* Kiíráa */
+    KIIRAS(SZAMSZOV,OSZL,SOR,HOSSZ)
+  until JEL IN [KILEP,ADATVEG]
+  /* Tartalmi ellenõrzés */
+  if JEL<>KILEP
+    X<-VAL(COPY(SZAMSZOV,1,HOSSZ))
+    JOADAT<-(X>=TOL) AND (X<=IG)
+  else 
+    /* Az until feltétele teljes kiértékelésû, */
+    /* ezért a JOADAT-nak itt is adunk értéket */
+    JOADAT<-hamis
+until (JEL=KILEP) OR JOADAT
+/* Befejezés */
+NORMALIR
+/* Töröljük az adatmegdás helyét */
+KIIRAS(JOBBTOLT("",MAXH),OSZL,SOR,MAXH)
+if JEL=KILEP
+  SZAMSZOV<-""
+  VANADAT<-hamis
+else
+  /* A SZAMSZOV hosszbeállítása HOSSZ-ra */
+  SZAMSZOV<-COPY(SZAMSZOV,1,HOSSZ)
+  KIIRAS(SZAMSZOV,OSZL,SOR,HOSSZ)
+  SZAMERT<-X
+  VANADAT<-igaz
+

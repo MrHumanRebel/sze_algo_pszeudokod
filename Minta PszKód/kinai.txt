@@ -1,0 +1,80 @@
+Konstans
+
+NMAX 5
+
+Típus
+
+TOMB Egydimenziós Egész adetokból álló tömb[NMAX]
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A gyûrûk aktuális állapota      GYURUK        TOMB                            M,O     
+A gyûrûk aktuális száma         N             Egész                           I       
+Segédváltozó                    I             Egész                           M       
+                                                                                      
+
+repeat
+  Ki:"A gyûrûk száma (1-",NMAX,"):",
+  Be:N
+until (N>=1) AND (N<=NMAX)
+/* Kezdõértékek */
+for I<-1,N
+  GYURUK[I]<-1
+/* A kezdõállapot kiírása */
+KIIR
+/* A megoldás kezdõhívása */
+BALRALE(N)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A gyûrû sorszáma                N             Egész                           I       
+                                                                                      
+
+/* Az N. gyûrû levétele */
+LE(N)
+if GYURUK[N]=1
+  if N>1
+    FEL(N-1)
+    if N>2
+      BALRALE(N-2)
+  GYURUK[N]<-0
+  KIIR
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A gyûrû sorszáma                N             Egész                           I       
+                                                                                      
+
+/* Az N. gyûrû feltétele */
+FEL(N)
+if GYURUK[N]=0
+  if N>1
+    FEL(N-1)
+    if N>2
+      BALRALE(N-2)
+  GYURUK[N]<-1
+  KIIR
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A gyûrû sorszáma                N             Egész                           I       
+Az aktuális gyûrû               I             Egész                           M       
+                                                                                      
+
+/* Az N. és a megelõzõ gyûrûk levétele */
+BALRALE(N)
+for I<-N,1,-1
+  LE(I)
+
+Funkció                                    Azonosító     Típus                           Jelleg  
+_________________________________________________________________________________________________
+Ciklusváltozó                              I             Egész                           M       
+A gyûrûk aktuális állapota egy sztringben  ST            Sztring                         M       
+                                                                                                 
+
+KIIR()
+ST<-""
+for I<-1,N
+  ST<-ST+STR(GYURUK[I])
+Ki:ST
+

@@ -1,0 +1,37 @@
+Konstans
+
+DB 20
+
+Funkció                                 Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________________
+A listázandó szövegfájl                 F             Szövegfájl                      I       
+Az aktuális sor                         ST            Sztring                         M,O     
+A kiírt sorok száma                     S             Egész                           M       
+Egy hosszú sor végéhez                  SORVEG        Sztring                         M       
+A 255 karakternél hosszabb sorok száma  HDB           Egész                           M       
+                                                                                              
+
+/* Szövegfájl tartalmának kilistázása a képernyõre soronként */
+/* Az alábbi sor 255 karakternél hosszabb sor */
+/* 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890 */
+NYIT(F,"SZFLIST_SOR.TXT","I")
+S<-HDB<-0
+while NOT FAJLVEGE(F)
+  Be F:ST,SORVEG
+  /* A sor hosszabb, mint 255 karakter? */
+  if (LENGTH(ST)=255) AND (LENGTH(SORVEG)>0)
+    /* Igen -> a sor csonkulni fog, amit a sor végére írt " ..." szöveggel jelzünk */
+    Ki:ST," ..."
+    HDB<-HDB+1
+  else
+    Ki:ST
+  S<-S+1
+  if S MOD DB=0
+    VARAKOZAS
+if S MOD DB<>0
+  VARAKOZAS
+ZAR(F)
+/* Volt hosszú sor? */
+if DB>0
+  /* Igen -> errõl tájékoztatjuk a felhasználót, a másik Output ablakban, hogy ne 'keveredjen' a fájl tartalmával */
+  IR("A 255 karakternél hosszabb sorok száma:"+STR(HDB),1,1)

@@ -1,0 +1,164 @@
+Konstans
+
+FNEV1 "ADATOK1.DTA" /* A rendezendõ adatfájl */
+FNEV2 "ADATOK2.DTA" /* Segédfájl */
+FNEV3 "ADATOK3.DTA" /* Segédfájl */
+
+Típus
+
+TADAT Rekord
+  A Egész /* Ezen mezõ szerint rendezünk */
+ADATFAJL TADAT rekordokból álló típusos fájl
+
+Funkció                         Azonosító     Típus                           Jelleg   
+_______________________________________________________________________________________
+A rendezendõ adatfájl           C             ADATFAJL                        I, M, O  
+Segédfájl                       A             ADATFAJL                        M        
+Segédfájl                       B             ADATFAJL                        M        
+Láncok száma                    LANCDB        Egész                           M        
+Vége van-e az aktuális láncnak  LANCVEG       Logikai                         M        
+Az egyik fájl aktuális eleme    AKT_A         TADAT                           M        
+A másik fájl aktuális eleme     AKT_B         TADAT                           M        
+A generálandó adatok száma      N             Egész                           I        
+Segédváltozó                    I             Egész                           M        
+                                                                                       
+
+/* A kiinduló adatfájl elõállítása */
+GENERAL(FNEV1)
+/* Az adatfájl tartalmának kiírása */
+ADATKIIR(FNEV1,"A kiinduló adatok:")
+
+/* Az FNEV1 fájl adatainak rendezése */
+repeat
+  /* Szétosztás */
+  NYIT(C,FNEV1,"I")
+  NYIT(A,FNEV2,"O")
+  NYIT(B,FNEV3,"O")
+  while NOT FAJLVEGE(C)
+    LANCMASOL(C,A)
+    if NOT FAJLVEGE(C)
+      LANCMASOL(C,B)
+  ZAR(A)
+  ZAR(B)
+  ZAR(C)
+  /* Összefésülés */
+  NYIT(C,FNEV1,"O")
+  NYIT(A,FNEV2,"I")
+  NYIT(B,FNEV3,"I")
+  LANCDB<-0
+  while NOT FAJLVEGE(A) AND NOT FAJLVEGE(B)
+    /* Egy lánc összefésülése */
+    Be A:AKT_A
+    Be B:AKT_B
+    repeat
+      if AKT_A.A<=AKT_B.A
+        /* A-ból egy elemet */
+        Ki C:AKT_A
+        LANCVEG<-LANCVEGE(A,AKT_A)
+        if LANCVEG
+          POZICIONAL(B,POZICIO(B)-1)
+          LANCMASOL(B,C)
+        else
+          Be A:AKT_A
+      else
+        /* B-bõl egy elemet */
+        Ki C:AKT_B
+        LANCVEG<-LANCVEGE(B,AKT_B)
+        if LANCVEG
+          POZICIONAL(A,POZICIO(A)-1)
+          LANCMASOL(A,C)
+        else
+          Be B:AKT_B
+    until LANCVEG
+    LANCDB<-LANCDB+1
+  /* Maradék másolása */
+  if NOT FAJLVEGE(A)
+    while NOT FAJLVEGE(A)
+      Be A:AKT_A
+      Ki C:AKT_A
+    LANCDB<-LANCDB+1
+  if NOT FAJLVEGE(B)
+    while NOT FAJLVEGE(B)
+      Be B:AKT_B
+      Ki C:AKT_B
+    LANCDB<-LANCDB+1
+  ZAR(A)
+  ZAR(B)
+  ZAR(C)
+until LANCDB<=1
+
+/* Az eredményül elõállt FNEV1 fájl kiírása */
+ADATKIIR(FNEV1,"A rendezett adatok:")
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Az adatfájl                     MIBEN         ADATFAJL                        I       
+Az utoljára beolvasott rekord   AKT           TADAT                           I       
+A következõ rekord              KOV           TADAT                           M       
+Az eredmény                     ER            Logikai                         O       
+                                                                                      
+
+LANCVEGE(MIBEN,AKT)
+if FAJLVEGE(MIBEN)
+  ER<-igaz
+else
+  Be MIBEN:KOV
+  POZICIONAL(MIBEN,POZICIO(MIBEN)-1)
+  ER<-KOV.A<AKT.A
+return ER
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A forrás adatfájl               BOL           ADATFAJL                        I       
+A cél adatfájl                  BA            ADATFAJL                        O       
+Az aktuális rekord              AKT           TADAT                           M       
+                                                                                      
+
+LANCMASOL(BOL,BA)
+repeat
+  Be BOL:AKT
+  Ki BA:AKT
+until LANCVEGE(BOL,AKT)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A fájl azonosítója              FNEV          Sztring                         I       
+Az elemek száma                 N             Egész                           M       
+Az adatfájl                     F             ADATFAJL                        M       
+Az aktuális adat                A             TADAT                           M       
+Segédváltozó                    I             Egész                           M       
+                                                                                      
+
+GENERAL(FNEV)
+repeat
+  /* A 0-t azért engedjük meg, hogy az üres fájl esete is tesztelhetõ legyen */
+  /* 100-nál ne legyen nagyobb, hogy ne fusson sokáig (bár ez a feltétel kivehetõ) */
+  Ki:"Hány számot generáljunk (0-100):",
+  Be:N
+until (N>=0) AND (N<=100)
+/* A fájl elkészítése */
+NYIT(F,FNEV,"O")
+for I<-1,N
+  /* Az adatok véletlen egész számok az [1,N] intervallumban */
+  A.A<-RANDOM(N)+1
+  Ki F:A
+ZAR(F)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A fájl azonosítója              FNEV          Sztring                         I       
+Az elején kiírandó szöveg       SZOV          Sztring                         I       
+A fájlváltozó                   F             ADATFAJL                        M       
+Az aktuálisan adat              A             TADAT                           M       
+                                                                                      
+
+ADATKIIR(FNEV,SZOV)
+/* Az FNEV1 típusos fájl adatainak képernyõre listázása */
+Ki:SZOV
+NYIT(F,FNEV,"I")
+while NOT FAJLVEGE(F)
+  Be F:A
+  Ki:A.A," ",
+ZAR(F)
+Ki:""
+

@@ -1,0 +1,32 @@
+Konstans
+
+DB 20
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A listázandó szövegfájl         F             Szövegfájl                      I       
+Az aktuális karakter            CH            Karakter                        M,O     
+A kiírt sorok száma             S             Egész                           M       
+                                                                                      
+
+/* Szövegfájl tartalmának kilistázása a képernyõre karakterenként */
+/* Az alábbi sor 255 karakternél hosszabb sor */
+/* 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890 */
+NYIT(F,"SZFLIST.TXT","I")
+S<-0
+while NOT FAJLVEGE(F)
+  /* Egy karakter beolvasása a fájlból */
+  Be F:CH,
+  /* Kiírás a képernyõre */
+  if NOT (CH IN [#13,#10])
+    Ki:CH,
+  else
+    if CH=CHR(10)
+      /* Sort emelünk */
+      Ki:""
+      S<-S+1
+      if S MOD DB=0
+        VARAKOZAS
+if S MOD DB<>0
+  VARAKOZAS
+ZAR(F)

@@ -1,0 +1,100 @@
+Konstans
+
+/* A rendezendõ adatok maximális száma */
+MAXELEMSZAM 10
+
+Típus
+
+/* A rendezendõ adatok típusa */
+ELEM Rekord
+  /* Neptun kód */
+  NK Sztring[6]
+  /* Érdemjegy */
+  JEGY Egész
+/* A rendezendõ adatok tömbje */
+TOMB Egydimenziós ELEM tömb [MAXELEMSZAM]
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A rendezendõ adatok             A             TOMB                            M,O     
+                                                                                      
+
+/* Gyorsrendezés rekurzívan */
+GENERAL(A,MAXELEMSZAM)
+ADATKIIRAS("Rendezés elõtt:",A,MAXELEMSZAM)
+/* Sorbarendezés */
+GYORSREND(A,1,MAXELEMSZAM)
+ADATKIIRAS("Rendezés után:",A,MAXELEMSZAM)
+
+Funkció                           Azonosító     Típus                           Jelleg  
+________________________________________________________________________________________
+A rendezendõ adatok               A             TOMB                            I,M,O   
+A rendezendõ rész eleje           K             Egész                           I       
+A rendezendõ rész vége            V             Egész                           I       
+Az elölrõl induló pásztázó index  I             Egész                           M       
+A hátulról induló pásztázó index  J             Egész                           M       
+A strázsa elem                    S             ELEM                            M       
+Két elem cseréjéhez               CS            ELEM                            M       
+                                                                                        
+
+/* Gyorsrendezés rekurzívan */
+GYORSREND(A,K,V)
+if K<V
+  /* Van legalább két elem */
+  I <- K
+  J <- V
+  S <- A[(I+J) DIV 2]
+  /* Szétválogatás a strázsa (S) elemhez képest */
+  while I<=J
+    while A[I].NK<S.NK
+      I <- I+1
+    while A[J].NK>S.NK
+      J <- J-1
+    if I<=J
+      /* Az I. és J. elemek cseréje */
+      CS <- A[I]
+      A[I] <- A[J]
+      A[J] <- CS
+      I <- I+1
+      J <- J-1
+  /* Az elsõ rész rendezése rekurzív hívással */
+  GYORSREND(A,K,J)
+  /* A második rész rendezése rekurzív hívással */
+  GYORSREND(A,I,V)
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A generált adatok               A             TOMB                            M,O     
+A generálandó adatok száma      N             Egész                           I       
+Segédváltozó                    I             Egész                           M       
+Segédváltozó                    J             Egész                           M       
+                                                                                      
+
+/* Elemek generálása */
+GENERAL(A,N)
+for I<-1,N
+  A[I].NK<-""
+  for J<-1,6
+    if RANDOM(36)>9
+      /* Angol nagybetût generálunk */
+      A[I].NK<-A[I].NK+CHR(RANDOM(26)+ASC('A'))
+    else
+      /* Számjegyet generálunk */
+      A[I].NK<-A[I].NK+CHR(RANDOM(10)+ASC('0'))
+  /* Egy véletlen érdemjegy */
+  A[I].JEGY<-RANDOM(5)+1
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Kiírandó szöveg                 SZOVEG        Sztring                         I       
+A kiírandó adatok               A             TOMB                            I       
+A kiírandó adatok száma         N             Egész                           I       
+Segédváltozó                    I             Egész                           M       
+                                                                                      
+
+/* Adatok kiírása */
+ADATKIIRAS(SZOVEG,A,N)
+Ki:SZOVEG
+for I<-1,N
+  Ki:I,". ",A[I].NK," ",A[I].JEGY
+
