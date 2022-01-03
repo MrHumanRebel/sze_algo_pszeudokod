@@ -1,7 +1,7 @@
 # Pszeudokod
 Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák
 
-https://img.shields.io/github/downloads/MrHumanRebel/Pszeudokod/total
+![GitHub repo size](https://img.shields.io/github/repo-size/MrHumanRebel/Pszeudokod)
 
 Pszeudokód mintafeladatok by @MrHumanRebel and @szkly // © 2022
 
