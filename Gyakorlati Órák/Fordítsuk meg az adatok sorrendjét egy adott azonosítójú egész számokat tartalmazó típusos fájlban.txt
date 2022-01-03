@@ -1,0 +1,36 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+/*Fordítsuk meg az adatok sorrendjét egy adott azonosítójú egész számokat tartalmazó típusos fájlban. A fájl olyan nagy is lehet hogy nem fér bele a memóriába egyben, nem lehet tömb*/
+/*A feléig kell csinálni mert utána vissza cseréli az eredetire*/
+
+FORDIT("D:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Gyakorlat\PszKód\Tesz.txt")
+
+Funkció                         Azonosító     Típus                                     Jelleg  
+________________________________________________________________________________________________
+Beolvas eleje                   ELEJE         Egész                                     M       
+Beolvas vége                    VEGE          Egész                                     M       
+Fájlvált                        F             Egész típusú adatokból álló típusos fájl  M       
+Ciklusvált                      I             Egész                                     M       
+Fájl neve                       FNEV          Sztring                                   I       
+Fájl mérete (adatok száma)      N             Egész                                     M       
+                                                                                                
+
+FORDIT(FNEV)
+
+NYIT(F,FNEV,"I+")/*Nem akarjuk törölni a meglévo adatokat LOL xd*/
+
+N<-FAJLMERET(F)
+
+for I<-0, (N-1) DIV 2 /*Egész osztás kell, ha páratlan középsot nem kell cserélni*/
+  POZICIONAL(F,I)
+  Be F: ELEJE
+  POZICIONAL(F,N-1-I)
+  Be F: VEGE
+  POZICIONAL(F,N-1-I)
+  Ki F: ELEJE
+  POZICIONAL(F,I)
+  Ki F: VEGE
+ZAR(F)
+

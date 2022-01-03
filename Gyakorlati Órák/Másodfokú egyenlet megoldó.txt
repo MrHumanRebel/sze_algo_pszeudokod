@@ -1,0 +1,40 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Együttható A                    A             Valós                           I       
+Együttható B                    B             Valós                           I       
+Együttható C                    C             Valós                           I       
+Egyik valós gyök                X1            Valós                           O       
+Másik valós gyök                X2            Valós                           O       
+Komplex gyök valós része        V             Valós                           O       
+Komplex gyök képzetes része     K             Valós                           O       
+Diszkrimináns                   D             Valós                           M       
+                                                                                      
+
+Be: A,B,C
+if A=0
+  /*Nem másodfokú eset*/
+  if B=0
+    /*Nem másodfokú eset*/
+    if C=0
+      Ki: "Minden valós szám megoldás!"
+    else
+      Ki: "Nincs megoldás!"
+  else
+    Ki: "Elsofokú:",-C/B
+else
+  D<- B*B-4*A*C
+/*Másodfokú eset*/
+
+if D>0
+/*Két valós gyöke van*/
+  X1<- (-B+SQRT(D))/(2*A)
+  X2<- (-B-SQRT(D))/(2*A)
+  Ki: "A két valós gyök: ", X1, " és ", X2
+else if D=0
+  Ki: "Másodfokú:", -B/(2*A)
+else
+/*Kompex gyökei vannak*/
+  V<- -B/(2*A)
+  K<- ABS(SQRT(-D)/(2*A))
+  Ki: "Az egyik koplex gyök: ",V,'+',K,'i'
+  Ki: "Az egyik koplex gyök: ",V,'-',K,'i'

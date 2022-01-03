@@ -1,0 +1,49 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+/*Random generálás N*N-es  bináris MTRX N<-1000*/
+/*A MTRX egyben egy statikus tömbben nem tárolható el, de darabolva a dinamikus memúriában lehet hogy eltárolható.*/
+/*A MTRX elemeit indexeikkel szeretnénk elérni tehát nem lehet láncolt listával megoldani*/
+
+
+Kollekciós megoldás
+Asszem ez se lesz gépes vizsgán
+Mutatótömbös megoldással
+
+Konstans 
+NMAX 1000
+
+Típus
+Sor 1D egész tömb NMAX
+Kollekció 1D sor típ. elemekre mutató tömb NMAX
+
+Fn: A Generált Azon: MTRX Típ: Kollekció Jell: M,O
+Fn: MTRX MÉRET Azon: N Tip: Egész Jell: I
+Fn: Cikl. Azon: I Tip: Egész Jell: M
+Fn: Cikl.RLD Azon: J Tip: Egész Jell: M
+Fn: OK? Azon: OK Tip: Logikai Jell: O
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+BINMTRXGEN(MTRX,N,OK)
+I<-1
+while (I<=N) AND VANHELY(MERET(SOR))
+  HElYFOGLAL(MTRX[I])
+  I<-I+1
+OK<- I>N
+if OK
+  for I<-1, N
+    for  J<-1, N
+      (*MTRX[I])[J]<- RANDOM(2)
+else
+  for J<-1, I-1
+    FELSZABADIT(MTRX[J])
+
+
+
+
+
+

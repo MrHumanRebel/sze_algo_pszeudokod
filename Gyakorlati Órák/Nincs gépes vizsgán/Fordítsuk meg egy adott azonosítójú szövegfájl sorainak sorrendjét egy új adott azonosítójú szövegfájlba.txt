@@ -1,0 +1,66 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+Fordítsuk meg egy adott azonosítójú szövegfájl sorainak sorrendjét egy új adott azonosítójú szövegfájlba
+Egy egyirányban láncolt lista segítségével
+Tegyük fel hogy egy sor <=255 karakter
+Ezt itt nem lehet de itt jegyzetelem le LOL
+Gépes vizsgán nem lesz
+
+Kell egy rekord
+
+Típus: Láncelem Rekord
+
+Sor Sztring
+Következo Láncelem Rekordra Mutató
+
+Fn: Elso lácelem Azn: ELSO Típ: Láncelem Rekordra Mutató Jell: M
+Fn: Lánc új eleme Azn: UJ Tip: Lánc Rek Mut Jell: M
+Fn: Aktuális láncelem Azn: AKT Tip: Lánc Rek Mut Jell: M
+Fn: Törlnedo láncelem Azn: TOROL Tip: Lánc Rek Mut Jell: M
+Fn: Fájlváltozó Azn: F Tip: txt file Jell: M
+Fn: Fájl forrás Azn: FNEV Tip: Sztring Jell: I
+Fn: Cél fájl forrás Azn: CNEV Tip: Sztring Jell: I
+Fn: Kész? Azn: OK Tip: Logikai Jell: O
+
+Töröl mutató kell ami lámutat ami már nem kell
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+FORDIT(FNEV, CNEV)
+
+/*Láncépítés*/
+
+NYIT(F, FNEV,"I")
+
+ELSO<-NIL
+while NOT FAJLVEGE(F) AND VANHELY(MERET(LANCELEM))
+
+  HELYFOGLAL(UJ)
+  Be F: (*UJ).SOR
+  (*UJ).KÖV<-ELSO
+  ELSO<-UJ
+
+OK<-FAJLVEGE(F)
+ZAR(F)
+
+NYIT(F, CNEV, "O")
+AKT<-ELSO
+while AKT<>NIL
+  Ki F: (*AKT).SOR
+  AKT<-(*AKT.).KÖV
+ZAR(F)
+
+/*Lánc törlése mert már kiírtuk az adatokat ne maradjon a memóriában amíg a ram kap fesz-t*/
+
+AKT<-ELSO
+while AKT<>NIL
+  TOROL<-AKT
+  AKT<-(*AKT).KÖV
+  FELSZABADÍT(TOROL)
+
+return OK
+

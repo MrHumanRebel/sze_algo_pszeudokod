@@ -1,0 +1,21 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Egyikszám                       A             Egész                           I       
+Másikszám                       B             Egész                           I       
+Ciklusváltozó                   I             Egész                           M, O    
+Megtaláltuk-e                   M             Logikai                         M       
+                                                                                      
+
+Be: A,B
+M<-hamis
+if A>B
+  I<-B
+else
+  I<-A
+
+while NOT M AND (I>=1)
+  if (A MOD I = 0) AND (B MOD I = 0)
+    M<-igaz
+  else
+    I<-I-1
+Ki: "A legnagyobb közös osztó: ", I

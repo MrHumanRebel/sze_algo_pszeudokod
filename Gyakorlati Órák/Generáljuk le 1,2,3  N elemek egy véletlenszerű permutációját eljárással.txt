@@ -1,0 +1,36 @@
+Funkció                         Azonosító     Típus                                               Jelleg  
+__________________________________________________________________________________________________________
+Gen Szám                        T             Egydimenziós Valós típusú adatokból álló tömb[100]  M,O     
+Számsor hossza                  H             Egész                                               I       
+Ciklusvált                      I             Egész                                               M       
+                                                                                                          
+
+/*Generáljuk le 1,2,3.......N elemek egy véletlenszeru permutációját eljárással*/
+
+Be:H
+RANDPERM(H,T)
+Ki:"Számok:"
+
+for I<-1, H
+  Ki: T[I]
+
+Funkció                          Azonosító     Típus                                               Jelleg  
+___________________________________________________________________________________________________________
+Generált Számok                  T             Egydimenziós Valós típusú adatokból álló tömb[100]  M,O     
+Már generált számok Segédhalmaz  H             Egészhalmaz                                         M       
+Aktuális szám                    AKT           Egész                                               M       
+Ciklusvált                       I             Egész                                               M       
+Sorozat hossza                   N             Egész                                               I       
+                                                                                                           
+
+RANDPERM(N,T)
+
+H<-[]
+
+for I<-1, N
+  repeat
+    AKT<-RANDOM(N)+1
+  until NOT (AKT IN H)
+  H<-H+[AKT]
+  T[I]<-AKT
+

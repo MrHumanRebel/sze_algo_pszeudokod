@@ -1,0 +1,53 @@
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Vizsgált Mtrx                   M             Kétdimenziós Egész típusú adatokból álló tömb[20,20]  M       
+Eredmény                        ER            Logikai                                               O       
+Mtrx Mérete                     MM            Egész                                                 M       
+                                                                                                            
+
+/*Döntsük el egy négyzetes mátrixról hogy szimmetrikus-e egy függvény segítségével és az N<=20 legyen, tehát legyen foátlóra szimmetrikus*/
+
+/*MTRX[I,J]=MTRX[J,I]*/
+
+M[1,1]<-0
+M[1,2]<-1
+M[1,3]<-2
+
+M[2,1]<-0
+M[2,2]<-0
+M[2,3]<-0
+
+M[3,1]<-0
+M[3,2]<-0
+M[3,3]<-0
+
+MM<-3
+
+MTXSZIMME(M,MM,ER)
+if ER
+  Ki: "Szimmetrikus kisapám!!!!!!!!!!!!!"
+else
+  Ki: "Hát nem nyert nem szimmetrikus!!!!!!!"
+
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Mtrx Mérete                     N             Egész                                                 I       
+Ciklvált sor                    I             Egész                                                 M       
+Ciklvált oszl                   J             Egész                                                 M       
+Eredmény                        ER            Logikai                                               M,O     
+Vizsgált Mtrx                   MTRX          Kétdimenziós Egész típusú adatokból álló tömb[20,20]  I       
+                                                                                                            
+
+MTXSZIMME(MTRX,N,ER)
+
+ER<-igaz
+I<-1
+
+while ER AND (I<=N-1)
+  J<-I+1
+  while (J<=N) AND ER
+    if MTRX[I,J]<>MTRX[J,I]
+      ER<-hamis
+    J<-J+1
+  I<-I+1
+

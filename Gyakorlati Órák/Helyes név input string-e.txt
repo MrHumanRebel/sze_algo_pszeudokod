@@ -1,0 +1,55 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Input Név                       NEV           Sztring                         I       
+Szóközök száma                  SZDB          Egész                           M       
+Ciklusváltozó                   I             Egész                           M       
+Név hossza                      NH            Egész                           M       
+Eredmény                        ER            Logikai                         M, O    
+                                                                                      
+
+/*Legalább öt karakter hosszú legyen, pontosan egy szóköz legyen benne, ez nem lehet a legelso és legutolsó helyen*/
+/*Csak angol betuk lehetnek a szóközön kívül, a Veznév elso és a Kernév elso betuje legyen nagy a többi kisbetu*/
+
+Be: NEV
+
+/*Legyen 5 karakter hosszú*/
+
+NH<-LENGTH(NEV)
+if NH>=5
+  ER<-igaz
+else
+  ER<-hamis
+
+/*Ugyanez az if röviden, mivel ER logikai változó, ER<-NH>=5*/
+
+/*Pontosan egy szóköz*/
+if ER
+  SZDB<-0
+  for I<-1, NH
+    if NEV[I]=' '
+      SZDB<-SZDB+1
+  if SZDB<>1
+    ER<-hamis
+
+/*Szóköz elso és utolsó nem lehet*/
+
+if ER
+  if (NEV[1]=' ') OR (NEV[NH]=' ')
+    ER<-hamis
+
+/*Csak angol kis és nagybetu lehet*/
+
+I<-1
+while (ER) AND (I<=NH)
+  if (I=1) OR (I=POS(' ', NEV)+1)
+    if NOT (NEV[I] IN ['A'..'Z'])
+      ER<-hamis
+  else if NOT (NEV[I] IN ['a'..'z',' ']) /*Kell a halmazba a szóköz is*/
+    ER<-hamis
+
+  I<-I+1
+
+if ER
+  Ki: "Helyes név hihihi xDDD LOL 2+2=3"
+else
+  Ki: "Nem név te ökör!"

@@ -1,0 +1,13 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+N                               N             Egész                           I       
+Szorzat                         FAKT          Egész                           M, O    
+Szorzó                          I             Egész                           M       
+                                                                                      
+
+/* Faktoriális */
+Be: N
+FAKT<- 1
+for I<- 2,N
+  FAKT<- FAKT*I
+Ki: FAKT

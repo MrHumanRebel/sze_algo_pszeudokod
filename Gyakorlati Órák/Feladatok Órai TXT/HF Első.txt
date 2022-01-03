@@ -1,0 +1,16 @@
+HF1: Három input szám esetén írjuk ki a legnagyobb számot. Ha egyenlő akkor is írjuk ki ezt a számot.
+
+HF2: Határozzuk meg két síkbeli egyenes metszéspontját!
+
+HF3: Körök egységenként.
+0,1: 10 pont
+1,2: 9 pont
+2,3: 8 pont
+.
+.
+.
+9,10: 1 pont
+10,...: 0 pont
+
+
+Gondolkodni/megoldani: Egy N nagyobb mint 2 input számról döntsük el hogy prímszám-e!

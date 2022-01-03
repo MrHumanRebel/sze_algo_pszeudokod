@@ -1,0 +1,21 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Vizsgált Szám                   N             Egész                           I       
+Ciklusváltozó                   I             Egész                           M       
+Logikai Prím-e                  PRIM          Logikai                         M,O     
+                                                                                      
+
+Be: N
+
+I<-2
+
+PRIM<-igaz
+
+while (I<=SQRT(N)) AND PRIM
+  if N MOD I = 0
+    PRIM<-hamis
+  I<-I+1
+if PRIM
+  Ki: "Prím"
+else
+  Ki: "Nem prím"

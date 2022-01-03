@@ -1,0 +1,25 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Elsoszám                        A             Valós                           I, O    
+Másodikszám                     B             Valós                           I, O    
+Harmadikszám                    C             Valós                           I, O    
+                                                                                      
+
+Ki: "Adja meg az elso számot!"
+Be: A
+Ki: "Adja meg az második számot!" 
+Be: B
+Ki: "Adja meg az harmadik számot!"
+Be: C
+
+if A=B
+  if B=C
+    if A=C
+      Ki: "Az ön által megadott három szám értéke egyenlo! ", "Az ön által megadott szám értéke: ", A
+else
+  if A>B
+    Ki: A
+  else if B>C
+    Ki: B
+  else
+    Ki: C

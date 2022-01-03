@@ -1,0 +1,30 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+/*Nagy p.e.sz számot egyirányban láncolt listában, végigmenni rajta és páros-e*/
+/*Kell az elso címe és ott a vége ahol "NIL"-re mutat*/
+/*Itt ez nem muködik de itt jegyzetelem le xd*/
+/*Asszem gépen vizsgán ilyen nincs*/
+
+/*Kell bele egy egész és egy mutató */
+/*Ezeket láncelem rekordba tároljuk */
+/*Egyik mezo a szjegy egész a másik a köv. láncelemre mutató */
+
+/*Fn: A nagy szám elso eleme Azon: ELSO Típus: Láncelem Rekordra Mutató Jelleg: I */
+/*Fn: Aktuális láncelem Azon: AKT Típus: Egész Jelleg: M */
+
+
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+PAROSE(ELSO)
+AKT<-ELSO
+
+while (*AKT).KÖV<>NIL
+  AKT<-(*AKT).KÖV
+return (*AKT).SZJEGY MOD 2 = 0
+  
+

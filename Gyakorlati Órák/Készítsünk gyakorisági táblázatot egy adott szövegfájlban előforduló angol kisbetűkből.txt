@@ -1,0 +1,51 @@
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Angol kisbetuk                  BETUK         Egydimenziós Karakter típusú adatokból álló tömb[26]  M,O     
+Angol kisbetuk száma            DB            Egydimenziós Egész típusú adatokból álló tömb[26]     M,O     
+Tömb mérete                     N             Egész                                                 M       
+Ciklusvált                      I             Egész                                                 M       
+                                                                                                            
+
+/*Készítsünk gyakorisági táblázatot egy adott szövegfájlban eloforduló angol kisbetukbol, az eredmény 2 1D-s tömbben adjuk vissza rendezetten*/
+
+/*Használjuk fel a BINKER szubrutint*/
+
+GYAKORISAG("D:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Gyakorlat\PszKód\Teszt.txt",BETUK,DB,N)
+
+for I<-1, N
+  Ki: BETUK[I], DB[I]
+
+Funkció                                      Azonosító     Típus                                                 Jelleg  
+_________________________________________________________________________________________________________________________
+Angol kisbetuk tömb                          BETUK         Egydimenziós Karakter típusú adatokból álló tömb[26]  M,O     
+Angol kisbetuk DB száma                      DB            Egydimenziós Egész típusú adatokból álló tömb[26]     M,O     
+Aktuális karakter                            AKT           Karakter                                              M       
+Fájlváltozó                                  F             Szövegfájl                                            M       
+Fájlazonosító                                FNEV          Sztring                                               I       
+Ciklusvált                                   I             Egész                                                 M       
+Tömb mérete, Különbözo angol kisbetuk száma  N             Egész                                                 M,O     
+Adott karakter helye                         HOL           Egész                                                 M       
+                                                                                                                         
+
+GYAKORISAG(FNEV,BETUK,DB,N)
+
+NYIT(F,FNEV,"I")
+
+N<-0
+
+while NOT FAJLVEGE(F)
+  Be F: AKT
+  if AKT IN ['a'..'z']
+    if BINKER(BETUK,N,AKT,HOL)
+      DB[HOL]<-DB[HOL]+1
+    else
+      for I<-N, HOL, -1
+        DB[I+1]<-DB[I]
+        BETUK[I+1]<-BETUK[I]
+      DB[HOL]<-1
+      BETUK[HOL]<-AKT
+      N<-N+1
+
+ZAR(F)
+
+

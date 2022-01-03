@@ -1,0 +1,60 @@
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Generált neptunk kódok          NEPT          Egydimenziós Sztring típusú adatokból álló tömb[100]  M,O     
+Ciklusváltozó V1                I             Egész                                                 M       
+Nept Kód Darab                  N             Egész                                                 I       
+                                                                                                            
+
+/*N darab különbözo neptunkódot kell generálni, N<=100*/
+
+Be:N
+GENERAL(NEPT,N)
+for I<-1, N
+  Ki: I, ": ",NEPT[I]
+
+
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Generált Neptun                 NEPTUNK       Sztring                         M,O     
+Karakter                        KAR           Sztring                         M       
+Ciklusvált                      I             Egész                           M       
+                                                                                      
+
+NEPTUN()
+KAR<-""
+for I<-ASC('A'), ASC('Z')
+  KAR<-KAR+CHR(I)
+for I<-0, 9
+  KAR<-KAR+STR(I)
+NEPTUNK<-""
+for I<-1, 6
+  NEPTUNK<-NEPTUNK+KAR[RANDOM(LENGTH(KAR))+1]
+return NEPTUNK
+
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Generált NeptK                  NEPT          Egydimenziós Sztring típusú adatokból álló tömb[100]  M,O     
+Ciklvált 1                      I             Egész                                                 M       
+Ciklvált 2                      J             Egész                                                 M       
+Aktuál Nept                     AKT           Sztring                                               M       
+Nept DB                         N             Egész                                                 I       
+Van már ilyen?                  VAN           Logikai                                               M       
+                                                                                                            
+
+GENERAL(NEPT,N)
+
+for I<-1, N
+  repeat
+    AKT<-NEPTUN()
+    VAN<-hamis
+    J<-1
+    /*Keresés*/
+    while (J<I) AND (NOT VAN)
+      if NEPT[J]=AKT
+        VAN<-igaz
+      J<-J+1
+
+  until NOT VAN
+  NEPT[I]<-AKT
+

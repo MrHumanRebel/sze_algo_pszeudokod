@@ -1,0 +1,70 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Út azonosító                    UT            Sztring                         M,O     
+Van helyes adat?                VAN           Logikai                         O       
+                                                                                      
+
+/*Egy út azonosítójának bekérése és módosítása szubrutin, max 5 karakter, számjegyeket tartalmaz, de az elso karaktere lehet betu is, angol nagybetu, elso karaktere nem leget nulla*/
+/*Ha betuvel kezdodik legalább két karakter hosszúnak kell lennie, mindenképpen számra kell végzodnie*/
+
+
+UT<-""
+UTAZONBE(UT,1,1,VAN)
+if VAN
+  Ki: "Ügyes vizipipa vagy te kutya ez helyes adat volt: ", UT
+else
+  Ki: "Ez nem helyes útazonosító te barom!"
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Út azonosítója                  UT            Sztring                         I,M,O   
+Aktuálisan elfogadható jelek    JOJEL         Karakterhalmaz                  M       
+Aktuális karakter               JEL           Karakter                        M       
+Az adat érvényessége            VANADAT       Logikai                         O       
+Aktuális valódi hossz           HOSSZ         Egész                           M       
+Képernyo pozíciója oszlop       OSZL          Egész                           I       
+Képernyo pozíciója sor          SOR           Egész                           I       
+                                                                                      
+
+UTAZONBE(UT,OSZL,SOR,VANADAT) /*Kell a vanadat is mert eljárást csinálunk, kell visszatéro érték is az argumentumba*/
+
+HOSSZ<-LENGTH(UT)
+UT<-JOBBTOLT(UT,5)
+
+INVERZIR /*Írás megfordítása, "terület kiemelés"*/
+KIIRAS(UT,OSZL,SOR,HOSSZ)
+
+/*Egy bill-t mindenképpen be kell olvasni*/
+repeat
+  JOJEL<-[KILEP]
+  if HOSSZ = 0
+    JOJEL<-JOJEL+['A'..'Z', '1'..'9']
+  else
+    if HOSSZ < 5
+      JOJEL<-JOJEL+['0'..'9']
+    if UT[HOSSZ] IN ['0'..'9']
+      JOJEL<-JOJEL+[ADATVEG]
+    JOJEL<-JOJEL+[TOROL]
+  JEL<-JELBE(JOJEL)
+  if JEL IN ['A'..'Z','0'..'9']
+    HOSSZ<-HOSSZ+1
+    UT[HOSSZ]<-JEL
+  else if JEL=TOROL
+    UT[HOSSZ]<-' '
+    HOSSZ<-HOSSZ-1
+  KIIRAS(UT,OSZL,SOR,HOSSZ)
+
+until JEL IN [KILEP, ADATVEG]
+
+NORMALIR /*Sima írás, nem inverz*/
+
+if JEL=KILEP
+  KIIRAS(JOBBTOLT("",5),OSZL,SOR,5) /*A jobbtolt => 5db szóköz kiírása*/
+  UT<-""
+  VANADAT<-hamis
+else
+  KIIRAS(UT,OSZL,SOR,HOSSZ)
+  VANADAT<-igaz
+  UT<-COPY(UT,1,HOSSZ)
+
+

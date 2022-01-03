@@ -1,0 +1,13 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Sugár                           R             Valós                           I       
+Terület                         T             Valós                           O       
+Kerület                         K             Valós                           O       
+                                                                                      
+
+/* Kör területe, kerülete */
+Be: R
+T<- R*R*3.14
+K<- 2*R*3.14
+Ki: T,K
+

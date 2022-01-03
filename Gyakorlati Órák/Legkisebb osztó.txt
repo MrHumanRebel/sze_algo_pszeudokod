@@ -1,0 +1,12 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Vizsgált                        N             Egész                           I       
+Osztó                           O             Egész                           M, O    
+                                                                                      
+
+/* Legkisebb osztó */
+Be: N
+O<- 2
+while N MOD O<>0
+  O<- O+1
+Ki: O

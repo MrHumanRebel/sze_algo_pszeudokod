@@ -1,0 +1,36 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Ciklusváltozó                   I             Egész                           M, O    
+                                                                                      
+
+Ki: "For Ciklussal"
+for I<-1, 10
+  Ki: I
+
+Ki: "While Ciklussal_1"
+I<-0
+while I<10
+  I<- I+1
+  Ki: I
+
+Ki: "While Ciklussal_2"
+I<-1
+while I<=10
+  Ki: I
+  I<- I+1
+
+Ki: "Repeat Untillal"
+I<-1
+repeat
+  Ki: I
+  I<- I+1
+until I>10
+
+Ki: "Repeat Untillal_2"
+I<-0
+repeat
+  I<- I+1
+  Ki: I
+until I>=10
+
+

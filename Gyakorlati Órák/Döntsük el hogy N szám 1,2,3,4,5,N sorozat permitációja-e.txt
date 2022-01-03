@@ -1,0 +1,49 @@
+Funkció                         Azonosító     Típus                                              Jelleg  
+_________________________________________________________________________________________________________
+Szám darabszáma                 N             Egész                                              I       
+Számok                          SZ            Egydimenziós Egész típusú adatokból álló tömb[50]  I       
+Permutáció-e                    ER            Logikai                                            M, O    
+Ciklusváltozó                   I             Egész                                              M       
+Segédhalmaz                     H             Egészhalmaz                                        M       
+                                                                                                         
+
+/*N<=50 szám, 1-tol N-ig mindíg*/
+
+/*1,2,3,4,5 OK // 1,2,1,3,4 NEM OK*/
+
+/*HF fordított tehát teli halmazzal és egy ciklusban legyen ne két ciklusban*/
+
+Be: N
+
+for I<-1, N
+  Be: SZ[I]
+
+/*Számok értéke 1-tol N-ig van?*/
+I<-1
+ER<-igaz
+while ER AND (I<=N)
+  if NOT (SZ[I] IN [1..N])
+    ER<-hamis
+  else
+    I<-I+1
+
+/*Minden szám csak egyszer szerepel?*/
+H<-[]
+I<-1
+while ER AND (I<=N)
+  if SZ[I] IN H
+    ER<-hamis
+  else
+    H<-H+[SZ[I]]
+    I<-I+1
+
+if ER
+  Ki: "Permutáció!"
+else
+  Ki: "Nem permutáció!"
+
+
+
+
+
+ 

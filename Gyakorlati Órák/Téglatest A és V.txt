@@ -1,0 +1,13 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Téglatest szélesség             A             Valós                           I       
+Téglatest magassága             B             Valós                           I       
+Téglatest hosszúsága            C             Valós                           I       
+Felszín                         F             Valós                           O       
+Térfogat                        T             Valós                           O       
+                                                                                      
+
+Be: A, B, C
+T<- A*B*C
+F<- 2*(A*B+B*C+A*C)
+Ki: T, F

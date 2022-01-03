@@ -1,0 +1,19 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Karakter                        CH            Karakter                        M       
+                                                                                      
+
+repeat
+/* Bekérés */
+  Be: CH
+  if CH<>#27
+/* Kiírás */
+    Ki: CH,ASC(CH)
+/* Kiértékelés */
+    if (CH>='A') AND (CH<='Z') OR (CH>='a') AND (CH<='z')
+      Ki: "Angol betu"
+    else if (CH>='0') AND (CH<='9')
+      Ki: "Számjegy"
+    else
+      Ki: "Egyéb"
+until CH=#27

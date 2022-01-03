@@ -1,0 +1,39 @@
+Funkció                         Azonosító     Típus                                               Jelleg  
+__________________________________________________________________________________________________________
+Teszt adatok                    TESZT         Egydimenziós Egész típusú adatokból álló tömb[100]  M       
+Adatok minimuma                 MIN           Egész                                               O       
+Adat DB                         DB            Egész                                               M       
+                                                                                                          
+
+/*Rekurzív szubrutin (függvény) egy egészekbol álló tömb minimumának a megkeresésére!*/
+
+TESZT[1]<-5
+TESZT[2]<-3
+TESZT[3]<-0
+TESZT[4]<-6
+TESZT[5]<-7
+
+DB<-5
+
+MIN<-MIN_KERES(TESZT,DB)
+Ki:MIN
+
+Funkció                                         Azonosító     Típus                                               Jelleg  
+__________________________________________________________________________________________________________________________
+A tömb LOL XD Hehe aminek keressük a minimumát  T             Egydimenziós Egész típusú adatokból álló tömb[100]  I       
+A Minimum Palikám                               MIN           Egész                                               M,O     
+Hány elemu a tömb tehát adatok száma            N             Egész                                               I       
+                                                                                                                          
+
+MIN_KERES(T,N)
+
+
+if N=1 
+  MIN<-T[1]
+
+else
+  MIN<-MIN_KERES(T,N-1)
+  if T[N] < MIN
+    MIN<-T[N]
+return MIN
+

@@ -1,0 +1,15 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Név                             NEV           Sztring                         I       
+Megfordított név                FNEV          Sztring                         O       
+                                                                                      
+
+/*Feltételezzük hogy helyes a név input formátum*/
+
+/**/
+
+Be: NEV
+
+FNEV<-COPY(NEV,POS(' ', NEV)+1,LENGTH(NEV))+ ' '+COPY(NEV,1,POS(' ',NEV)-1)
+
+Ki: FNEV

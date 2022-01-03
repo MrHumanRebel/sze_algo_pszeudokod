@@ -1,0 +1,74 @@
+Típus
+
+VERSENYZO Rekord
+  NEV Sztring
+  PONTOK Egydimenziós Valós Adatokból álló tömb[10]
+  ATLAG Valós
+
+Funkció                         Azonosító     Típus                                                  Jelleg  
+_____________________________________________________________________________________________________________
+Versenyzok száma                N             Egész                                                  I       
+Bírók száma                     M             Egész                                                  I       
+Versenyzok adatai               ADATOK        Egydimenziós VERSENYZO típusú adatokból álló tömb[20]  I,M,O   
+Ciklusváltozó                   I             Egész                                                  M       
+Ciklusváltozó Reloaded          J             Egész                                                  M       
+Pont Összeg                     OSSZ          Valós                                                  M       
+Min Pont                        MIN           Valós                                                  M       
+Max Pont                        MAX           Valós                                                  M       
+Cserevált                       CS            VERSENYZO                                              M       
+                                                                                                             
+
+/*Átlagpont szerint rendezett lista Korcsolyaversenyen N<=20 versenyzo 3<=M<=10 bíró pontozza, pontszám 1-6 valós min maxot ne vegyük figyelembe*/
+
+/*Adatbe*/
+
+Be: N,M
+
+for I<-1,N
+  Be:ADATOK[I].NEV
+  for J<-1,M
+    Be:ADATOK[I].PONTOK[J]
+
+/*Számítások*/
+
+for I<-1, N
+  OSSZ<-ADATOK[I].PONTOK[1]
+  MIN<-ADATOK[I].PONTOK[1]
+  MAX<-ADATOK[I].PONTOK[1]  
+
+  for J<-2,M
+    OSSZ<-OSSZ+ADATOK[I].PONTOK[J]
+    if ADATOK[I].PONTOK[J]<MIN
+      MIN<-ADATOK[I].PONTOK[J]
+    else if ADATOK[I].PONTOK[J]>MAX
+      MAX<-ADATOK[I].PONTOK[J]
+  ADATOK[I].ATLAG<-(OSSZ-MAX-MIN) /(M-2)
+
+
+/*Rendezés*/
+
+
+for I<-1,N-1  /*Az utolsó már nem lehet rossz helyen*/
+  for J<-N,I+1,-1
+    if ADATOK[J].ATLAG > ADATOK[J-1].ATLAG
+      CS<-ADATOK[J]
+      ADATOK[J]<-ADATOK[J-1]
+      ADATOK[J-1]<-CS
+
+/*Eredmény kiírás*/
+
+
+for I<-1,N
+  Ki: ADATOK[I].NEV
+  for J<-1, M
+    Ki: ADATOK[I].PONTOK[J]
+    Ki: ADATOK[I].ATLAG
+
+
+
+
+
+
+
+
+

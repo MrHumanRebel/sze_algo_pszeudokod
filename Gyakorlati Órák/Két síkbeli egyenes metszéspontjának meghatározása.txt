@@ -1,0 +1,56 @@
+Funkció                                      Azonosító     Típus                           Jelleg  
+___________________________________________________________________________________________________
+Elso egyenes A1 pontja                       EA            Valós                           I       
+Elso egyenes B1 pontja                       EB            Valós                           I       
+Második egyenes PA pontja                    MP            Valós                           I       
+Második egyenes iránytangensének számlálója  T             Valós                           I       
+Elso egyenes A2 pontja                       EAA           Valós                           I       
+Elso egyenes B2 pontja                       EBB           Valós                           I       
+Elso egyenes vektor A1                       VA            Valós                           M       
+Elso egyenes vektor A2                       VB            Valós                           M       
+Elso egyenes normálvektora A                 NVA           Valós                           M       
+Elso egyenes normálvektora B                 NVB           Valós                           M       
+Második egyenes PB pontja                    MPP           Valós                           I       
+Második egyenes iránytangensének nevezoje    TT            Valós                           I       
+Ideigelenes X                                X             Valós                           M       
+Ideiglenes Y                                 Y             Valós                           M       
+                                                                                                   
+
+Ki: "Adja meg az elso egyenes elso pontjának elso koordinátáját!"
+Be: EA
+
+Ki: "Adja meg az elso egyenes elso pontjának második koordinátáját!"
+Be: EAA
+
+Ki: "Adja meg az elso egyenes második pontjának elso koordinátáját!"
+Be: EB
+
+Ki: "Adja meg az elso egyenes második pontjának második koordinátáját!"
+Be: EBB
+
+Ki: "Adja meg az második egyenesen lévo pont elso koordinátáját!"
+Be: MP
+
+Ki: "Adja meg az második egyenesen lévo pont második koordinátáját!"
+Be: MPP
+
+Ki: "Adja meg a második egyenes iránytangensének számlálóját!"
+Be: T
+
+Ki: "Adja meg a második egyenes iránytangensének nevezojét!"
+Be: TT
+
+
+/* Felírjuk az elso egyenes egyenletét*/
+VA<-EB-EA
+VB<-EBB-EAA
+Ki: "Az elso egyenes irányvektora:", "(", VA, ";", VB, ")"
+/* Felírjuk az elso egyenes normálvektorát*/
+NVA<-(-1*VB)
+NVB<-(VA)
+Ki: "Az elso egyenes normálvektora:", "(", NVA, ";", NVB, ")"
+/* Felírjuk az elso egyenes egyenletét*/
+
+
+
+

@@ -1,0 +1,14 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Egyikszám                       A             Valós                           I, O    
+Másikszám                       B             Valós                           I, O    
+                                                                                      
+
+Be: A, B
+if A<B
+  Ki: A
+else if B < A
+  Ki: B
+else
+  Ki: "A két szám egyenlo"
+/*Így kell kommentelni*/

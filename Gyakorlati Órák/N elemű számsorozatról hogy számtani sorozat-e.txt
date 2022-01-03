@@ -1,0 +1,33 @@
+Funkció                         Azonosító     Típus                                               Jelleg  
+__________________________________________________________________________________________________________
+Adattömb                        T             Egydimenziós Valós típusú adatokból álló tömb[100]  I       
+Ciklusváltozó                   I             Egész                                               M       
+Számtani sorozat-e              ER            Logikai                                             M, O    
+Differencia                     D             Valós                                               M       
+Elemek száma                    N             Egész                                               I       
+                                                                                                          
+
+/*Kezdotevékenységek*/
+Be: N
+
+for I<-1, N
+  Be: T[I]
+
+ER<-igaz
+D<-T[2]-T[1]
+I<-3
+
+/*Adatfeldolgozás, akkor lép ki ha nem számtani*/
+
+while ER AND (I<=N)
+  if T[I]-T[I-1] <> D
+    ER<-hamis
+  else
+    I<-I+1
+
+/*Eredmény*/
+
+if ER
+  Ki:"Számtanni sorozat"
+else
+  Ki:"Nem számtani sorozat"

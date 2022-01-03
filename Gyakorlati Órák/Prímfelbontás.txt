@@ -1,0 +1,17 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Szám                            N             Egész                           I, M    
+Osztó                           O             Egész                           M, O    
+                                                                                      
+
+Be: N
+O<- 2
+while N>1
+  if N MOD O=0
+    N<- N DIV O
+    if N=1
+      Ki: O
+    else
+      Ki: O,'*'
+  else
+    O<- O+1

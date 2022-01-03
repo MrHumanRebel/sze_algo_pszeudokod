@@ -1,0 +1,23 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Ciklusváltozó                   I             Egész                           M, O    
+Intervallum kezdete             A             Egész                           I       
+Intervallum vége                B             Egész                           I       
+Osztó                           C             Egész                           I       
+                                                                                      
+
+Ki: "1_Páros 1-10"
+for I<-2, 10, 2
+  Ki: I
+
+Ki: "2_Páros 1-10"
+for I<-1, 10
+  if I MOD 2 = 0
+    Ki: I
+
+Ki: "A, B intervallumon C-vel osztható"
+Be: A, B, C
+for I<-A, B
+  if I MOD C = 0
+    Ki: I
+

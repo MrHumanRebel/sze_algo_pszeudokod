@@ -1,0 +1,19 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Terem szélessége                SZ            Valós                           I       
+Terem hossza                    H             Valós                           I       
+Terem magassága                 M             Valós                           I       
+Ajtó szélességes                AJSZ          Valós                           I       
+Ajtó magassága                  AJM           Valós                           I       
+Ablak szélessége                ABSZ          Valós                           I       
+Ablak magassága                 ABM           Valós                           I       
+Festoképesség                   FEST          Valós                           I       
+Festék mennyisége               ER            Valós                           O       
+                                                                                      
+
+Be: SZ, H, M 
+Be: AJSZ, AJM
+Be: ABSZ, ABM
+Be: FEST
+ER<- ((2*(H*M+SZ*M)+SZ*H)-(AJSZ*AJM)-(ABSZ*ABM))/FEST
+Ki: ER

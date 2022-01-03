@@ -1,0 +1,28 @@
+Egy N (>2) egész input szám, prím szám-e?
+Önmaga és egy az osztója
+
+1................N
+
+2................N-1
+
+2................GYÖK(N)
+
+
+Két pozitív egész szám legnagyobb közös osztója
+
+
+
+1.........A...........N
+
+A..........1
+
+
+Egy N (N>=0 és N<=100) elemű számsorozatról hogy számtani sorozat-e?
+
+1,2,3,4,5 igen gondolom
+5,4,3,2,1 igen talán
+5,4,5,4,5,4 nem
+5,5,5,5,5,5 igen
+5.1, 6.2, 7.3, 8.4 igen
+
+

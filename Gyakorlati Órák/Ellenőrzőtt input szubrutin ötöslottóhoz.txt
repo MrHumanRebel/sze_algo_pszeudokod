@@ -1,0 +1,96 @@
+Konstans
+
+SZAMJEGYEK ['0'..'9']
+KEZD 1
+MAX 90
+DB 5
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+/*Ellenorzott input szubrutin ötöslottóhoz, 5db egész szám 1-90 között, nem lehetnek egyformák, kilépés is legyen jól lekezelve ne 5db ESC kelljen,  használjuk az EGSZAMBE szubrutint 105.oldalon*/
+
+Funkció                         Azonosító     Típus                                             Jelleg  
+________________________________________________________________________________________________________
+Helyes az érkezett szám?        VANADAT       Logikai                                           M       
+Képernyo OSZL                   OSZL          Egész                                             I       
+Képernyo SOR                    SOR           Egész                                             I       
+Szám szövegesen                 SZAMSZOV      Sztring                                           M       
+Lottoszamok                     LOTTO         Egydimenziós Egész típusú adatokból álló tömb[5]  I,M,O   
+Ciklusváltozó                   I             Egész                                             M       
+Már generált számok             H             Egészhalmaz                                       M       
+Van e kész szelvény             VANSZELV      Logikai                                           I,M,O   
+                                                                                                        
+
+OTOSLOTTO(OSZL,SOR,LOTTO,VANSZELV)
+
+I<-1
+H<-[] /*Üreshalmaz*/
+
+repeat
+  if  VANSZELV
+    SZAMSZOV<-STR(LOTTO[I])
+  else
+    SZAMSZOV<-""
+  repeat
+    EGSZAMBE(SZAMSZOV,OSZL,SOR,KEZD,MAX,VANADAT,LOTTO[I])
+  until (NOT VANADAT) OR  (NOT(LOTTO[I] IN H))
+  if VANADAT
+    H<-H+[LOTTO[I]]
+    I<-I+1    
+until (I>DB) AND (NOT VANADAT)
+VANSZELV<-VANADAT
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+/* Egész szám bekérés/módosítás */
+EGSZAMBE(SZAMSZOV,OSZL,SOR,TOL,IG,VANADAT,SZAMERT)
+/* Elokészítés */
+MAXH ? LENGTH(STR(TOL))
+if LENGTH(STR(IG))>MAXH
+MAXH ? LENGTH(STR(IG))
+HOSSZ ? LENGTH(SZAMSZOV)
+SZAMSZOV ? JOBBTOLT(SZAMSZOV,MAXH)
+INVERZIR
+KIIRAS(SZAMSZOV,OSZL,SOR,HOSSZ)
+/* Beolvasás */
+repeat
+/* Formailag helyes adat bekérése */
+repeat
+/* Jó jelek beállítása */
+JOJEL ? [KILEP]
+if HOSSZ>0
+JOJEL ? JOJEL+[TOROL]
+if (HOSSZ=0) AND (TOL<0)
+JOJEL ? JOJEL+[’-’]
+if HOSSZ<MAXH
+JOJEL ? JOJEL+SZAMJEGYEK
+if (HOSSZ>0) AND (SZAMSZOV[HOSSZ] IN SZAMJEGYEK)
+JOJEL ? JOJEL+[ADATVEG]
+/* Jel beolvasása */
+JEL ? JELBE(JOJEL)
+/* Jel feldolgozása */
+if JEL IN SZAMJEGYEK+[’-’]
+HOSSZ ? HOSSZ+1
+SZAMSZOV[HOSSZ] ? JEL
+else if JEL=TOROL
+SZAMSZOV[HOSSZ] ? ’ ’
+HOSSZ ? HOSSZ-1
+/* Kiírás */
+KIIRAS(SZAMSZOV,OSZL,SOR,HOSSZ)
+until JEL IN [KILEP,ADATVEG]
+/* Tartalmi ellenorzés */
+if JEL<>KILEP
+X ? VAL(COPY(SZAMSZOV,1,HOSSZ))
+JOADAT ? (X>=TOL) AND (X<=IG)
+until (JEL=KILEP) OR JOADAT
+/* Befejezés */
+NORMALIR
+if JEL=KILEP
+KIIRAS(JOBBTOLT(””,MAXH),OSZL,SOR,MAXH)
+SZAMSZOV ? ””
+VANADAT ? hamis
+

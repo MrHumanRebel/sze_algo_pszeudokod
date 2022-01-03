@@ -1,0 +1,16 @@
+Funkció                           Azonosító     Típus                                     Jelleg  
+__________________________________________________________________________________________________
+Aktuálisan beolvasott egész szám  AKT           Egész                                     M,O     
+Fájlváltozó                       F             Egész típusú adatokból álló típusos fájl  M       
+Fájl azonosítója                  FNEV          Sztring                                   M       
+                                                                                                  
+
+/*Listázza ki egy egész számokat tartalmazó típusos fájl tartalmát*/
+FNEV<-"D:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Gyakorlat\PszKód\Teszt.txt"
+
+NYIT(F,FNEV,"I") /*Input Output, olvas és ír, I+-nál lehet olvasni nem törlodik lehet módosítani O+-nál törlodik a fájl tartalma írás elott*/
+
+while NOT FAJLVEGE(F)
+  Be F: AKT
+  Ki: AKT
+ZAR(F)
