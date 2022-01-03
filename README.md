@@ -8,7 +8,7 @@ Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák
 
 Pszeudokód mintafeladatok by @MrHumanRebel and @szkly // © 2022
 
-Csak oktatási célokra használd saját felelősségre! A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak.
+Csak oktatási célokra használd saját felelősségre! A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak!
 
 Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez!
 Például: [NYIT(VALAMI,"CSERÉLJ KI.formátum","VALAMI"] 
