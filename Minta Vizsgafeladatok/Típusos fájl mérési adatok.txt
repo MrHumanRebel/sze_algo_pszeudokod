@@ -7,12 +7,9 @@ ADATREK Rekord
 Funkció                         Azonosító     Típus                                       Jelleg  
 __________________________________________________________________________________________________
 FájlV                           F             ADATREK típusú adatokból álló típusos fájl  I       
-I                               I             Egész                                       M       
-AKT                             SOR           Egész                                       M       
-HNAP                            HNAP          Sztring                                     M       
-HÓNAP                           HONAP         Egész                                       M       
-x                               X             Egész                                       M       
-y                               Y             Egész                                       M       
+A                               A             ADATREK                                     M       
+DB                              DB            Valós                                       M       
+MAX                             MAX           Valós                                       M,O     
                                                                                                   
 
 /*Az Adatok.dat típusos fájl mérési adatokat tartalmaz. Az adatfájl rekordjának típusdeklarációja (amit */
@@ -23,31 +20,22 @@ y                               Y             Egész                             
 /*Határozza meg a fájlban található adatokra azt, hogy mekkora a legnagyobb, júliusban mért adat!*/
 /*Mr_HumanRebel*/
 
-NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Minta Vizsga\Minta Vizsgafeladatok\Adatok\fájl mérési adatok","I")
-
-X<-6
-Y<-7
+NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\fájl mérési adatok.dat","I")
+DB<-MAX<-0
 
 while NOT FAJLVEGE(F)
-  POZICIONAL(F,X)
-  HNAP<-STR(POZICIO(F))
-  POZICIONAL(F,Y)
-  HNAP<-HNAP+STR(POZICIO(F))
-  HONAP<-VAL(HNAP)
-  X<-X+3
-  Y<-Y+4
-  Ki:HONAP
-  HONAP<-0
+  Be F: A
+  if COPY(A.DATUM,6,2)="07"
+    DB<-DB+1
+    if DB=1
+      MAX<-DB
+    else
+      if A.ADAT>MAX
+        MAX<-A.ADAT
 
-
-ZAR(F)
-
-
-
-
-
-  
-
-
+if DB=0
+  Ki:"Nincs ilyen adat!"
+else
+  Ki: MAX
 
 ZAR(F)
