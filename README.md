@@ -23,7 +23,7 @@ Például: [NYIT(VALAMI,"CSERÉLJ KI.formátum","VALAMI"]
 
 **Extra .pdf/.png anyagokért ZH-ra és vizsgára bármilyen "alkoholtartalmú üdítőért" vagy "fagyipénzért" cserébe keresd @MrHumanRebel-t.**
 
-*Discord: Mr_HumanRebel#0023*
+Discord: [Mr_HumanRebel#0023](discord.com/users/283988657851990017)
 
 ## Linkek
 
