@@ -13,6 +13,8 @@ A formátum .txt vagy .dat lehet!
 
 Extra .pdf/.png anyagokért ZH-ra és vizsgára bármilyen "alkoholtartalmú üdítőért" vagy "fagyipénzért" cserébe keresd @MrHumanRebel-t.
 
+Discord: Mr_HumanRebel#0023
+
 
 
 Linkek:
