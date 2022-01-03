@@ -1,0 +1,14 @@
+Funkció                             Azonosító     Típus                           Jelleg  
+__________________________________________________________________________________________
+Intervallum, számok, ciklusváltozó  I             Egész                           M       
+Eredmány darab                      DB            Egész                           M,O     
+                                                                                          
+
+/*Hány olyan egész szám van az 123,456 számok között, melyekben szerepel 0?*/
+DB<-0
+
+for I<-123,4567
+  if POS('0',STR(I)) > 0 
+    DB<-DB+1
+
+Ki:DB

@@ -8,8 +8,11 @@ Funkció                         Azonosító     Típus                             
 __________________________________________________________________________________________________
 FájlV                           F             ADATREK típusú adatokból álló típusos fájl  I       
 I                               I             Egész                                       M       
-Sor                             SOR           Egész                                       M       
-Hnap                            HNAP          Egész                                       M       
+AKT                             SOR           Egész                                       M       
+HNAP                            HNAP          Sztring                                     M       
+HÓNAP                           HONAP         Egész                                       M       
+x                               X             Egész                                       M       
+y                               Y             Egész                                       M       
                                                                                                   
 
 /*Az Adatok.dat típusos fájl mérési adatokat tartalmaz. Az adatfájl rekordjának típusdeklarációja (amit */
@@ -22,9 +25,26 @@ Hnap                            HNAP          Egész                             
 
 NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Minta Vizsga\Minta Vizsgafeladatok\Adatok\fájl mérési adatok","I")
 
+X<-6
+Y<-7
+
 while NOT FAJLVEGE(F)
-  Be F: SOR
-  HNAP<-VAL(COPY(SOR,6,2))
+  POZICIONAL(F,X)
+  HNAP<-STR(POZICIO(F))
+  POZICIONAL(F,Y)
+  HNAP<-HNAP+STR(POZICIO(F))
+  HONAP<-VAL(HNAP)
+  X<-X+3
+  Y<-Y+4
+  Ki:HONAP
+  HONAP<-0
+
+
+ZAR(F)
+
+
+
+
 
   
 
