@@ -47,7 +47,7 @@ OSSZ                            OSSZ          Egész                           M
 
 /*A NUM_VEKT_GEN szubrutin segítségével generáljon 100 darab egész számot*/
 /*az [1000,2000] intervallumon 2-es seed értékkel*/
-/*majd határozza meg a generált adatokra az 1500-nál nagyobb érétéku adatok összegét*/
+/*majd határozza meg a generált adatokra az 1500-nál nagyobb mérétu adatok összegét*/
 /*Mr_HumanRebel*/
 
 SEED<-2
