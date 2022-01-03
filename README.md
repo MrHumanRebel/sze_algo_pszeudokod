@@ -23,5 +23,7 @@ Tanár Úr: http://rs1.sze.hu/~pusztai/
 
 Program: http://www.sze.hu/~pusztai/PszKodIDE.zip
 
+Impera: https://impera.sze.hu/letoltes/impera_beszamolo_x64.msi
+
 
 ![image](https://user-images.githubusercontent.com/80947401/147931387-182e97d9-6507-485a-b21b-a614b04509f0.png)
