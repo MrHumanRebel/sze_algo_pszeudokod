@@ -5,9 +5,10 @@ Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/MrHumanRebel/Pszeudokod)
 ![GitHub all releases](https://img.shields.io/github/downloads/MrHumanRebel/Pszeudokod/total)
 
-
 Pszeudokód mintafeladatok by @MrHumanRebel and @szkly // © 2022
 
+
+## Információk
 Csak oktatási célokra használd saját felelősségre! A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak!
 
 Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez!
@@ -16,13 +17,15 @@ A formátum .txt vagy .dat lehet!
 
 #algovizsganebukjmeg
 
+## Extra anyagok
+
 Extra .pdf/.png anyagokért ZH-ra és vizsgára bármilyen "alkoholtartalmú üdítőért" vagy "fagyipénzért" cserébe keresd @MrHumanRebel-t.
 
 Discord: Mr_HumanRebel#0023
 
 
 
-**Linkek**
+## Linkek
 
 Egyetem: https://www.uni.sze.hu/
 
