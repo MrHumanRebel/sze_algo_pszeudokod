@@ -1,0 +1,21 @@
+Funkció                                 Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________________
+A sztringek                             A             STR_VEKTOR                      M       
+Az aktuális sztringhez tartozó db szám  DB            Egész                           M       
+A minimális DB szám                     MIN           Egész                           M,O     
+Az aktuálisan vizsgált sztring indexe   I             Egész                           M       
+Az aktuálisan vizsgált karakter indexe  J             Egész                           M       
+                                                                                              
+
+STR_VEKT_GEN(A,30,20,2)
+for I<-1,30
+  DB<-0
+  for J<-1,LENGTH(A[I])
+    if NOT (A[I][J] IN ['0'..'9'])
+      DB<-DB+1
+  if I=1
+    MIN<-DB
+  else
+    if DB<MIN
+      MIN<-DB
+Ki: MIN

@@ -1,0 +1,12 @@
+Funkció                         Azonosító     Típus                                     Jelleg  
+________________________________________________________________________________________________
+Fájlváltozó                     F             Egész típusú adatokból álló típusos fájl  M       
+Fájlnév                         FNEV          Sztring                                   I       
+Aktuális szám                   AKT           Egész                                     M       
+                                                                                                
+
+FNEV<-"C:\Users\Dorián\Desktop\teszt"
+NYIT(F,FNEV,"I")
+while NOT FAJLVEGE(F)
+  Be F:AKT
+  Ki: AKT

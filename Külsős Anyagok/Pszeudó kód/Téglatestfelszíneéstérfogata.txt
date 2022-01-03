@@ -1,0 +1,15 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Téglatest A oldala              A             Valós                           I       
+Téglatest B oldala              B             Valós                           I       
+Téglatest C oldala              C             Valós                           I       
+Téglatest térfogata             T             Valós                           I       
+Téglatest felszíne              F             Valós                           I       
+                                                                                      
+
+/*A téflatest adatai*/
+Be:A,B,C
+T<-A*B*C
+F<-2*(A*B+A*C+C*B)
+Ki: "Térfogat:", T
+Ki: "Felszín:", F

@@ -1,0 +1,15 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A generált számok               A             Egész                           M       
+A megfelelõ elemek darabszáma   DB            Egész                           M       
+A megfelelõ elemek összege      OSSZ          Egész                           M       
+Az aktuálisan vizsgált szám     I             Egész                           M       
+                                                                                      
+
+NUM_VEKT_GEN(A,80,0,5000,2)
+DB<-OSSZ<-0
+for I<-1,80
+  if A[I]>1000
+    DB<-DB+1
+    OSSZ<-OSSZ+A[I]
+Ki:1.0*OSSZ/DB

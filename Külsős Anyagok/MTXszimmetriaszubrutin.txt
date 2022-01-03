@@ -1,0 +1,29 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+                                                                                      
+
+
+
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Mátrix mérete                   N             Egész                                                 I       
+Ciklusváltozó(sorok)            I             Egész                                                 M       
+Ciklusváltozó(oszlopok)         J             Egész                                                 M       
+Vizsgált MTX                    MTX           Kétdimenziós Egész típusú adatokból álló tömb[50,50]  I       
+Eredmény                        ER            Logikai                                               M,O     
+                                                                                                            
+
+SZIMM(N, MTX)
+
+ER<-igaz
+I<-1
+while (I<=N-1) AND ER
+  J<-I+1
+  while (J<=N) AND ER
+    if MTX[I,J]<>MTX[J,I]
+      ER<-hamis
+    else
+      J<-J+1
+  I<-I+1
+return ER
+

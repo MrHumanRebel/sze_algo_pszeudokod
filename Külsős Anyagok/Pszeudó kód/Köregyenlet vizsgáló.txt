@@ -1,0 +1,31 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+P pont X koordinátája           X             Valós                           I       
+P pont Y koordinátája           Y             Valós                           I       
+Kör sugar                       R             Valós                           I       
+Kör középpontjának X-e          KX            Valós                           I       
+Kör középpontjának Y-nya        KY            Valós                           I       
+Eredmény1                       ER1           Valós                           M,O     
+Eredmény 2                      ER2           Valós                           M,O     
+Eredmény                        ER            Valós                           M,O     
+                                                                                      
+
+/*"A kör középpontjának bekérése"*/
+Be:KX,KY
+Ki: "A kör középpontjának X-e:", KX
+Ki: "A kör középpontjának Y-nya:", KY
+/*"A kör sugarának bekérése"*/
+Be: R
+Ki: "A kör sugara:",R
+/*"A P pont X,Y koordinátájának bekérése"*/
+Be: X,Y
+Ki: "Az adott pont X-e:", X
+Ki: "Az adott pont Y-nya:", Y
+ER1<-SQR(X-KX)
+Ki: ER1
+ER2<-SQR(Y-KY)
+Ki: ER2
+if ER1+ER2=R
+  Ki: "A pont a körvonalon van"
+else
+  Ki: "A pont nincs a körvonalon"

@@ -1,0 +1,10 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Ciklusváltozó                   I             Egész                           M,O     
+                                                                                      
+
+I<-1
+repeat
+  Ki:I
+  I<-I+1
+until I>10
