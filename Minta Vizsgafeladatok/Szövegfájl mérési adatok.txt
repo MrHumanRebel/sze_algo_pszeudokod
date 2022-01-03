@@ -22,7 +22,7 @@ J                               J             Egész                             
 /*Mr_HumanRebel*/
 
 
-NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Minta Vizsga\Minta Vizsgafeladatok\Adatok\mérési adatok két adattal.txt","I")
+NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\mérési adatok két adattal.txt","I")
 DB<-OSSZEG<-0
 
 while NOT FAJLVEGE(F)
