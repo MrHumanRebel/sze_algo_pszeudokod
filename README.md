@@ -35,5 +35,5 @@ Program: http://www.sze.hu/~pusztai/PszKodIDE.zip
 
 Impera: https://impera.sze.hu/letoltes/impera_beszamolo_x64.zip
 
+<img src="https://github.com/MrHumanRebel/Pszeudokod/blob/main/Log%C3%B3/pszkod.png?raw=true" alt="PszKod" width="200" height="200">
 
-![](https://github.com/MrHumanRebel/Pszeudokod/blob/main/Log%C3%B3/pszkod.png?raw=true=150x150)
