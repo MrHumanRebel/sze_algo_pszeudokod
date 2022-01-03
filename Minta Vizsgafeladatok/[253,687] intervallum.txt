@@ -1,0 +1,23 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+DB                              DB            Egész                           M,O     
+Ciklvált                        I             Egész                           M       
+Ciklvált                        J             Egész                           M       
+Cikvált                         K             Egész                           M       
+                                                                                      
+
+/*Hány olyan egész szám van a [253,687] intervallumban, amelyben a tízes helyi értéken legfeljebb */
+/*akkora szám áll, mint az egyes helyi értéken?*/
+/*Mr_HumanRebel*/
+
+DB<-0
+
+for K<-2, 6
+  for I<-1, 10
+    for J<-1, 10
+      if J <= I
+        DB<- DB+1
+      else
+        DB<- 0
+
+Ki: DB
