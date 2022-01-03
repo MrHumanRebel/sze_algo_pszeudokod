@@ -55,7 +55,7 @@ NUM_VEKT_GEN(A,80,0,5000,2)
 
 for I<-1, 80
   if A[I] > 1000
-    OSSZ<-OSSZ+I
+    OSSZ<-OSSZ+A[I]
     DB<-DB+1
 ATL<-OSSZ/DB
 
