@@ -37,9 +37,10 @@ Program: http://www.sze.hu/~pusztai/PszKodIDE.zip
 
 Impera: https://impera.sze.hu/letoltes/impera_beszamolo_x64.zip
 
-<img src="https://github.com/MrHumanRebel/Pszeudokod/blob/main/Repo/pszkodide.png?raw=true" alt="PszKod" width="300" height="259">
+<img src="https://github.com/MrHumanRebel/Pszeudokod/blob/main/Repo/pszkodide.png?raw=true" alt="Ide" width="600" height="519">
 
-<img src="(https://github.com/MrHumanRebel/Pszeudokod/blob/main/Repo/impera.png?raw=true)" alt="PszKod" width="300" height="430">
+
+<img src="(https://github.com/MrHumanRebel/Pszeudokod/blob/main/Repo/impera.png?raw=true)" alt="Impera" width="418" height="600">
 
 
 
