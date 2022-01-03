@@ -5,7 +5,7 @@
 
 **Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák**
 
-<img src="https://github.com/MrHumanRebel/Pszeudokod/blob/main/Repo/pszkod.png?raw=true" alt="PszKod" width="200" height="200">
+<img src="Repo/pszkod.png" alt="PszKod" width="200" height="200">
 
 *Pszeudokód mintafeladatok by @MrHumanRebel and @szkly // © 2022*
 
@@ -25,23 +25,21 @@ Például: [NYIT(VALAMI,"CSERÉLJ KI.formátum","VALAMI"]
 
 *Discord: Mr_HumanRebel#0023*
 
-
-
 ## Linkek
 
-Egyetem: https://www.uni.sze.hu/
+[Egyetem](https://www.uni.sze.hu/)
 
-Tanár Úr: http://rs1.sze.hu/~pusztai/
+[Pusztai Pál \(RS1\)](http://rs1.sze.hu/~pusztai/)
 
-Program: http://www.sze.hu/~pusztai/PszKodIDE.zip
+[PszKodIDE](http://www.sze.hu/~pusztai/PszKodIDE.zip)
 
-Impera: https://impera.sze.hu/letoltes/impera_beszamolo_x64.zip
+[Impera](https://impera.sze.hu/letoltes/impera_beszamolo_x64.zip)
 
 
 
-<img src="https://github.com/MrHumanRebel/Pszeudokod/blob/main/Repo/impera.png?raw=true" alt="Impera" width="418" height="600">
+<img src="Repo/impera.png" alt="Impera" width="418" height="600">
 
-<img src="https://github.com/MrHumanRebel/Pszeudokod/blob/main/Repo/pszkodide.png?raw=true" alt="Ide" width="600" height="519">
+<img src="Repo/pszkodide.png" alt="IDE" width="600" height="519">
 
 
 
