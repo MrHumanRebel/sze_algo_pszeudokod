@@ -1,0 +1,37 @@
+Konstans
+
+FAJL "C:\Users\szkly\Downloads\PszKodIDE\Adatok.dat"
+
+Típus
+
+ADATREK Rekord
+  DATUM Sztring[10] /* A mérés dátuma éééé.hh.nn alakban */
+  ADAT  Valós       /* A mért adat */
+
+Funkció                              Azonosító     Típus                                       Jelleg  
+_______________________________________________________________________________________________________
+Típusos fájl                         F             ADATREK típusú adatokból álló típusos fájl  M       
+Aktuális adat                        SOR           ADATREK                                     M       
+A hónap az aktuális sorból           HO            Sztring                                     M       
+Már be lett állítva-e MAX v. értéke  MAR_BE        Logikai                                     M       
+A 7. hónap maximum értéke            MAX           Valós                                       M,O     
+                                                                                                       
+
+NYIT(F,FAJL,"I")
+
+MAR_BE <- hamis
+
+while NOT FAJLVEGE(F)
+  Be F: SOR
+  HO <- COPY(SOR.DATUM,6,2)
+  if HO = "07"
+    if NOT MAR_BE
+      MAR_BE <- igaz
+      MAX <- SOR.ADAT
+
+    if MAX < SOR.ADAT
+      MAX <- SOR.ADAT
+
+Ki: MAX
+
+ZAR(F)
