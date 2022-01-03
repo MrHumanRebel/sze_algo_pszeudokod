@@ -5,6 +5,8 @@ Pszeudokód mintafeladatok by @MrHumanRebel and @szkly // © 2022
 
 A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak.
 
+Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez! [NYIT(VALAMI,"CSERÉLJ KI","VALAMI"]
+
 #algovizsganebukjmeg
 
 Extra .pdf/.png anyagokért ZH-ra és vizsgára bármilyen "alkoholtartalmú üdítőért" vagy "fagyipénzért" cserébe keresd @MrHumanRebel-t.
