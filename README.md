@@ -7,7 +7,7 @@ A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a leg
 
 Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez!
 Például: [NYIT(VALAMI,"CSERÉLJ KI.formátum","VALAMI"] 
-A formátum .txt vagy .dat lehet.
+A formátum .txt vagy .dat lehet!
 
 #algovizsganebukjmeg
 
