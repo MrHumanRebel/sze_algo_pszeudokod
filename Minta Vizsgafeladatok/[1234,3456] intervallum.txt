@@ -1,0 +1,33 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+NEMOSZTOTOS                     NEMOSZTOTOS   Egész                           M,O     
+OSZTHETES                       OSZTHETES     Egész                           M,O     
+I                               I             Egész                           M       
+J                               J             Egész                           M       
+K                               K             Egész                           M       
+X                               X             Egész                           M       
+                                                                                      
+
+/*Hány olyan egész szám van az [1234,3456] intervallumban, amelyre a következo két állítás közül */
+/*pontosan az egyik igaz?*/
+/*a) A szám nem osztható 5-tel.*/
+/*b) A szám osztható 7-tel.*/
+/*Mr_HumanRebel*/
+NEMOSZTOTOS<-0
+OSZTHETES<-0
+
+for I<-1,3
+  for J<-0,9
+    for K<-0,9
+      for X<-0,9
+        if (X=5) OR (X=0)
+          NEMOSZTOTOS<- NEMOSZTOTOS+1 
+        if ((I+J+K)-2*X) MOD 7 = 0
+          OSZTHETES<- OSZTHETES+1 
+
+
+Ki: "Ötössel nem osztható DB: ", NEMOSZTOTOS
+Ki: "Hetessel osztható DB: ", OSZTHETES
+
+
+
