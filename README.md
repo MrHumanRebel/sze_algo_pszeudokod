@@ -1,5 +1,5 @@
 # Pszeudokod
-Széchenyi István Egyetem Győr Algoritmusok és adatstruktúrák
+Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák
 
 Pszeudokód mintafeladatok by @MrHumanRebel and @szkly // © 2022
 
