@@ -37,9 +37,7 @@ Feladatlap-kitöltő program, amivel bejelentkezés után feladatlapokat kérhet
 
 <img src="Repo/impera.png" alt="Impera" width="418" height="600">
 
-## Hasznos linkek
-
-[Egyetem](https://www.uni.sze.hu/)
+## Linkek
 
 [Pusztai Pál (RS1)](http://rs1.sze.hu/~pusztai/)
 
