@@ -1,46 +1,46 @@
-FunkciÃ³                         AzonosÃ­tÃ³     TÃ­pus                                                 Jelleg  
+Funkció                         Azonosító     Típus                                                 Jelleg  
 ____________________________________________________________________________________________________________
-Adatsor Hossza                  N             EgÃ©sz                                                 I       
-AktuÃ¡lis Adat                   AKT           ValÃ³s                                                 M       
-CiklusV                         I             EgÃ©sz                                                 M       
-Adatsor AktuÃ¡lis Hossza         HOSSZ         ValÃ³s                                                 M       
-TÃ¶mb                            A             EgydimenziÃ³s EgÃ©sz tÃ­pusÃº adatokbÃ³l Ã¡llÃ³ tÃ¶mb[255]    M,O     
-Random Seed                     X             EgÃ©sz                                                 I       
-Adathossz TÃ¶mb                  B             EgydimenziÃ³s EgÃ©sz tÃ­pusÃº adatokbÃ³l Ã¡llÃ³ tÃ¶mb[255]    M,O     
-CserevÃ¡ltozÃ³                    CS            EgÃ©sz                                                 M       
-CikusV RLD                      J             EgÃ©sz                                                 M       
-Adott SzÃ³                       SZO           Sztring                                               I,M     
-FÃ¡jlvÃ¡ltozÃ³                     F             SzÃ¶vegfÃ¡jl                                            M,O     
-Adat MÃ¡trix                     MTX           KÃ©tdimenziÃ³s EgÃ©sz tÃ­pusÃº adatokbÃ³l Ã¡llÃ³ tÃ¶mb[255,2]  M,O     
-SzÃ³ hossza                      SZOHOSSZ      EgÃ©sz                                                 M       
-FÃ¡jlnÃ©v                         FAJLNEV       Sztring                                               I       
-FÃ¡jlnÃ©v TÃ­pusos                 TIPFAJL       Sztring                                               I       
-Szring TÃ¶mb                     SA            EgydimenziÃ³s Sztring tÃ­pusÃº adatokbÃ³l Ã¡llÃ³ tÃ¶mb[255]  M,O     
-Nulla SzÃ¡mlÃ¡lÃ³                  DB            EgÃ©sz                                                 M,O     
-CiklV RLD2                      K             EgÃ©sz                                                 M       
+Adatsor Hossza                  N             Egész                                                 I       
+Aktuális Adat                   AKT           Valós                                                 M       
+CiklusV                         I             Egész                                                 M       
+Adatsor Aktuális Hossza         HOSSZ         Valós                                                 M       
+Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
+Random Seed                     X             Egész                                                 I       
+Adathossz Tömb                  B             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
+Csereváltozó                    CS            Egész                                                 M       
+CikusV RLD                      J             Egész                                                 M       
+Adott Szó                       SZO           Sztring                                               I,M     
+Fájlváltozó                     F             Szövegfájl                                            M,O     
+Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
+Szó hossza                      SZOHOSSZ      Egész                                                 M       
+Fájlnév                         FAJLNEV       Sztring                                               I       
+Fájlnév Típusos                 TIPFAJL       Sztring                                               I       
+Szring Tömb                     SA            Egydimenziós Sztring típusú adatokból álló tömb[255]  M,O     
+Nulla Számláló                  DB            Egész                                                 M,O     
+CiklV RLD2                      K             Egész                                                 M       
                                                                                                             
 
-/*FelhasznÃ¡lÃ³ Ã¡ltal megadott paramÃ©terek*/
+/*Felhasználó által megadott paraméterek*/
 /*Mr_HumanRebel*/
 
-Ki:"Adja meg az adatok darabszÃ¡mÃ¡t"
+Ki:"Adja meg az adatok darabszámát"
 Be: N/*(1-255)*/
-Ki:"Adja meg a randomizÃ¡tor hatÃ¡rÃ©rtÃ©kÃ©t"
+Ki:"Adja meg a randomizátor határértékét"
 Be: X/*(1-255)*/
-Ki:"Adjon meg egy karakterlÃ¡ncot"
-Be: SZO/*BÃ¡rmilyen sztring*/
-FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok Ã©s adatstruktÃºrÃ¡k\Vizsgafeladatok\Adatok\rendezett adatsor csÃ¶kkenoben.txt"/*GenerÃ¡lt fÃ¡jl*/
-TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok Ã©s adatstruktÃºrÃ¡k\Vizsgafeladatok\Adatok\rendezett adatsor nÃ¶vekvoben.dat"/*GenerÃ¡lt fÃ¡jl*/
+Ki:"Adjon meg egy karakterláncot"
+Be: SZO/*Bármilyen sztring*/
+FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor csökkenoben.txt"/*Generált fájl*/
+TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor növekvoben.dat"/*Generált fájl*/
 
 
-/*DeklarÃ¡ciÃ³*/
+/*Deklaráció*/
 AKT<-0
 HOSSZ<-0
 DB<-0
 SZOHOSSZ<-LENGTH(SZO)
 
 
-Ki:"Alapadatok generÃ¡lÃ¡sa..."
+Ki:"Alapadatok generálása..."
 Ki:"Alapadatok:"
 
 for I<-1,N
@@ -53,7 +53,7 @@ for I<-1,N
       A[I]<-AKT*RANDOM(X)
   Ki:A[I]
 
-Ki:"Alapadatok karakterhosszÃ¡nak meghatÃ¡rozÃ¡sa..."
+Ki:"Alapadatok karakterhosszának meghatározása..."
 Ki: "Adatsor karakterhossza:"
 
 for I<-1,N
@@ -62,7 +62,7 @@ for I<-1,N
   HOSSZ<-0
   Ki: B[I]
 
-Ki:"Alapadatok rendezÃ©se csÃ¶kkeno sorrendben..."
+Ki:"Alapadatok rendezése csökkeno sorrendben..."
 
 for I<-1,N-1
   for J<-N,I+1,-1
@@ -72,8 +72,8 @@ for I<-1,N-1
       A[J-1]<-CS
 
 
-Ki:"Rendezett adatsor kiÃ­rÃ¡sa egy szÃ¶veges fÃ¡jlba..."
-Ki:"Rendezett adatok adatsor hossz alapjÃ¡n csÃ¶kkeno sorrendben:"
+Ki:"Rendezett adatsor kiírása egy szöveges fájlba..."
+Ki:"Rendezett adatok adatsor hossz alapján csökkeno sorrendben:"
 
 
 NYIT(F,FAJLNEV,"O")
@@ -84,13 +84,13 @@ for I<-1,N
 
 ZAR(F)
 
-Ki:"Program PAUSE, lehetosÃ©g a kiÃ­rt fÃ¡jl mÃ³dosÃ­tÃ¡sÃ¡ra..."
+Ki:"Program PAUSE, lehetoség a kiírt fájl módosítására..."
 
-Ki:"A .txt-be most mÃ³dosÃ­that adatokat a folyatatÃ¡s elott!"
+Ki:"A .txt-be most módosíthat adatokat a folyatatás elott!"
 VARAKOZAS
 
 
-Ki: "Adatsor Ãºjra beolvasÃ¡sa szÃ¶veges fÃ¡jlbÃ³l..."
+Ki: "Adatsor újra beolvasása szöveges fájlból..."
 NYIT(F,FAJLNEV,"I")
 I<-1
 
@@ -102,15 +102,15 @@ while NOT FAJLVEGE(F)
 ZAR(F)
 
 
-Ki:"Az Ã¶sszes Ãºj adat kiÃ­rÃ¡sa egy mÃ¡trixba..."
+Ki:"Az összes új adat kiírása egy mátrixba..."
 
 for I<-1,N
   MTX[I,1]<-A[I]
   MTX[I,2]<-B[I]
 
 
-Ki:"Ãšjra beolvasott adatok rendezÃ©se nÃ¶vekvo sorrendben a mÃ¡trixban..."
-Ki:"Ãšj adatok nÃ¶vekvo sorrendben:"
+Ki:"Újra beolvasott adatok rendezése növekvo sorrendben a mátrixban..."
+Ki:"Új adatok növekvo sorrendben:"
 
 for I<-1,N-1
   for J<-N,I+1,-1
@@ -121,7 +121,7 @@ for I<-1,N-1
         MTX[J-1,K]<-CS
   Ki:MTX[I,1]
 
-Ki:"Ãšj adatok kiÃ­rÃ¡sa tÃ­pusos fÃ¡jlba..."
+Ki:"Új adatok kiírása típusos fájlba..."
 
 NYIT(F,TIPFAJL,"O")
 for I<-1,N
@@ -129,14 +129,14 @@ for I<-1,N
 
 ZAR(F)
 
-Ki:"Szubrutin hÃ­vÃ¡sa..."
-Ki:"Szubrutin Ã¡ltal mÃ³dosÃ­tott adatok:"
+Ki:"Szubrutin hívása..."
+Ki:"Szubrutin által módosított adatok:"
 
 for I<-1,N
   A[I]<-SZOHOSSZ-SZAM_R_PLUS(MTX[I,1],X)
   Ki: A[I]
 
-/*HÃ¡ny darab nulla talÃ¡lhatÃ³ a szubrutin Ã¡ltal mÃ³dosÃ­tott szÃ¡mokban Ã¶sszesen?*/
+/*Hány darab nulla található a szubrutin által módosított számokban összesen?*/
 
 for I<-1,N
   SA[I]<-STR(A[I])
@@ -144,11 +144,11 @@ for I<-1,N
     if SA[I][J] = "0"
       DB<-DB+1
 
-Ki:DB," db nulla talÃ¡lhatÃ³ a szubrutin Ã¡ltal mÃ³dosÃ­tott szÃ¡mokban Ã¶sszesen"
+Ki:DB," db nulla található a szubrutin által módosított számokban összesen"
 
-/*Hol van a nulla a szubrutin Ã¡ltal mÃ³dosÃ­tott szÃ¡mokban?*/
+/*Hol van a nulla a szubrutin által módosított számokban?*/
 
-Ki:"A nulla helye a szubrutin Ã¡ltal mÃ³dosÃ­tott szÃ¡mokban: "
+Ki:"A nulla helye a szubrutin által módosított számokban: "
 
 
 for I<-1,N
@@ -156,10 +156,10 @@ for I<-1,N
   if A[I] = 0
     Ki:"Nincs benne nulla"
   else
-    Ki: A[I],".-ik karakter helyÃ©n van a nulla"
+    Ki: A[I],".-ik karakter helyén van a nulla"
 
 
-/*Van 0-tÃ³l 5-ig szÃ¡m Ã©s ha igen hÃ¡ny db a szubrutin Ã¡ltal mÃ³dosÃ­tott szÃ¡mokban?*/
+/*Van 0-tól 5-ig szám és ha igen hány db a szubrutin által módosított számokban?*/
 DB<-0
 
 for I<-1,N
@@ -167,15 +167,15 @@ for I<-1,N
     if (SA[I][J] IN ['0'..'5'])
       DB<-DB+1
 
-Ki:"Ã–sszesen ",DB," db 0-tÃ³l 5-ig szÃ¡m talÃ¡lhatÃ³ a szubrutin Ã¡ltal mÃ³dosÃ­tott szÃ¡mokban"
+Ki:"Összesen ",DB," db 0-tól 5-ig szám található a szubrutin által módosított számokban"
 
-Ki:"Program VÃ©ge..."
+Ki:"Program Vége..."
 
-FunkciÃ³                         AzonosÃ­tÃ³     TÃ­pus                           Jelleg  
+Funkció                         Azonosító     Típus                           Jelleg  
 ______________________________________________________________________________________
-Kapott szÃ¡m                     BE            EgÃ©sz                           I,M     
-Random Seed                     X             EgÃ©sz                           I       
-Kiadott szÃ¡m                    KI            EgÃ©sz                           O       
+Kapott szám                     BE            Egész                           I,M     
+Random Seed                     X             Egész                           I       
+Kiadott szám                    KI            Egész                           O       
                                                                                       
 
 SZAM_R_PLUS(BE,X)
