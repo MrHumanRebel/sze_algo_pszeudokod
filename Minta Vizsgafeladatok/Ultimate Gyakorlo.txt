@@ -14,12 +14,16 @@ Fájlváltozó                     F             Szövegfájl                        
 Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[200,2]  M,O     
 Konzol Bekérés                  BE            Karakter                                              I       
 Szó hossza                      SZOHOSSZ      Egész                                                 M       
+Fájlnév                         FAJLNEV       Sztring                                               I       
+Fájlnév Típusos                 TIPFAJL       Sztring                                               I       
                                                                                                             
 
 /*Felhasználó által megadott paraméterek(1-200)*/
 N<-15
 X<-4
 SZO<-"Gyor"
+FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt"
+TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor növekvoben.dat"
 
 
 /*Deklaráció*/
@@ -61,7 +65,7 @@ for I<-1,N-1
 Ki:"Rendezett adatok adatsor hossz alapján csökkeno sorrendben:"
 
 Ki:"Rendezett adatsor kiírása egy szöveges fájlba..."
-NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt","O")
+NYIT(F,FAJLNEV,"O")
 
 for I<-1,N
   Ki:A[I]
@@ -76,7 +80,7 @@ Ki: "A folytatáshoz nyomjon meg bármilyen karaktert majd nyomjon ENTER-t!"
 Be: BE
 
 Ki: "Adatsor újra beolvasása szöveges fájlból..."
-NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt","I")
+NYIT(F,FAJLNEV,"I")
 I<-1
 
 while NOT FAJLVEGE(F)
@@ -107,4 +111,3 @@ Ki:"Új adatok kiírása típusos fájlba..."
 
 
 Ki:"Program Vége..."
-
