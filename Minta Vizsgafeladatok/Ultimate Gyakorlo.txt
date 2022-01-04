@@ -1,26 +1,6 @@
-Funkció                         Azonosító     Típus                                                 Jelleg  
-____________________________________________________________________________________________________________
-Adatsor Hossza                  N             Egész                                                 I       
-Aktuális Adat                   AKT           Valós                                                 M       
-CiklusV                         I             Egész                                                 M       
-Adatsor Aktuális Hossza         HOSSZ         Valós                                                 M       
-Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
-Random Seed                     X             Egész                                                 I       
-Adathossz Tömb                  B             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
-Csereváltozó                    CS            Egész                                                 M       
-CikusV RLD                      J             Egész                                                 M       
-Adott Szó                       SZO           Sztring                                               I,M     
-Fájlváltozó                     F             Szövegfájl                                            M,O     
-Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
-Konzol Bekérés                  BE            Karakter                                              I       
-Szó hossza                      SZOHOSSZ      Egész                                                 M       
-Fájlnév                         FAJLNEV       Sztring                                               I       
-Fájlnév Típusos                 TIPFAJL       Sztring                                               I       
-                                                                                                            
-
-/*Felhasználó által megadott paraméterek(1-255)*/
-N<-23
-X<-41
+/*Felhasználó által megadott paraméterek*/
+N<-23/*(1-255)*/
+X<-41/*(1-255)*/
 SZO<-"Gyor"
 FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt"
 TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor növekvoben.dat"
@@ -29,6 +9,7 @@ TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszK
 /*Deklaráció*/
 AKT<-0
 HOSSZ<-0
+DB<-0
 SZOHOSSZ<-LENGTH(SZO)
 
 
@@ -127,22 +108,23 @@ for I<-1,N
   A[I]<-SZOHOSSZ-SZAM_R_PLUS(MTX[I,1])
   Ki: A[I]
 
+/*Hány darab nulla található a szubrutin által módosított számokban összesen?*/
 
+for I<-1,N
+  SA[I]<-STR(A[I])
+  for J<-1,LENGTH(SA[I])
+    if SA[I][J] = "0"
+      DB<-DB+1
+
+Ki:DB," db nulla található a szubrutin által módosított számokban összesen"
+
+/*Hol van a nulla a szubrutin által módosított számokban?*/
+
+for I<-1,N
+  A[I]<-POS("0",SA[I])
+  if A[I] = 0
+    Ki:"Nincs benne nulla"
+  else
+    Ki:"A nulla a ", A[I],".-ik karakter helyén van"
 
 Ki:"Program Vége..."
-
-Funkció                         Azonosító     Típus                           Jelleg  
-______________________________________________________________________________________
-Kapott szám                     BE            Egész                           I,M     
-Random Seed                     X             Egész                           M       
-Kiadott szám                    KI            Egész                           O       
-                                                                                      
-
-SZAM_R_PLUS(BE)
-
-X<-150
-
-KI<-BE*RANDOM(X)+69
-
-return KI
-
