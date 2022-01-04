@@ -49,7 +49,7 @@ for I<-1,N
   if NOT (A[I] IN H)
     H<-H + [A[I]]
 
-for I<-1,N
+for I<-1,X
   if I IN H
     Ki: I
 
@@ -88,6 +88,6 @@ for I<-1,N
     if NOT (MTX[I,J] IN H)
       H<-H + [MTX[I,J]]
 
-for I<-1,N
+for I<-1,X
   if I IN H
     Ki: I
