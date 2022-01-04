@@ -1,0 +1,110 @@
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Adatsor Hossza                  N             Egész                                                 I       
+Aktuális Adat                   AKT           Valós                                                 M       
+CiklusV                         I             Egész                                                 M       
+Adatsor Aktuális Hossza         HOSSZ         Valós                                                 M       
+Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
+Random Seed                     X             Egész                                                 I       
+Adathossz Tömb                  B             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
+Csereváltozó                    CS            Egész                                                 M       
+CikusV RLD                      J             Egész                                                 M       
+Adott Szó                       SZO           Sztring                                               I,M     
+Fájlváltozó                     F             Szövegfájl                                            M,O     
+Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[200,2]  M,O     
+Konzol Bekérés                  BE            Karakter                                              I       
+Szó hossza                      SZOHOSSZ      Egész                                                 M       
+                                                                                                            
+
+/*Felhasználó által megadott paraméterek(1-200)*/
+N<-15
+X<-4
+SZO<-"Gyor"
+
+
+/*Deklaráció*/
+AKT<-0
+HOSSZ<-0
+SZOHOSSZ<-LENGTH(SZO)
+
+
+Ki:"Alapadatok generálása..."
+Ki:"Alapadatok:"
+
+for I<-1,N
+  if I=1
+    AKT<-I+RANDOM(X)*RANDOM(X) 
+    A[I]<-AKT
+  else
+    if (I MOD 7 = 0) OR ((I-1*I)MOD 7 = 0)
+      AKT<-AKT+I
+      A[I]<-AKT
+  Ki:A[I]
+
+Ki:"Alapadatok karakterhosszának meghatározása..."
+Ki: "Adatsor karakterhossza:"
+
+for I<-1,N
+  HOSSZ<-HOSSZ+LENGTH(STR(A[I]))
+  B[I]<-HOSSZ
+  Ki: B[I]
+
+Ki:"Alapadatok rendezése csökkeno sorrendben a karakterhossz alapján..."
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if B[J]>B[J-1]
+      CS<-A[J]
+      A[J]<-A[J-1]
+      A[J-1]<-CS
+
+Ki:"Rendezett adatok adatsor hossz alapján csökkeno sorrendben:"
+
+Ki:"Rendezett adatsor kiírása egy szöveges fájlba..."
+NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt","O")
+
+for I<-1,N
+  Ki:A[I]
+  Ki F: A[I]
+
+ZAR(F)
+
+Ki:"Program STOP, lehetoség a kiírt fájl módosítására..."
+
+Ki:"A .txt-be most módosíthat adatokat a folyatatás elott!"
+Ki: "A folytatáshoz nyomjon meg bármilyen karaktert majd nyomjon ENTER-t!"
+Be: BE
+
+Ki: "Adatsor újra beolvasása szöveges fájlból..."
+NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt","I")
+I<-1
+
+while NOT FAJLVEGE(F)
+  Be F: AKT
+  A[I]<-AKT+SZOHOSSZ
+  I<-I+1
+
+ZAR(F)
+
+
+Ki:"Az összes új adat kiírása egy mátrixba..."
+
+for I<-1,N
+  for J<-1,N
+    MTX[1,J]<-A[J]
+    MTX[2,J]<-B[J]
+
+
+Ki:"Újra beolvasott adatok rendezése növekvo sorrendben a mátrixban..."
+
+
+
+
+
+
+Ki:"Új adatok kiírása típusos fájlba..."
+
+
+
+Ki:"Program Vége..."
+
