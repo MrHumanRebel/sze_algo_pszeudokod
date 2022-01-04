@@ -26,8 +26,8 @@ Nulla Számláló                  DB            Egész                         
 N<-15/*(1-255)*/
 X<-200/*(1-255)*/
 SZO<-"Kicsicica01"/*Bármilyen sztring*/
-FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt"/*Generált*/
-TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor növekvoben.dat"/*Generált*/
+FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor csökkenoben.txt"/*Generált*/
+TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor növekvoben.dat"/*Generált*/
 
 
 /*Deklaráció*/
