@@ -4,9 +4,10 @@
 <img src="Repo/pszkod.png" alt="PszKod" width="200" height="200">
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/MrHumanRebel/Pszeudokod)
-![GitHub repo file count](/github/directory-file-count/:user/:repo/:path?extension=txt)
-![GitHub](https://img.shields.io/github/license/MrHumanRebel/Pszeudokod)
+![GitHub repo file count](https://img.shields.io/github/directory-file-count/:user/:repo/:path?extension=txt)
 ![Lines of code](https://img.shields.io/tokei/lines/github/MrHumanRebel/Pszeudokod)
+![GitHub](https://img.shields.io/github/license/MrHumanRebel/Pszeudokod)
+
 
 ## Információk
 **Csak oktatási célokra használd, saját felelősségre!**
