@@ -27,7 +27,7 @@ Discord: [Mr_HumanRebel#0023](https://discord.com/users/283988657851990017)
 
 ## PszKodIDE
 
-**TODO:** Egy kis infó az IDE-ről és annak gyerekbetegségeiről. 
+Pszeudokód fejlesztői környezet.
 
 <img src="Repo/pszkodide.png" alt="IDE" width="600" height="519">
 
