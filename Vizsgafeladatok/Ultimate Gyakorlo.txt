@@ -23,8 +23,11 @@ CiklV RLD2                      K             Egész                             
 /*Felhasználó által megadott paraméterek*/
 /*Mr_HumanRebel*/
 
+Ki:"Adja meg az adatok darabszámát"
 Be: N/*(1-255)*/
+Ki:"Adja meg a randomizátor határértékét"
 Be: X/*(1-255)*/
+Ki:"Adjon meg egy karakterláncot"
 Be: SZO/*Bármilyen sztring*/
 FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor csökkenoben.txt"/*Generált fájl*/
 TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor növekvoben.dat"/*Generált fájl*/
@@ -84,7 +87,6 @@ ZAR(F)
 Ki:"Program PAUSE, lehetoség a kiírt fájl módosítására..."
 
 Ki:"A .txt-be most módosíthat adatokat a folyatatás elott!"
-Ki: "A folytatáshoz nyomjon meg bármilyen karaktert majd nyomjon ENTER-t!"
 VARAKOZAS
 
 
