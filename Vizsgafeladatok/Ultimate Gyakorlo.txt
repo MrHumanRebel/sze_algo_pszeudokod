@@ -39,6 +39,34 @@ HOSSZ<-0
 DB<-0
 SZOHOSSZ<-LENGTH(SZO)
 
+Ki:"A megadott karakterlánc statisztikája:"
+
+for I<-1, LENGTH(SZO)
+  if SZO[I] IN ['0'..'9']
+    DB<-DB+1
+Ki:"Számok száma: ",DB
+DB<-0
+
+for I<-1, LENGTH(SZO)
+  if SZO[I] IN ['a'..'z']
+    DB<-DB+1
+Ki:"Angol kisbetuk száma: ",DB
+DB<-0
+
+for I<-1, LENGTH(SZO)
+  if SZO[I] IN ['A'..'Z']
+    DB<-DB+1
+Ki:"Angol nagybetuk száma: ",DB
+DB<-0
+
+for I<-1, LENGTH(SZO)
+  if NOT (SZO[I] IN ['A'..'Z','a'..'z','0'..'9'])
+    DB<-DB+1
+Ki:"Egyéb karakterek száma: ",DB
+DB<-0
+
+
+
 
 Ki:"Alapadatok generálása..."
 Ki:"Alapadatok:"
