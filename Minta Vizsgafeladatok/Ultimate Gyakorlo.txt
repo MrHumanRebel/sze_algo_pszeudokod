@@ -1,38 +1,38 @@
-Funkció                         Azonosító     Típus                                                 Jelleg  
+FunkciÃ³                         AzonosÃ­tÃ³     TÃ­pus                                                 Jelleg  
 ____________________________________________________________________________________________________________
-Adatsor Hossza                  N             Egész                                                 I       
-Aktuális Adat                   AKT           Valós                                                 M       
-CiklusV                         I             Egész                                                 M       
-Adatsor Aktuális Hossza         HOSSZ         Valós                                                 M       
-Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
-Random Seed                     X             Egész                                                 I       
-Adathossz Tömb                  B             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
-Csereváltozó                    CS            Egész                                                 M       
-CikusV RLD                      J             Egész                                                 M       
-Adott Szó                       SZO           Sztring                                               I,M     
-Fájlváltozó                     F             Szövegfájl                                            M,O     
-Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[200,2]  M,O     
-Konzol Bekérés                  BE            Karakter                                              I       
-Szó hossza                      SZOHOSSZ      Egész                                                 M       
-Fájlnév                         FAJLNEV       Sztring                                               I       
-Fájlnév Típusos                 TIPFAJL       Sztring                                               I       
+Adatsor Hossza                  N             EgÃ©sz                                                 I       
+AktuÃ¡lis Adat                   AKT           ValÃ³s                                                 M       
+CiklusV                         I             EgÃ©sz                                                 M       
+Adatsor AktuÃ¡lis Hossza         HOSSZ         ValÃ³s                                                 M       
+TÃ¶mb                            A             EgydimenziÃ³s EgÃ©sz tÃ­pusÃº adatokbÃ³l Ã¡llÃ³ tÃ¶mb[300]    M,O     
+Random Seed                     X             EgÃ©sz                                                 I       
+Adathossz TÃ¶mb                  B             EgydimenziÃ³s EgÃ©sz tÃ­pusÃº adatokbÃ³l Ã¡llÃ³ tÃ¶mb[300]    M,O     
+CserevÃ¡ltozÃ³                    CS            EgÃ©sz                                                 M       
+CikusV RLD                      J             EgÃ©sz                                                 M       
+Adott SzÃ³                       SZO           Sztring                                               I,M     
+FÃ¡jlvÃ¡ltozÃ³                     F             SzÃ¶vegfÃ¡jl                                            M,O     
+Adat MÃ¡trix                     MTX           KÃ©tdimenziÃ³s EgÃ©sz tÃ­pusÃº adatokbÃ³l Ã¡llÃ³ tÃ¶mb[200,2]  M,O     
+Konzol BekÃ©rÃ©s                  BE            Karakter                                              I       
+SzÃ³ hossza                      SZOHOSSZ      EgÃ©sz                                                 M       
+FÃ¡jlnÃ©v                         FAJLNEV       Sztring                                               I       
+FÃ¡jlnÃ©v TÃ­pusos                 TIPFAJL       Sztring                                               I       
                                                                                                             
 
-/*Felhasználó által megadott paraméterek(1-200)*/
+/*FelhasznÃ¡lÃ³ Ã¡ltal megadott paramÃ©terek(1-200)*/
 N<-15
 X<-4
 SZO<-"Gyor"
-FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt"
-TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor növekvoben.dat"
+FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok Ã©s adatstruktÃºrÃ¡k\PszKodIDE\rendezett adatsor csÃ¶kkenoben.txt"
+TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok Ã©s adatstruktÃºrÃ¡k\PszKodIDE\rendezett adatsor nÃ¶vekvoben.dat"
 
 
-/*Deklaráció*/
+/*DeklarÃ¡ciÃ³*/
 AKT<-0
 HOSSZ<-0
 SZOHOSSZ<-LENGTH(SZO)
 
 
-Ki:"Alapadatok generálása..."
+Ki:"Alapadatok generÃ¡lÃ¡sa..."
 Ki:"Alapadatok:"
 
 for I<-1,N
@@ -45,7 +45,7 @@ for I<-1,N
       A[I]<-AKT
   Ki:A[I]
 
-Ki:"Alapadatok karakterhosszának meghatározása..."
+Ki:"Alapadatok karakterhosszÃ¡nak meghatÃ¡rozÃ¡sa..."
 Ki: "Adatsor karakterhossza:"
 
 for I<-1,N
@@ -53,7 +53,7 @@ for I<-1,N
   B[I]<-HOSSZ
   Ki: B[I]
 
-Ki:"Alapadatok rendezése csökkeno sorrendben a karakterhossz alapján..."
+Ki:"Alapadatok rendezÃ©se csÃ¶kkeno sorrendben a karakterhossz alapjÃ¡n..."
 
 for I<-1,N-1
   for J<-N,I+1,-1
@@ -62,9 +62,9 @@ for I<-1,N-1
       A[J]<-A[J-1]
       A[J-1]<-CS
 
-Ki:"Rendezett adatok adatsor hossz alapján csökkeno sorrendben:"
+Ki:"Rendezett adatok adatsor hossz alapjÃ¡n csÃ¶kkeno sorrendben:"
 
-Ki:"Rendezett adatsor kiírása egy szöveges fájlba..."
+Ki:"Rendezett adatsor kiÃ­rÃ¡sa egy szÃ¶veges fÃ¡jlba..."
 NYIT(F,FAJLNEV,"O")
 
 for I<-1,N
@@ -73,13 +73,13 @@ for I<-1,N
 
 ZAR(F)
 
-Ki:"Program STOP, lehetoség a kiírt fájl módosítására..."
+Ki:"Program STOP, lehetosÃ©g a kiÃ­rt fÃ¡jl mÃ³dosÃ­tÃ¡sÃ¡ra..."
 
-Ki:"A .txt-be most módosíthat adatokat a folyatatás elott!"
-Ki: "A folytatáshoz nyomjon meg bármilyen karaktert majd nyomjon ENTER-t!"
+Ki:"A .txt-be most mÃ³dosÃ­that adatokat a folyatatÃ¡s elott!"
+Ki: "A folytatÃ¡shoz nyomjon meg bÃ¡rmilyen karaktert majd nyomjon ENTER-t!"
 Be: BE
 
-Ki: "Adatsor újra beolvasása szöveges fájlból..."
+Ki: "Adatsor Ãºjra beolvasÃ¡sa szÃ¶veges fÃ¡jlbÃ³l..."
 NYIT(F,FAJLNEV,"I")
 I<-1
 
@@ -91,23 +91,30 @@ while NOT FAJLVEGE(F)
 ZAR(F)
 
 
-Ki:"Az összes új adat kiírása egy mátrixba..."
+Ki:"Az Ã¶sszes Ãºj adat kiÃ­rÃ¡sa egy mÃ¡trixba..."
 
 for I<-1,N
-  for J<-1,N
-    MTX[1,J]<-A[J]
-    MTX[2,J]<-B[J]
+  MTX[I,1]<-A[I]
+  MTX[I,2]<-B[I]
 
 
-Ki:"Újra beolvasott adatok rendezése növekvo sorrendben a mátrixban..."
+Ki:"Ãšjra beolvasott adatok rendezÃ©se nÃ¶vekvo sorrendben a mÃ¡trixban..."
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if MTX[J,1]<MTX[J-1,1]
+      CS<-MTX[J,1]
+      MTX[J,1]<-MTX[J-1,1]
+      MTX[J-1,1]<-CS
+  Ki:MTX[I,1]
+
+Ki:"Ãšj adatok kiÃ­rÃ¡sa tÃ­pusos fÃ¡jlba..."
+
+NYIT(F,TIPFAJL,"O")
+for I<-1,N
+  Ki F: MTX[I,1]
+
+ZAR(F)
 
 
-
-
-
-
-Ki:"Új adatok kiírása típusos fájlba..."
-
-
-
-Ki:"Program Vége..."
+Ki:"Program VÃ©ge..."
