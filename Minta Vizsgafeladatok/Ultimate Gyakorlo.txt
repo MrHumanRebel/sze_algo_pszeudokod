@@ -87,6 +87,7 @@ Ki:"A .txt-be most módosíthat adatokat a folyatatás elott!"
 Ki: "A folytatáshoz nyomjon meg bármilyen karaktert majd nyomjon ENTER-t!"
 Be: BE
 
+
 Ki: "Adatsor újra beolvasása szöveges fájlból..."
 NYIT(F,FAJLNEV,"I")
 I<-1
@@ -152,7 +153,7 @@ for I<-1,N
   if A[I] = 0
     Ki:"Nincs benne nulla"
   else
-    Ki: A[I],".-ik karakter helyén van"
+    Ki: A[I],".-ik karakter helyén van a nulla"
 
 
 /*Van 0-tól 5-ig szám és ha igen hány db a szubrutin által módosított számokban?*/
