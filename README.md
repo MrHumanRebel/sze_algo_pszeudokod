@@ -14,7 +14,7 @@
 
 *A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak!*
 
-Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez! A feladatok **jelentős** részénél egy konstans (`FAJLNEV`) értékét kell kicserélni csak! 
+Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez! A feladatok egy részénél egy konstans (`FAJLNEV`) értékét kell kicserélni. Ha a megoldás nem ezt használja, akkor meg kell keresni a kódban a fájl hivatkozási helyét és azt kicserélni.
 *A formátum .txt vagy .dat lehet csak!*
 
 #algovizsganebukjmeg
