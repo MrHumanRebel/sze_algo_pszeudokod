@@ -23,7 +23,7 @@ Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját 
 
 Extra .pdf/.png anyagokért ZH-ra és vizsgára bármilyen "alkoholtartalmú üdítőért" vagy "fagyipénzért" cserébe keresd MrHumanRebel-t.
 
-Discord: [Mr_HumanRebel#0023](discord.com/users/283988657851990017)
+Discord: [Mr_HumanRebel#0023](https://discord.com/users/283988657851990017)
 
 ## PszKodIDE
 
