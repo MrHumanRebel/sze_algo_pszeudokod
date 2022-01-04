@@ -1,0 +1,71 @@
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Random Seed                     X             Egész                                                 I       
+Szám DB                         N             Egész                                                 I       
+Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
+CiklV                           I             Egész                                                 M       
+CiklV                           J             Egész                                                 M       
+CiklV                           K             Egész                                                 M       
+Mtx                             MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
+Cserevált                       CS            Egész                                                 M       
+                                                                                                            
+
+/*Mr_HumanRebel*/
+
+Ki:"Hány darab számmal?"
+Be: N
+Ki:"Hányas random seed értékkel?"
+Be: X
+
+Ki:" "
+Ki:"Tömb random számok generálása..."
+Ki:" "
+for I<-1,N
+  A[I]<-RANDOM(X)
+  Ki:A[I]
+
+Ki:" "
+Ki:"Tömb számok növekvo sorrendben:"
+Ki:" "
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if A[J]<A[J-1]
+      CS<-A[J]
+      A[J]<-A[J-1]
+      A[J-1]<-CS
+  Ki:A[I]
+
+Ki:" "
+Ki:"Mátrix random számok generálása..."
+Ki:" "
+
+for I<-1,N
+  for J<-1,2
+    MTX[I,J]<-RANDOM(X)
+    Ki: MTX[I,J]
+
+Ki:" "
+Ki:"Mátrix számok csökkeno sorrendben a második oszlop alapján:"
+Ki:" "
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if MTX[J,2]>MTX[J-1,2]
+      for K<-1,2
+        CS<-MTX[J,K]
+        MTX[J,K]<-MTX[J-1,K]
+        MTX[J-1,K]<-CS
+  Ki:"Elso oszlop: ",MTX[I,1]
+  Ki:"Második oszlop: ",MTX[I,2]
+
+
+
+
+
+
+
+    
+
+
+
