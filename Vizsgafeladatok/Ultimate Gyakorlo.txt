@@ -213,7 +213,7 @@ Kiadott szám                    KI            Egész                           O
 
 SZAM_R_PLUS(BE,X)
 
-KI<-BE*RANDOM(X)+VAL(STR(69))
+KI<-BE+RANDOM(X)+VAL(STR(69))
 
 return KI
 
