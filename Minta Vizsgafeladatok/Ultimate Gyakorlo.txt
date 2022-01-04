@@ -4,9 +4,9 @@ Adatsor Hossza                  N             Egész                            
 Aktuális Adat                   AKT           Valós                                                 M       
 CiklusV                         I             Egész                                                 M       
 Adatsor Aktuális Hossza         HOSSZ         Valós                                                 M       
-Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
+Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
 Random Seed                     X             Egész                                                 I       
-Adathossz Tömb                  B             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
+Adathossz Tömb                  B             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
 Csereváltozó                    CS            Egész                                                 M       
 CikusV RLD                      J             Egész                                                 M       
 Adott Szó                       SZO           Sztring                                               I,M     
