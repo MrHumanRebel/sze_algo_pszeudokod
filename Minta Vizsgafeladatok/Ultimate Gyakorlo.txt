@@ -76,7 +76,7 @@ for I<-1,N
 
 ZAR(F)
 
-Ki:"Program STOP, lehetoség a kiírt fájl módosítására..."
+Ki:"Program PAUSE, lehetoség a kiírt fájl módosítására..."
 
 Ki:"A .txt-be most módosíthat adatokat a folyatatás elott!"
 Ki: "A folytatáshoz nyomjon meg bármilyen karaktert majd nyomjon ENTER-t!"
@@ -126,9 +126,6 @@ Ki:"Szubrutin által módosított adatok:"
 for I<-1,N
   A[I]<-SZOHOSSZ-SZAM_R_PLUS(MTX[I,1])
   Ki: A[I]
-
-
-
 
 
 
