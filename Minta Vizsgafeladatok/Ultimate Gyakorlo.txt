@@ -21,9 +21,9 @@ Nulla Számláló                  DB            Egész                         
                                                                                                             
 
 /*Felhasználó által megadott paraméterek*/
-N<-23/*(1-255)*/
-X<-41/*(1-255)*/
-SZO<-"Gyor"
+N<-29/*(1-255)*/
+X<-15/*(1-255)*/
+SZO<-"Kicsicica01"
 FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt"
 TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor növekvoben.dat"
 
