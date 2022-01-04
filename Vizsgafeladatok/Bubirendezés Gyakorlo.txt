@@ -54,12 +54,6 @@ for I<-1,N
     Ki: I
 
 
-
-
-
-
-
-
 Ki:" "
 Ki:"Mátrix random számok generálása..."
 Ki:" "
@@ -82,3 +76,18 @@ for I<-1,N-1
         MTX[J-1,K]<-CS
   Ki:"Elso oszlop: ",MTX[I,1]
   Ki:"Második oszlop: ",MTX[I,2]
+
+Ki:" "
+Ki:"Mátrix számok duplikáltak eltávolítása..."
+Ki:"Mátrix számok duplikáltak nélkül:"
+Ki:" "
+
+H<-[]
+for I<-1,N
+  for J<-1,2
+    if NOT (MTX[I,J] IN H)
+      H<-H + [MTX[I,J]]
+
+for I<-1,N
+  if I IN H
+    Ki: I
