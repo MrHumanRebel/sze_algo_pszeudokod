@@ -29,13 +29,13 @@ Discord: [Mr_HumanRebel#0023](https://discord.com/users/283988657851990017)
 
 Pszeudokód fejlesztői környezet.
 
-<img src="Repo/pszkodide.png" alt="IDE" width="600" height="519">
+<img src="Repo/pszkodide.png" alt="IDE" width="800" height="694">
 
 ## Impera
 
 Feladatlap-kitöltő program, amivel bejelentkezés után feladatlapokat kérhet le a szerverről, vagy kapcsolat nélküli módban gyakorló feladatokat oldhat meg (`.impera`) kiterjesztésű fájlok megnyitásával.
 
-<img src="Repo/impera.png" alt="Impera" width="418" height="600">
+<img src="Repo/impera.png" alt="Impera" width="557" height="800">
 
 ## Linkek
 
