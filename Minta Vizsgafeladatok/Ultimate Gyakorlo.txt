@@ -42,7 +42,7 @@ for I<-1,N
   else
     if (I MOD 7 = 0) OR ((I-1*I)MOD 7 = 0)
       AKT<-AKT+I
-      A[I]<-AKT
+      A[I]<-AKT*RANDOM(X)
   Ki:A[I]
 
 Ki:"Alapadatok karakterhosszának meghatározása..."
@@ -51,20 +51,23 @@ Ki: "Adatsor karakterhossza:"
 for I<-1,N
   HOSSZ<-HOSSZ+LENGTH(STR(A[I]))
   B[I]<-HOSSZ
+  HOSSZ<-0
   Ki: B[I]
 
-Ki:"Alapadatok rendezése csökkeno sorrendben a karakterhossz alapján..."
+Ki:"Alapadatok rendezése csökkeno sorrendben..."
 
 for I<-1,N-1
   for J<-N,I+1,-1
-    if B[J]>B[J-1]
+    if A[J]>A[J-1]
       CS<-A[J]
       A[J]<-A[J-1]
       A[J-1]<-CS
 
-Ki:"Rendezett adatok adatsor hossz alapján csökkeno sorrendben:"
 
 Ki:"Rendezett adatsor kiírása egy szöveges fájlba..."
+Ki:"Rendezett adatok adatsor hossz alapján csökkeno sorrendben:"
+
+
 NYIT(F,FAJLNEV,"O")
 
 for I<-1,N
@@ -117,5 +120,33 @@ for I<-1,N
 
 ZAR(F)
 
+Ki:"Szubrutin hívása..."
+Ki:"Szubrutin által módosított adatok:"
+
+for I<-1,N
+  A[I]<-SZOHOSSZ-SZAM_R_PLUS(MTX[I,1])
+  Ki: A[I]
+
+
+
+
+
 
 Ki:"Program Vége..."
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Kapott szám                     BE            Egész                           I,M     
+Random Seed                     X             Egész                           M       
+Kiadott szám                    KI            Egész                           O       
+                                                                                      
+
+SZAM_R_PLUS(BE)
+
+X<-150
+
+KI<-BE*RANDOM(X)
+
+return KI
+
+
