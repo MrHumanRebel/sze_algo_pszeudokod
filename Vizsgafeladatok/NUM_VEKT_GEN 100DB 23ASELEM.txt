@@ -1,0 +1,101 @@
+Konstans
+
+/* Egész számokat tartalmazó vektor maximális mérete */
+NMAX_NUM_1D 100
+/* Sztringeket tartalmazó vektor maximális mérete */
+NMAX_STR_1D 100
+/* Egész számokat tartalmazó mátrix maximális méretei */
+NMAX_NUM_2D 10
+MMAX_NUM_2D 10
+/* Sztringeket tartalmazó mátrix maximális méretei */
+NMAX_STR_2D 10
+MMAX_STR_2D 10
+/* A sztringek maximális hossza */
+HOSSZMAX 50
+KISBETUK "aábcdeéfghiíjklmnoóöõpqrstuúüûvwxyz"
+NAGYBETUK "AÁBCDEÉFGHIÍJKLMNOÓÖÕPQRSTUÚÜÛVWXYZ"
+SZAMJEGYEK "0123456789"
+EGYEB "'!%$=<>()\/[]#&@{}<,;:.?+-_"
+KARAKTEREK KISBETUK+NAGYBETUK+SZAMJEGYEK+EGYEB
+
+Típus
+
+/* A numerikus tömbök elemtípusa */
+NUM_ELEM Egész
+/* Numerikus vektor */
+NUM_VEKTOR Egydimenziós NUM_ELEM típusú adatokból álló tömb[NMAX_NUM_1D]
+/* Numerikus mátrix */
+NUM_MTX Kétdimenziós NUM_ELEM típusú adatokból álló tömb[NMAX_NUM_2D,MMAX_NUM_2D]
+/* A sztringtömbök elemtípusa */
+STR_ELEM Sztring[HOSSZMAX]
+/* Sztring vektor */
+STR_VEKTOR Egydimenziós STR_ELEM típusú adatokból álló tömb[NMAX_STR_1D]
+/* Sztring mátrix */
+STR_MTX Kétdimenziós STR_ELEM típusú adatokból álló tömb[NMAX_STR_2D,MMAX_STR_2D]
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+A                               A             NUM_VEKTOR                      M,O     
+Cikl                            I             Egész                           M       
+Cikl                            J             Egész                           M       
+Csere                           CS            Egész                           M       
+Cikl                            X             Egész                           M       
+Keres                           K             Egész                           M       
+Keres                           KERES         Egész                           M       
+Ujhely                          UJHELY        Egész                           M       
+                                                                                      
+
+/*A NUM_VEKT_GEN szubrutin segítségével generáljon 100 db, a [-100,100] intervallumba eso egész*/
+/*számot 1-es Seed értékkel, majd rendezze az adatokat növekvo sorrendbe! Adja meg azt, hogy az */
+/*eredetileg 23. helyen szereplo adat hányadik a rendezett adatsorban! Ha ebbol az elembol több is */
+/*szerepelne az adatok között, akkor az elso elofordulásának az indexét adja meg!*/
+/*Mr_HumanRebel*/
+
+NUM_VEKT_GEN(A,100,-100,100,1)
+UJHELY<-0
+
+Ki: "Rendezetlen adatok:"
+for X<-1, 100
+  Ki: A[X]
+
+for K<-1, 100
+  KERES<-A[23] 
+Ki: "A keresett szám:", KERES
+
+
+for I<-1, 99
+  for J<-100,I+1,-1
+    if I>1
+      if A[J] < A[J-1]
+        CS<- A[J]
+        A[J]<- A[J-1]
+        A[J-1]<- CS
+
+Ki: "Rendezett adatok:"
+for X<-1, 100
+  Ki: A[X]
+
+for K<-1, 100
+  if (A[K]=KERES) AND (UJHELY<>KERES)
+    UJHELY<-K 
+Ki: "A keresett szám új helye:", UJHELY
+
+Funkció                          Azonosító     Típus                           Jelleg  
+_______________________________________________________________________________________
+A generált vektor                A             NUM_VEKTOR                      O       
+A generálandó elemek száma       N             Egész                           I       
+A generálandó számok minimuma    TOL           Egész                           I       
+A generálandó számok maximuma    IG            Egész                           I       
+A SEED érték                     SEED          Egész                           I       
+A generálható számok darabszáma  DB            Egész                           M       
+Segédváltozó                     I             Egész                           M       
+                                                                                       
+
+/* Adott méretû (N), véletlen, a [TOL,IG] intervallumba esõ */
+/* egész számokból álló vektor generálása (A-ba), adott SEED érték mellett */
+NUM_VEKT_GEN(A,N,TOL,IG,SEED)
+RANDOMSEED(SEED)
+DB<-IG-TOL+1
+for I<-1,N
+  A[I]<-RANDOM(DB)+TOL
+

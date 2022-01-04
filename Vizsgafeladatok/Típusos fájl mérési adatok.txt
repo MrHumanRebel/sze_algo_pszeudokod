@@ -1,0 +1,41 @@
+Típus
+
+ADATREK Rekord
+  DATUM Sztring[10] /* A mérés dátuma éééé.hh.nn alakban */
+  ADAT  Valós       /* A mért adat */
+
+Funkció                         Azonosító     Típus                                       Jelleg  
+__________________________________________________________________________________________________
+FájlV                           F             ADATREK típusú adatokból álló típusos fájl  I       
+A                               A             ADATREK                                     M       
+DB                              DB            Valós                                       M       
+MAX                             MAX           Valós                                       M,O     
+                                                                                                  
+
+/*Az Adatok.dat típusos fájl mérési adatokat tartalmaz. Az adatfájl rekordjának típusdeklarációja (amit */
+/*a megoldásban használni kell):*/
+/*ADATREK Rekord*/
+/*  DATUM Sztring[10]  A mérés dátuma éééé.hh.nn alakban */
+/*  ADAT  Valós        A mért adat */
+/*Határozza meg a fájlban található adatokra azt, hogy mekkora a legnagyobb, júliusban mért adat!*/
+/*Mr_HumanRebel*/
+
+NYIT(F,"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\fájl mérési adatok.dat","I")
+DB<-MAX<-0
+
+while NOT FAJLVEGE(F)
+  Be F: A
+  if COPY(A.DATUM,6,2)="07"
+    DB<-DB+1
+    if DB=1
+      MAX<-DB
+    else
+      if A.ADAT>MAX
+        MAX<-A.ADAT
+
+if DB=0
+  Ki:"Nincs ilyen adat!"
+else
+  Ki: MAX
+
+ZAR(F)
