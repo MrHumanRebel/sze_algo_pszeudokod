@@ -41,6 +41,7 @@ J                               J             Egész                           M
 CS                              CS            Sztring                         M       
 K                               K             Egész                           M       
 ER                              ER            Sztring                         M,O     
+N                               N             Egész                           M       
                                                                                       
 
 /*A STR_MTX_GEN szubrutin segítségével generáljon egy 10 soros és 5 oszlopos, 25 karakter hosszú*/
@@ -48,16 +49,18 @@ ER                              ER            Sztring                         M,
 /*növekvo sorrendbe! Adja meg az elso 5 db karakterét annak a sztringnek, amelyik az így eloállt mátrix */
 /*1. sorának 5. oszlopába került!*/
 /*Mr_HumanRebel*/
+N<-10
 
-STR_MTX_GEN(A,10,5,25,1)
+STR_MTX_GEN(A,N,5,25,1)
 
-for I <- 1, 9
-  for J <- 1, 9-I
-    if A[J, 3] > A[J + 1, 3]
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if A[J, 3] < A[J - 1, 3]
+      /*Ki: J, " ", J-1*/
       for K <- 1, 5
         CS <- A[J, K]
-        A[J, K] <- A[J + 1, K]
-        A[J + 1, K] <- CS
+        A[J, K] <- A[J - 1, K]
+        A[J - 1, K] <- CS
 
 
 ER <- COPY(A[1,5],1,5)

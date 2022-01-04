@@ -62,7 +62,7 @@ for J<-1,OSZLOPOK
   AKTDB <-0
   for I<-1, SOROK
     for K<-1, LENGTH(MTX[I,J])
-      if MTX[I,J][K] IN ['A'..'a','a'..'z']
+      if MTX[I,J][K] IN ['A'..'Z','a'..'z']
         AKTDB<-AKTDB+1
   if AKTDB>MAXDB
     MAXDB<-AKTDB

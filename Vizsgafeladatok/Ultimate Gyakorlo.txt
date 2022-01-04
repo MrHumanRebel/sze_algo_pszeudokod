@@ -12,22 +12,22 @@ CikusV RLD                      J             Egész                             
 Adott Szó                       SZO           Sztring                                               I,M     
 Fájlváltozó                     F             Szövegfájl                                            M,O     
 Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
-Konzol Bekérés                  BE            Karakter                                              I       
 Szó hossza                      SZOHOSSZ      Egész                                                 M       
 Fájlnév                         FAJLNEV       Sztring                                               I       
 Fájlnév Típusos                 TIPFAJL       Sztring                                               I       
 Szring Tömb                     SA            Egydimenziós Sztring típusú adatokból álló tömb[255]  M,O     
 Nulla Számláló                  DB            Egész                                                 M,O     
+CiklV RLD2                      K             Egész                                                 M       
                                                                                                             
 
 /*Felhasználó által megadott paraméterek*/
 /*Mr_HumanRebel*/
 
-N<-15/*(1-255)*/
-X<-200/*(1-255)*/
-SZO<-"Kicsicica01"/*Bármilyen sztring*/
-FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor csökkenoben.txt"/*Generált*/
-TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor növekvoben.dat"/*Generált*/
+Be: N/*(1-255)*/
+Be: X/*(1-255)*/
+Be: SZO/*Bármilyen sztring*/
+FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor csökkenoben.txt"/*Generált fájl*/
+TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\Vizsgafeladatok\Adatok\rendezett adatsor növekvoben.dat"/*Generált fájl*/
 
 
 /*Deklaráció*/
@@ -85,7 +85,7 @@ Ki:"Program PAUSE, lehetoség a kiírt fájl módosítására..."
 
 Ki:"A .txt-be most módosíthat adatokat a folyatatás elott!"
 Ki: "A folytatáshoz nyomjon meg bármilyen karaktert majd nyomjon ENTER-t!"
-Be: BE
+VARAKOZAS
 
 
 Ki: "Adatsor újra beolvasása szöveges fájlból..."
@@ -113,9 +113,10 @@ Ki:"Új adatok növekvo sorrendben:"
 for I<-1,N-1
   for J<-N,I+1,-1
     if MTX[J,1]<MTX[J-1,1]
-      CS<-MTX[J,1]
-      MTX[J,1]<-MTX[J-1,1]
-      MTX[J-1,1]<-CS
+      for K<-1, 2
+        CS<-MTX[J,K]
+        MTX[J,K]<-MTX[J-1,K]
+        MTX[J-1,K]<-CS
   Ki:MTX[I,1]
 
 Ki:"Új adatok kiírása típusos fájlba..."
@@ -145,8 +146,8 @@ Ki:DB," db nulla található a szubrutin által módosított számokban összesen"
 
 /*Hol van a nulla a szubrutin által módosított számokban?*/
 
-Ki:"A nulla helye a szubrutin által módosított számokban: ",
-Ki:" "
+Ki:"A nulla helye a szubrutin által módosított számokban: "
+
 
 for I<-1,N
   A[I]<-POS("0",SA[I])

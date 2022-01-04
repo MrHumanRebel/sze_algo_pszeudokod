@@ -37,7 +37,7 @@ Funkció                         Azonosító     Típus                             
 _________________________________________________________________________________________________________
 Elsõ dobókocka                  K1            NUM_VEKTOR                                         M       
 Második dobókocka               K2            NUM_VEKTOR                                         M       
-Gyakoriság                      GY            Egydimenziós Egész típusú adatokból álló tömb[11]  M,O     
+Gyakoriság                      GY            Egydimenziós Egész típusú adatokból álló tömb[12]  M,O     
 Dobások száma                   DB            Egész                                              I       
 Ciklusváltozó                   I             Egész                                              M       
 Legkisebb összeg                MIN           Egész                                              M,O     
@@ -62,6 +62,7 @@ for I<-1,11
 
 for I<-1,DB
   GY[K1[I]+K2[I]-1]<-GY[K1[I]+K2[I]-1]+1
+
 
 MIN<-1/*index*/
 MAX<-1/*index*/
