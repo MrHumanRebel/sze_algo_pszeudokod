@@ -5,7 +5,7 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/MrHumanRebel/Pszeudokod)
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/MrHumanRebel/Pszeudokod)
-![GitHub all releases](https://img.shields.io/github/downloads/MrHumanRebel/Pszeudokod/total)
+![GitHub](https://img.shields.io/github/license/MrHumanRebel/Pszeudokod)
 
 ## Információk
 **Csak oktatási célokra használd, saját felelősségre!**
