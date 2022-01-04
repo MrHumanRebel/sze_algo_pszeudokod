@@ -4,9 +4,7 @@
 <img src="Repo/pszkod.png" alt="PszKod" width="200" height="200">
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/MrHumanRebel/Pszeudokod)
-
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/MrHumanRebel/Pszeudokod)
-
 ![GitHub all releases](https://img.shields.io/github/downloads/MrHumanRebel/Pszeudokod/total)
 
 ## Információk
