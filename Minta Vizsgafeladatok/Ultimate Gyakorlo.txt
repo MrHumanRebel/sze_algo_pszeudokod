@@ -142,8 +142,7 @@ SZAM_R_PLUS(BE)
 
 X<-150
 
-KI<-BE*RANDOM(X)
+KI<-BE*RANDOM(X)+69
 
 return KI
-
 
