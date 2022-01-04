@@ -21,8 +21,8 @@ Nulla Számláló                  DB            Egész                         
                                                                                                             
 
 /*Felhasználó által megadott paraméterek*/
-N<-29/*(1-255)*/
-X<-15/*(1-255)*/
+N<-15/*(1-255)*/
+X<-200/*(1-255)*/
 SZO<-"Kicsicica01"
 FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt"
 TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor növekvoben.dat"
@@ -151,6 +151,17 @@ for I<-1,N
     Ki:"Nincs benne nulla"
   else
     Ki: A[I],".-ik karakter helyén van"
+
+
+/*Van 0-tól 5-ig szám és ha igen hány db a szubrutin által módosított számokban?*/
+DB<-0
+
+for I<-1,N
+  for J<-1,LENGTH(SA[I])
+    if (SA[I][J] IN ['0'..'5'])
+      DB<-DB+1
+
+Ki:"Összesen ",DB," db 0-tól 5-ig szám található a szubrutin által módosított számokban"
 
 Ki:"Program Vége..."
 
