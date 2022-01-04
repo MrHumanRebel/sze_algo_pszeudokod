@@ -1,24 +1,25 @@
-Funkció                         Azonosító     Típus                                                 Jelleg  
-____________________________________________________________________________________________________________
-Adatsor Hossza                  N             Egész                                                 I       
-Aktuális Adat                   AKT           Valós                                                 M       
-CiklusV                         I             Egész                                                 M       
-Adatsor Aktuális Hossza         HOSSZ         Valós                                                 M       
-Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
-Random Seed                     X             Egész                                                 I       
-Adathossz Tömb                  B             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
-Csereváltozó                    CS            Egész                                                 M       
-CikusV RLD                      J             Egész                                                 M       
-Adott Szó                       SZO           Sztring                                               I,M     
-Fájlváltozó                     F             Szövegfájl                                            M,O     
-Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
-Szó hossza                      SZOHOSSZ      Egész                                                 M       
-Fájlnév                         FAJLNEV       Sztring                                               I       
-Fájlnév Típusos                 TIPFAJL       Sztring                                               I       
-Szring Tömb                     SA            Egydimenziós Sztring típusú adatokból álló tömb[255]  M,O     
-Nulla Számláló                  DB            Egész                                                 M,O     
-CiklV RLD2                      K             Egész                                                 M       
-                                                                                                            
+Funkció                                   Azonosító     Típus                                                 Jelleg  
+______________________________________________________________________________________________________________________
+Adatsor Hossza                            N             Egész                                                 I       
+Aktuális Adat                             AKT           Valós                                                 M       
+CiklusV                                   I             Egész                                                 M       
+Adatsor Aktuális Hossza                   HOSSZ         Valós                                                 M       
+Tömb                                      A             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
+Random Seed                               X             Egész                                                 I       
+Adathossz Tömb                            B             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
+Csereváltozó                              CS            Egész                                                 M       
+CikusV RLD                                J             Egész                                                 M       
+Adott Szó                                 SZO           Sztring                                               I,M     
+Fájlváltozó                               F             Szövegfájl                                            M,O     
+Adat Mátrix                               MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
+Szó hossza                                SZOHOSSZ      Egész                                                 M       
+Fájlnév                                   FAJLNEV       Sztring                                               I       
+Fájlnév Típusos                           TIPFAJL       Sztring                                               I       
+Szring Tömb                               SA            Egydimenziós Sztring típusú adatokból álló tömb[255]  M,O     
+Nulla Számláló                            DB            Egész                                                 M,O     
+CiklV RLD2                                K             Egész                                                 M       
+Statisztika Tömb 1szam 2kis 3nagy 4egyeb  STAT          Egydimenziós Egész típusú adatokból álló tömb[4]      M,O     
+                                                                                                                      
 
 /*Felhasználó által megadott paraméterek*/
 /*Mr_HumanRebel*/
@@ -45,24 +46,28 @@ for I<-1, LENGTH(SZO)
   if SZO[I] IN ['0'..'9']
     DB<-DB+1
 Ki:"Számok száma: ",DB
+STAT[1]<-DB
 DB<-0
 
 for I<-1, LENGTH(SZO)
   if SZO[I] IN ['a'..'z']
     DB<-DB+1
 Ki:"Angol kisbetuk száma: ",DB
+STAT[2]<-DB
 DB<-0
 
 for I<-1, LENGTH(SZO)
   if SZO[I] IN ['A'..'Z']
     DB<-DB+1
 Ki:"Angol nagybetuk száma: ",DB
+STAT[3]<-DB
 DB<-0
 
 for I<-1, LENGTH(SZO)
   if NOT (SZO[I] IN ['A'..'Z','a'..'z','0'..'9'])
     DB<-DB+1
 Ki:"Egyéb karakterek száma: ",DB
+STAT[4]<-DB
 DB<-0
 
 
@@ -124,7 +129,7 @@ I<-1
 
 while NOT FAJLVEGE(F)
   Be F: AKT
-  A[I]<-AKT+SZOHOSSZ
+  A[I]<-AKT-SZOHOSSZ+STAT[1]-STAT[2]+STAT[3]-STAT[4]
   I<-I+1
 
 ZAR(F)
