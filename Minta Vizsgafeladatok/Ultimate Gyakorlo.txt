@@ -11,16 +11,16 @@ Csereváltozó                    CS            Egész                          
 CikusV RLD                      J             Egész                                                 M       
 Adott Szó                       SZO           Sztring                                               I,M     
 Fájlváltozó                     F             Szövegfájl                                            M,O     
-Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[200,2]  M,O     
+Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
 Konzol Bekérés                  BE            Karakter                                              I       
 Szó hossza                      SZOHOSSZ      Egész                                                 M       
 Fájlnév                         FAJLNEV       Sztring                                               I       
 Fájlnév Típusos                 TIPFAJL       Sztring                                               I       
                                                                                                             
 
-/*Felhasználó által megadott paraméterek(1-200)*/
-N<-15
-X<-4
+/*Felhasználó által megadott paraméterek(1-255)*/
+N<-23
+X<-41
 SZO<-"Gyor"
 FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor csökkenoben.txt"
 TIPFAJL<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\rendezett adatsor növekvoben.dat"
@@ -99,6 +99,7 @@ for I<-1,N
 
 
 Ki:"Újra beolvasott adatok rendezése növekvo sorrendben a mátrixban..."
+Ki:"Új adatok növekvo sorrendben:"
 
 for I<-1,N-1
   for J<-N,I+1,-1
