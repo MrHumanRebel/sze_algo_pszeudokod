@@ -1,3 +1,25 @@
+Funkció                         Azonosító     Típus                                                 Jelleg  
+____________________________________________________________________________________________________________
+Adatsor Hossza                  N             Egész                                                 I       
+Aktuális Adat                   AKT           Valós                                                 M       
+CiklusV                         I             Egész                                                 M       
+Adatsor Aktuális Hossza         HOSSZ         Valós                                                 M       
+Tömb                            A             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
+Random Seed                     X             Egész                                                 I       
+Adathossz Tömb                  B             Egydimenziós Egész típusú adatokból álló tömb[300]    M,O     
+Csereváltozó                    CS            Egész                                                 M       
+CikusV RLD                      J             Egész                                                 M       
+Adott Szó                       SZO           Sztring                                               I,M     
+Fájlváltozó                     F             Szövegfájl                                            M,O     
+Adat Mátrix                     MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
+Konzol Bekérés                  BE            Karakter                                              I       
+Szó hossza                      SZOHOSSZ      Egész                                                 M       
+Fájlnév                         FAJLNEV       Sztring                                               I       
+Fájlnév Típusos                 TIPFAJL       Sztring                                               I       
+Szring Tömb                     SA            Egydimenziós Sztring típusú adatokból álló tömb[255]  M,O     
+Nulla Számláló                  DB            Egész                                                 M,O     
+                                                                                                            
+
 /*Felhasználó által megadott paraméterek*/
 /*Mr_HumanRebel*/
 
@@ -144,3 +166,19 @@ for I<-1,N
 Ki:"Összesen ",DB," db 0-tól 5-ig szám található a szubrutin által módosított számokban"
 
 Ki:"Program Vége..."
+
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Kapott szám                     BE            Egész                           I,M     
+Random Seed                     X             Egész                           M       
+Kiadott szám                    KI            Egész                           O       
+                                                                                      
+
+SZAM_R_PLUS(BE)
+
+X<-150
+
+KI<-BE*RANDOM(X)+VAL(STR(69))
+
+return KI
+
