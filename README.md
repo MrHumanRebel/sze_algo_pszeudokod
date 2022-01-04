@@ -27,7 +27,7 @@ Discord: [Mr_HumanRebel#0023](discord.com/users/283988657851990017)
 
 ## Impera
 
-**TODO:** Impera használatáról pár mondat
+Feladatlap-kitöltő program, amivel bejelentkezés után feladatlapokat kérhet le a szerverről, vagy kapcsolat nélküli módban gyakorló feladatokat oldhat meg (`.impera`) kiterjesztésű fájlok megnyitásával.
 
 <img src="Repo/impera.png" alt="Impera" width="418" height="600">
 
