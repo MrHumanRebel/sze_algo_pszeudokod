@@ -3,10 +3,11 @@
 
 <img src="Repo/pszkod.png" alt="PszKod" width="200" height="200">
 
-![GitHub repo size](https://img.shields.io/github/repo-size/MrHumanRebel/Pszeudokod)
-![GitHub repo file count](https://img.shields.io/github/directory-file-count/:user/:repo/:path?extension=txt)
-![Lines of code](https://img.shields.io/tokei/lines/github/MrHumanRebel/Pszeudokod)
-![GitHub](https://img.shields.io/github/license/MrHumanRebel/Pszeudokod)
+![GitHub repo size](https://img.shields.io/github/repo-size/MrHumanRebel/sze_algo_pszeudokod)
+![GitHub repo file count](https://img.shields.io/github/directory-file-count/MrHumanRebel/sze_algo_pszeudokod)
+![Lines of code](https://img.shields.io/tokei/lines/github/MrHumanRebel/sze_algo_pszeudokod)
+![GitHub](https://img.shields.io/github/license/MrHumanRebel/sze_algo_pszeudokod)
+![GitHub all releases](https://img.shields.io/github/downloads/MrHumanRebel/sze_algo_pszeudokod/total)
 
 
 ## Információk
