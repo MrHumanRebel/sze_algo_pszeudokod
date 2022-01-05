@@ -8,6 +8,7 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/MrHumanRebel/sze_algo_pszeudokod)
 ![GitHub](https://img.shields.io/github/license/MrHumanRebel/sze_algo_pszeudokod)
 ![GitHub all releases](https://img.shields.io/github/downloads/MrHumanRebel/sze_algo_pszeudokod/total)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/MrHumanRebel/sze_algo_pszeudokod)
 
 
 ## Információk
