@@ -15,10 +15,13 @@
 ## Információk
 **Csak oktatási célokra használd, saját felelősségre!**
 
+**A vizsga feladatai jelentősen nehezebbek, mint az itt megtalálható megoldások és minták!**
+
 *A megoldások nem feltétlenül helyesek, ha igen akkor is lehet, hogy nem a legoptimálisabbak!*
 
 Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját módosítani kell a kód működéséhez! A feladatok egy részénél egy konstans (`FAJLNEV`) értékét kell kicserélni. Ha a megoldás nem ezt használja, akkor meg kell keresni a kódban a fájl hivatkozási helyét és azt kicserélni.
 *A formátum csak .txt vagy .dat lehet!*
+
 
 #algovizsganebukjmeg
 
