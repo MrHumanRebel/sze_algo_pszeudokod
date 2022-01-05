@@ -21,7 +21,7 @@ Amennyiben a megoldás használ szöveges/típusos fájlt, az elérési útját 
 
 ## Tananyag
 
-Extra .pdf/.png anyagokért ZH-ra és vizsgára bármilyen "alkoholtartalmú üdítőért" vagy "fagyipénzért" cserébe keresd MrHumanRebel-t.
+Extra .pdf/.png anyagokért ZH-ra és vizsgára keresd MrHumanRebel-t.
 
 Discord: [Mr_HumanRebel#0023](https://discord.com/users/283988657851990017)
 
