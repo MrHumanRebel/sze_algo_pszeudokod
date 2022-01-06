@@ -133,4 +133,4 @@ for I<-1,N
     Ki:ADAT[I,4]
 
 
-Ki: "A 3. legnagyobb átlag adat: ",ADAT[N-3,4]," A hozzá tartozó év: ", ADAT[N-3,1]
+Ki: "A 3. legnagyobb átlag adat: ",ADAT[N-2,4]," A hozzá tartozó év: ", ADAT[N-2,1]
