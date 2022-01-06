@@ -132,5 +132,6 @@ for I<-1,N
   if ADAT[I,1]<>0
     Ki:ADAT[I,4]
 
-
+Ki:" "
 Ki: "A 3. legnagyobb átlag adat: ",ADAT[N-2,4]," A hozzá tartozó év: ", ADAT[N-2,1]
+Ki: "A 4. legnagyobb átlag adat: ",ADAT[N-3,4]," A hozzá tartozó év: ", ADAT[N-3,1]
