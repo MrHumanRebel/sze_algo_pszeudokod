@@ -128,4 +128,4 @@ for I<-1,N
   else
     Ki:"Nem volt adat"
 
-Ki: "A legkisebb érték és a hozzá tartozó év: ",MIN," // ",MINE
+Ki: "A legkisebb átlag értéke és a hozzá tartozó év: ",MIN," // ",MINE
