@@ -1,0 +1,137 @@
+Típus
+
+ADATREK Rekord
+  DATUM Sztring[10] /* A mérés dátuma éééé.hh.nn alakban */
+  ADAT  Valós       /* A mért adat */
+
+Funkció                                    Azonosító     Típus                                                  Jelleg  
+________________________________________________________________________________________________________________________
+Fájlváltozó                                F             ADATREK típusú adatokból álló típusos fájl             I       
+Akt adat                                   A             ADATREK                                                M       
+CiklV                                      I             Egész                                                  M       
+CiklV                                      J             Egész                                                  M       
+CiklV                                      K             Egész                                                  M       
+MTX 1-DATUM 2 ADAT                         ADATOK        Kétdimenziós Sztring típusú adatokból álló tömb[20,2]  M       
+Fajlnev                                    FAJLNEV       Sztring                                                I       
+AdatDB                                     N             Egész                                                  I       
+CsereVált                                  CS            Sztring                                                M       
+Aktuális Év                                AKTEV         Egész                                                  I,M     
+MTX 1-DATUM 2-OSSZADAT 3-EVDB 4-ATLAGADAT  ADAT          Kétdimenziós Valós típusú adatokból álló tömb[20,4]    M,O     
+Darab                                      DB            Egész                                                  M       
+CiklV                                      L             Egész                                                  M       
+                                                                                                                        
+
+/*adatok.dat*/
+/*évenkénti átlagos értékek meghatározása, majd rendezze növekvoben*/
+/*írja ki a 3. legnagyobb értéket ezek közül*/
+/*[2000,2020]-as évekre*/
+/*Mr_HumanRebel*/
+
+FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\Adatok\fájl mérési adatok.dat"
+N<-2020-2000
+AKTEV<-2001
+DB<-0
+
+/*Üres MTX Inicializálás*/
+for I<-1,N
+  for J<-1,4
+    ADAT[I,J]<-0
+
+
+NYIT(F,FAJLNEV,"I")
+
+/*Beolvasás*/
+while NOT FAJLVEGE(F)
+  for I<-1,N
+    Be F: A
+    if ((COPY(A.DATUM,1,4)>="2000")) AND ((COPY(A.DATUM,1,4)<="2020"))
+      ADATOK[I,1]<-A.DATUM
+      ADATOK[I,2]<-STR(A.ADAT)
+
+ZAR(F)
+
+Ki:" "
+Ki:"Rendezetlen adatok :"
+Ki:" "
+
+
+for I<-1,N
+  Ki:"Aktuális dátum: ",ADATOK[I,1]
+  Ki:"Aktuális adat: ",ADATOK[I,2]
+
+Ki:" "
+Ki:"Rendezett adatok :"
+Ki:" "
+
+
+/*Növekvo bubirendezés*/
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if ADATOK[J,1]<ADATOK[J-1,1]
+      for K<-1,2
+        CS<-ADATOK[J,K]
+        ADATOK[J,K]<-ADATOK[J-1,K]
+        ADATOK[J-1,K]<-CS
+
+
+for I<-1,N
+  Ki:"Aktuális dátum: ",ADATOK[I,1]
+  Ki:"Aktuális adat: ",ADATOK[I,2]
+
+
+/*Melyik évbol mennyi darab adat van és ezek átlagainak kiszámítása*/
+
+for I<-1,N
+  for J<-1,N
+    if (COPY(ADATOK[J,1],1,4)) = STR(AKTEV)
+      ADAT[I,1]<-AKTEV
+      ADAT[I,2]<-ADAT[I,2]+VAL(ADATOK[J,2])
+      ADAT[I,3]<-ADAT[I,3]+1
+  if AKTEV<=2020
+    AKTEV<-AKTEV+1
+
+DB<-0
+for I<-1,N
+  if ADAT[I,1]<>0
+    ADAT[I,4]<-(ADAT[I,2])/(ADAT[I,3])
+    Ki:"Következo adat:"
+    Ki:"Dátum: ",ADAT[I,1]
+    Ki:"Összeg adat: ",ADAT[I,2]
+    Ki:"Év darabszám: ",ADAT[I,3]
+    Ki:"Átlag adat: ",ADAT[I,4]
+    Ki:" "
+    DB<-DB+1
+
+Ki:"Összes adat darabszáma: ",DB
+
+Ki:" "
+Ki:"Rendezetlen adatok :"
+Ki:" "
+
+
+for I<-1,N
+  if ADAT[I,1]<>0
+    Ki:ADAT[I,4]
+
+/*Növekvo bubirendezés*/
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if ADAT[J,4]<ADAT[J-1,4]
+      for K<-1,4
+        CS<-STR(ADAT[J,K])
+        ADAT[J,K]<-ADAT[J-1,K]
+        ADAT[J-1,K]<-VAL(CS)
+
+Ki:" "
+Ki:"Rendezett adatok :"
+Ki:" "
+
+
+for I<-1,N
+  if ADAT[I,1]<>0
+    Ki:ADAT[I,4]
+
+Ki:" "
+Ki: "A 3. legnagyobb átlag adat: ",ADAT[N-2,4]," A hozzá tartozó év: ", ADAT[N-2,1]
+Ki: "A 4. legnagyobb átlag adat: ",ADAT[N-3,4]," A hozzá tartozó év: ", ADAT[N-3,1]

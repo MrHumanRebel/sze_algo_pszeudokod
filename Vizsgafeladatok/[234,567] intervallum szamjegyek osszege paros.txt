@@ -1,0 +1,20 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Darab                           DB            Egész                           M,O     
+CiklV                           I             Egész                           M       
+Aktuális string                 AKT           Sztring                         M       
+Akt Összeg                      OSSZ          Egész                           M       
+                                                                                      
+
+/*[234,567] intervallumon hány olyan egész szám van amelyben a számjegyek összege páros szám?*/
+/*Mr_HumanRebel*/
+
+DB<-0
+
+for I<-234,567
+  AKT<-STR(I)
+  OSSZ<-VAL((AKT[1]+AKT[2]+AKT[3]))
+  if OSSZ MOD 2 = 0
+    DB<-DB+1
+
+Ki: DB

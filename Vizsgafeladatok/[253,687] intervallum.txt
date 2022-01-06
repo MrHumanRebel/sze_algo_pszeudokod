@@ -1,0 +1,21 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+DB                              DB            Egész                           M,O     
+Ciklvált                        I             Egész                           M       
+AKT                             AKT           Sztring                         M       
+                                                                                      
+
+/*Hány olyan egész szám van a [253,687] intervallumban, amelyben a tízes helyi értéken legfeljebb */
+/*akkora szám áll, mint az egyes helyi értéken?*/
+/*Mr_HumanRebel*/
+
+
+DB <- 0
+
+for I <- 253, 687
+  AKT <- STR(I)
+/*A sztring indexelheto és azért sztring nem szám*/
+  if AKT[2] <= AKT[3]
+    DB <- DB + 1
+
+Ki: DB

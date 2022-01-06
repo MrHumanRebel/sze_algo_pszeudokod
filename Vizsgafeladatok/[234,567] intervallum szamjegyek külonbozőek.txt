@@ -1,0 +1,21 @@
+Funkció                         Azonosító     Típus                           Jelleg  
+______________________________________________________________________________________
+Darab                           DB            Egész                           M,O     
+CiklV                           I             Egész                           M       
+Aktuális string                 AKT           Sztring                         M       
+Akt Összeg                      OSSZ          Egész                           M       
+                                                                                      
+
+/*[234,567] intervallumon hány olyan egész szám van amelyben a számjegyek különbözoek*/
+/*Mr_HumanRebel*/
+
+DB<-0
+
+for I<-234,567
+  AKT<-STR(I)
+  if AKT[1] <> AKT[2]
+    if AKT[1] <> AKT[3]
+      if AKT[3] <> AKT[2]
+        DB<-DB+1
+
+Ki: DB

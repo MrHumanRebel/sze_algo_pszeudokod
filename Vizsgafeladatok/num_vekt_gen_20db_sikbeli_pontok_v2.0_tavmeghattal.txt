@@ -1,0 +1,127 @@
+Konstans
+
+/* Egész számokat tartalmazó vektor maximális mérete */
+NMAX_NUM_1D 100
+/* Sztringeket tartalmazó vektor maximális mérete */
+NMAX_STR_1D 100
+/* Egész számokat tartalmazó mátrix maximális méretei */
+NMAX_NUM_2D 10
+MMAX_NUM_2D 10
+/* Sztringeket tartalmazó mátrix maximális méretei */
+NMAX_STR_2D 10
+MMAX_STR_2D 10
+/* A sztringek maximális hossza */
+HOSSZMAX 50
+KISBETUK "aábcdeéfghiíjklmnoóöõpqrstuúüûvwxyz"
+NAGYBETUK "AÁBCDEÉFGHIÍJKLMNOÓÖÕPQRSTUÚÜÛVWXYZ"
+SZAMJEGYEK "0123456789"
+EGYEB "'!%$=<>()\/[]#&@{}<,;:.?+-_"
+KARAKTEREK KISBETUK+NAGYBETUK+SZAMJEGYEK+EGYEB
+
+Típus
+
+/* A numerikus tömbök elemtípusa */
+NUM_ELEM Egész
+/* Numerikus vektor */
+NUM_VEKTOR Egydimenziós NUM_ELEM típusú adatokból álló tömb[NMAX_NUM_1D]
+/* Numerikus mátrix */
+NUM_MTX Kétdimenziós NUM_ELEM típusú adatokból álló tömb[NMAX_NUM_2D,MMAX_NUM_2D]
+/* A sztringtömbök elemtípusa */
+STR_ELEM Sztring[HOSSZMAX]
+/* Sztring vektor */
+STR_VEKTOR Egydimenziós STR_ELEM típusú adatokból álló tömb[NMAX_STR_1D]
+/* Sztring mátrix */
+STR_MTX Kétdimenziós STR_ELEM típusú adatokból álló tömb[NMAX_STR_2D,MMAX_STR_2D]
+
+Funkció                                            Azonosító     Típus                                              Jelleg  
+____________________________________________________________________________________________________________________________
+A generált vektor                                  A             NUM_VEKTOR                                         O       
+A generálandó elemek száma                         N             Egész                                              I       
+A generálandó számok minimuma                      TOL           Egész                                              I       
+A generálandó számok maximuma                      IG            Egész                                              I       
+A SEED érték                                       SEED          Egész                                              I       
+A generálható számok darabszáma                    DB            Egész                                              M       
+Segédváltozó                                       I             Egész                                              M       
+A generált vektor Y-nak                            B             NUM_VEKTOR                                         O       
+A seed-je Ynak                                     SEEDY         Egész                                              I       
+Az X koordináták tömbje                            X             Egydimenziós Egész típusú adatokból álló tömb[20]  M       
+Az Y koordináták tömbje                            Y             Egydimenziós Egész típusú adatokból álló tömb[20]  M       
+Távolságok tömbje                                  L             Egydimenziós Valós típusú adatokból álló tömb[20]  M       
+Lö maximális táv                                   MAX           Valós                                              M,O     
+sdsadsa                                            PL            Valós                                              M,O     
+Keresett pont sorszáma(ami meg1ezikXYsorszámával)  S             Egész                                              M       
+                                                                                                                            
+
+/*NUM_VEKT_GEN-el hatmeg. 20db síkbeli pontot úgy, hogy a koordináták [-500,500] intervallumba essenek*/
+/*X-eket 2-es seed-el Y-okat 1-el*/
+/*Határozza meg az origótól legtávolabb lévo pont X távolságát*/ 
+/*(A koordináta másik feladat része, de a teljesség miatt ebbe is bele van implementálva)*/
+/*Ha több ilyen pont is van akkor az elsot adja meg*/
+/*A megoldási menet természetesen más mint Mr_HumanRebel kollegáé*/
+/*Rivalser*/
+
+/*Értékadás*/
+N<-20
+TOL<--500
+IG<-500
+SEED<-2
+SEEDY<-1
+NUM_VEKT_GEN(A,N,TOL,IG,SEED)
+NUM_VEKT_GEN(B,N,TOL,IG,SEEDY)
+/*Az X koordináta meghatározása*/
+for I<-1,20
+  X[I]<-A[I]
+/*  Ki:X[I]*/
+/*Az Y koordináta meghatározása*/
+/*Ki:"|||||||||||||||||||||||||||||"*/
+/*Ki:"|||||||||||||||||||||||||||||"*/
+/*Ki:"|||||||||||||||||||||||||||||"*/
+for I<-1,20
+  Y[I]<-B[I]
+/*  Ki:Y[I]*/
+/*A pontok távolságainak meghatározása OX táv x1-o1 stb...*/
+for I<-1,20
+  L[I]<-SQRT(SQR(X[I]-0)+SQR(Y[I]-1))
+/*MAX<-SQRT(SQR(X[1]-0)+SQR(Y[1]-1))*/
+/*Ki:"A RÉSZEREDMÉNY: ",MAX*/
+/*A maximális táv meghatározása*/
+/*  MAX<-100*/
+  if I=1
+    MAX<-L[1]
+    PL<-L[1]
+    S<-1
+  if (I<>1) AND (L[I]>MAX)
+    MAX<-L[I]
+    S<-I
+/*Ki:"asd ",PL*/
+Ki:"AZ EREDMÉNY: ",MAX
+/*Ki:"|||||||||||||||||||||||||||||"*/
+/*Ki:"|||||||||||||||||||||||||||||"*/
+/*Ki:"|||||||||||||||||||||||||||||"*/
+
+/*A legtávolabbi pont koordinátája*/
+/*Jelen esetben a legtávolabbi pont sorszáma által, ami megegyezik a keresett X és Y koordináták sorszámával,*/
+/* így egy egyszerûbb lekérdezés megadja a MINDIG aktuálisan legnagyobbat,*/
+/*tehát ha pl új távolabbi pontokat adnánk hozzá akkor azok koordinátáját adja ki*/
+Ki: "[",X[S],"]","[",Y[S],"]"," a legtávolabbi pont koordinátája"
+
+Funkció                          Azonosító     Típus                           Jelleg  
+_______________________________________________________________________________________
+A generált vektor                A             NUM_VEKTOR                      O       
+A generálandó elemek száma       N             Egész                           I       
+A generálandó számok minimuma    TOL           Egész                           I       
+A generálandó számok maximuma    IG            Egész                           I       
+A SEED érték                     SEED          Egész                           I       
+A generálható számok darabszáma  DB            Egész                           M       
+Segédváltozó                     I             Egész                           M       
+                                                                                       
+
+/* Adott méretû (N), véletlen, a [TOL,IG] intervallumba esõ */
+/* egész számokból álló vektor generálása (A-ba), adott SEED érték mellett */
+NUM_VEKT_GEN(A,N,TOL,IG,SEED)
+RANDOMSEED(SEED)
+DB<-IG-TOL+1
+for I<-1,N
+  A[I]<-RANDOM(DB)+TOL
+
+

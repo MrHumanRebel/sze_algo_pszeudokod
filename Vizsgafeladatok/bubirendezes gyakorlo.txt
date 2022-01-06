@@ -1,0 +1,93 @@
+Funkció                           Azonosító     Típus                                                 Jelleg  
+______________________________________________________________________________________________________________
+Random Seed                       X             Egész                                                 I       
+Szám DB                           N             Egész                                                 I       
+Tömb                              A             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
+CiklV                             I             Egész                                                 M       
+CiklV                             J             Egész                                                 M       
+CiklV                             K             Egész                                                 M       
+Mtx                               MTX           Kétdimenziós Egész típusú adatokból álló tömb[255,2]  M,O     
+Cserevált                         CS            Egész                                                 M       
+Random számok duplikáltak nélkül  B             Egydimenziós Egész típusú adatokból álló tömb[255]    M,O     
+Halmaz                            H             Egészhalmaz                                           M,O     
+                                                                                                              
+
+/*Mr_HumanRebel*/
+
+Ki:"Hány darab számmal?"
+Be: N
+Ki:"Hányas random seed értékkel?"
+Be: X
+H<-[]
+
+Ki:" "
+Ki:"Tömb random számok generálása..."
+Ki:" "
+for I<-1,N
+  A[I]<-RANDOM(X)
+  Ki:A[I]
+
+Ki:" "
+Ki:"Tömb számok növekvo sorrendben:"
+Ki:" "
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if A[J]<A[J-1]
+      CS<-A[J]
+      A[J]<-A[J-1]
+      A[J-1]<-CS
+  Ki:A[I]
+
+Ki:" "
+Ki:"Tömb számok duplikáltak eltávolítása..."
+Ki:"Tömb számok duplikáltak nélkül:"
+Ki:" "
+
+
+for I<-1,N
+  if NOT (A[I] IN H)
+    H<-H + [A[I]]
+
+for I<-1,X
+  if I IN H
+    Ki: I
+
+
+Ki:" "
+Ki:"Mátrix random számok generálása..."
+Ki:" "
+
+for I<-1,N
+  for J<-1,2
+    MTX[I,J]<-RANDOM(X)
+    Ki: MTX[I,J]
+
+Ki:" "
+Ki:"Mátrix számok csökkeno sorrendben a második oszlop alapján:"
+Ki:" "
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if MTX[J,2]>MTX[J-1,2]
+      for K<-1,2
+        CS<-MTX[J,K]
+        MTX[J,K]<-MTX[J-1,K]
+        MTX[J-1,K]<-CS
+  Ki:"Elso oszlop: ",MTX[I,1]
+  Ki:"Második oszlop: ",MTX[I,2]
+
+Ki:" "
+Ki:"Mátrix számok duplikáltak eltávolítása..."
+Ki:"Mátrix számok duplikáltak nélkül:"
+Ki:" "
+
+H<-[]
+for I<-1,N
+  for J<-1,2
+    if NOT (MTX[I,J] IN H)
+      H<-H + [MTX[I,J]]
+
+for I<-1,X
+  if I IN H
+    Ki: I
