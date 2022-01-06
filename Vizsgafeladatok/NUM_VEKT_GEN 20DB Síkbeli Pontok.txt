@@ -73,8 +73,9 @@ Ki:" "
 for I<-1,N
   P[I,1]<-X[I]
   P[I,2]<-Y[I]
-  Ki:P[I,1]
-  Ki:P[I,2]
+  Ki:"X: ",P[I,1]
+  Ki:"Y: ",P[I,2]
+  Ki:" "
 
 Ki:"Rendezett mátrix adatok X szerint csökkenoben :"
 Ki:" "
