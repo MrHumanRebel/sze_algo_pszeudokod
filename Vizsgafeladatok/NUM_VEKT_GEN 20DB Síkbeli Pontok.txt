@@ -1,0 +1,144 @@
+Konstans
+
+/* Egész számokat tartalmazó vektor maximális mérete */
+NMAX_NUM_1D 100
+/* Sztringeket tartalmazó vektor maximális mérete */
+NMAX_STR_1D 100
+/* Egész számokat tartalmazó mátrix maximális méretei */
+NMAX_NUM_2D 10
+MMAX_NUM_2D 10
+/* Sztringeket tartalmazó mátrix maximális méretei */
+NMAX_STR_2D 10
+MMAX_STR_2D 10
+/* A sztringek maximális hossza */
+HOSSZMAX 50
+KISBETUK "aábcdeéfghiíjklmnoóöopqrstuúüuvwxyz"
+NAGYBETUK "AÁBCDEÉFGHIÍJKLMNOÓÖOPQRSTUÚÜUVWXYZ"
+SZAMJEGYEK "0123456789"
+EGYEB "'!%$=<>()\/[]#&@{}<,;:.?+-_"
+KARAKTEREK KISBETUK+NAGYBETUK+SZAMJEGYEK+EGYEB
+
+Típus
+
+/* A numerikus tömbök elemtípusa */
+NUM_ELEM Egész
+/* Numerikus vektor */
+NUM_VEKTOR Egydimenziós NUM_ELEM típusú adatokból álló tömb[NMAX_NUM_1D]
+/* Numerikus mátrix */
+NUM_MTX Kétdimenziós NUM_ELEM típusú adatokból álló tömb[NMAX_NUM_2D,MMAX_NUM_2D]
+/* A sztringtömbök elemtípusa */
+STR_ELEM Sztring[HOSSZMAX]
+/* Sztring vektor */
+STR_VEKTOR Egydimenziós STR_ELEM típusú adatokból álló tömb[NMAX_STR_1D]
+/* Sztring mátrix */
+STR_MTX Kétdimenziós STR_ELEM típusú adatokból álló tömb[NMAX_STR_2D,MMAX_STR_2D]
+
+Funkció                         Azonosító     Típus                                                Jelleg  
+___________________________________________________________________________________________________________
+Adat Darabszám                  N             Egész                                                I       
+X Koord                         X             NUM_VEKTOR                                           M       
+Y Koord                         Y             NUM_VEKTOR                                           M       
+Mitol                           TOL           Egész                                                I       
+Meddig                          IG            Egész                                                I       
+XSeed                           XSEED         Egész                                                I       
+YSeed                           YSEED         Egész                                                I       
+Pont Mátrix                     P             Kétdimenziós Egész típusú adatokból álló tömb[20,2]  M       
+CiklV                           I             Egész                                                M       
+CiklV                           K             Egész                                                M       
+CiklV                           J             Egész                                                M       
+Cserevált                       CS            Egész                                                M       
+Aktuális legközelebb origóhoz   AKT           Egész                                                M,O     
+                                                                                                           
+
+/*NUM_VEKT_GEN-el 20db síkbeli pontot úgy, hogy a koordináták [-500,500] intervallumba essenek*/
+/*X-eket 2-es seed-el Y-okat 1-el*/
+/*Határozza meg az origótól legtávolabb lévo pont X koordinátáját*/
+/*Ha több ilyen pont is van akkor az elsot adja meg*/
+/*(volt olyan variáció is hogy a legközelebbi Y-t szóval azt is meghatározzuk)*/
+/*Mr_HumanRebel*/
+
+TOL<--500
+IG<-500
+XSEED<-2
+YSEED<-1
+N<-20
+
+NUM_VEKT_GEN(X,N,TOL,IG,XSEED)
+NUM_VEKT_GEN(Y,N,TOL,IG,YSEED)
+
+Ki:"Rendezetlen mátrix adatok(elso szám=> X második szám=> Y :"
+Ki:" "
+
+
+for I<-1,N
+  P[I,1]<-X[I]
+  P[I,2]<-Y[I]
+  Ki:P[I,1]
+  Ki:P[I,2]
+
+Ki:"Rendezett mátrix adatok X szerint csökkenoben :"
+Ki:" "
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if P[J,1]>P[J-1,1]
+      for K<-1,2
+        CS<-P[J,K]
+        P[J,K]<-P[J-1,K]
+        P[J-1,K]<-CS
+
+for I<-1,N
+  Ki:"X: ",P[I,1]
+  Ki:"Y: ",P[I,2]
+  Ki:" "
+
+Ki:"A legnagyobb X koordináta, tehát a legmesszebb origótól: ",P[1,1]
+Ki:" "
+
+Ki:"Rendezett mátrix adatok Y szerint növekvoben :"
+Ki:" "
+
+for I<-1,N-1
+  for J<-N,I+1,-1
+    if P[J,2]<P[J-1,2]
+      for K<-1,2
+        CS<-P[J,K]
+        P[J,K]<-P[J-1,K]
+        P[J-1,K]<-CS
+
+for I<-1,N
+  Ki:"X: ",P[I,1]
+  Ki:"Y: ",P[I,2]
+  Ki:" "
+
+AKT<-P[1,2]
+for I<-1,N
+  if P[I,2]<0
+    if P[I,2] > AKT
+      AKT<-P[I,2]
+  if P[I,2]>0
+    if P[I,2] < AKT
+      AKT<-P[I,2]
+
+
+Ki:"A legközelebb Y koordináta origóhoz : ",AKT
+
+Funkció                          Azonosító     Típus                           Jelleg  
+_______________________________________________________________________________________
+A generált vektor                A             NUM_VEKTOR                      O       
+A generálandó elemek száma       N             Egész                           I       
+A generálandó számok minimuma    TOL           Egész                           I       
+A generálandó számok maximuma    IG            Egész                           I       
+A SEED érték                     SEED          Egész                           I       
+A generálható számok darabszáma  DB            Egész                           M       
+Segédváltozó                     I             Egész                           M       
+                                                                                       
+
+/* Adott méretu (N), véletlen, a [TOL,IG] intervallumba eso */
+/* egész számokból álló vektor generálása (A-ba), adott SEED érték mellett */
+NUM_VEKT_GEN(A,N,TOL,IG,SEED)
+RANDOMSEED(SEED)
+DB<-IG-TOL+1
+for I<-1,N
+  A[I]<-RANDOM(DB)+TOL
+
