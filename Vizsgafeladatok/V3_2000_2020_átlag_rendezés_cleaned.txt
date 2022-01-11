@@ -1,0 +1,71 @@
+Típus
+
+ADATREK Rekord
+  DATUM Sztring[10]
+  ADAT Valós
+
+Funkció                                              Azonosító     Típus                                               Jelleg  
+_______________________________________________________________________________________________________________________________
+A vizsgálandó fájl                                   F             ADATREK típusú adatokból álló típusos fájl          M,O     
+Az aktuálisan vizsgált elem                          A             ADATREK                                             M       
+Az aktuális év                                       EV            Egydimenziós Egész típusú adatokból álló tömb[100]  M,O     
+Az évhez tartozó adat                                NUM           Egydimenziós Valós típusú adatokból álló tömb[100]  M       
+Követelményeknek megfelelõ adatok aktuális db száma  DB            Egész                                               M       
+Segédváltozó                                         I             Egész                                               M       
+Segédváltozó                                         J             Egész                                               M       
+Értékátlag/év tömbje                                 AVG           Egydimenziós Valós típusú adatokból álló tömb[21]   M,O     
+Fájlhossz                                            FL            Egész                                               M       
+Követelményeknek megfelelõ adatok összesége          SUM           Valós                                               M       
+Az adott év átlaga                                   ATLAG         Valós                                               M,O     
+Csereváltozó                                         CS            Valós                                               M       
+                                                                                                                               
+
+/*!!!!!!*/
+/*FONTOS: MIVEL AZ EREDETI FILE NEM ÁLL RENDELKEZÉSEMRE, EGY IDÕJÁRÁSOS FELADAT TÍPUSOSÁT HASZNÁLTAM (ez csak az eredményt befolyásolja, a logika ugyan az)*/
+/*!!!!!!*/
+
+/*Az Adatok.dat-ból rendezze csökkenõen az éves mennyiségek átlagát,*/
+/*(évek: 2000-2020), majd írja ki a 4. legnagyobb átlagot!*/
+/*          Rivalser          */
+
+NYIT(F,"D:\Programok\PszKodIDE\szövegek\Adatok.dat","I")
+FL<-FAJLMERET(F)
+/*Az átlag tömb feltöltése.*/
+for J<-1,20
+  AVG[J]<-0
+/*Beolvasás és eltárolás*/
+for J<-1,FL /*Elég egy ciklus*/
+  Be F: A
+  EV[J]<-VAL(COPY(A.DATUM,1,4))
+  NUM[J]<-A.ADAT
+ZAR(F)
+/*Adatok kigyûjtése, index 2000-2020 mert referencia értékként használható az évekhez*/
+for I<-2000,2020
+  SUM<-DB<-0 /*Új év esetén 0-ra rakni az összeget és a db számot*/
+  for J<-1,FL /*FL (100)*/
+    if I = EV[J]
+      SUM<-SUM+NUM[J]
+      DB<-DB+1
+  ATLAG<- SUM / DB/*Az átlag meghatározása*/
+  AVG[I-2000+1] <- ATLAG /*Ezzel az indexeléssel 20-as méretû tömböt hozunk létre*/
+                         /*Ha a J-t használnánk,csak az utolsó tagban lenne adat,*/
+                         /*hisz mire eljut a program az átlag beszúrására, addigra J már 101. indexen van,*/
+                         /*s mindig csak azt frissítgetné, vagyis*/
+                         /*a 2020-as év átlaga lenne csak a tömben az is az utolsó tagban*/
+
+
+/*Buborékrendezés - csökkenõ */
+for I<-1,19
+  for J<-20,I+1,-1
+    if AVG[J]>AVG[J-1]
+      CS<-AVG[J]
+      AVG[J]<-AVG[J-1]
+      AVG[J-1]<-CS
+
+/*for I<-1,20*/
+/*  Ki:AVG[I]*/
+
+Ki:""
+Ki:""
+Ki:""
+Ki:"A 4. legnagyobb éves átlag: ",AVG[4]
