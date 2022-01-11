@@ -30,15 +30,9 @@ Ossz Adat Darab                            ODB           Egész                  
 
 FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\Adatok\fájl mérési adatok.dat"
 N<-2020-2000
-AKTEV<-2001
+AKTEV<-2000
 DB<-0
 ODB<-0
-
-/*Üres MTX Inicializálás*/
-for I<-1,N
-  for J<-1,4
-    ADAT[I,J]<-0
-
 
 NYIT(F,FAJLNEV,"I")
 
@@ -52,6 +46,12 @@ while NOT FAJLVEGE(F)
       ODB<-ODB+1
 
 ZAR(F)
+
+/*Üres MTX Inicializálás*/
+for I<-1,ODB
+  for J<-1,4
+    ADAT[I,J]<-0
+
 
 Ki:" "
 Ki:"Rendezetlen adatok :"
