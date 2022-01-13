@@ -16,8 +16,11 @@ OK                              OK            Egész                           M,
 OK<-0
 
 for I <- 1234, 3456
-  if (I MOD 5 <> 0) <> (I MOD 7 = 0)
+  if (I MOD 5 <> 0) AND (I MOD 7 = 0)
     OK <- OK + 1
+  if (I MOD 5 = 0) AND (I MOD 7 <> 0)
+    OK <- OK + 1
+
 
 
 Ki: "Megfelel a feltételeknek: ", OK," db"
