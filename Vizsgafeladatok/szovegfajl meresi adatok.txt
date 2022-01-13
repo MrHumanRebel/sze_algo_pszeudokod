@@ -40,14 +40,6 @@ while NOT FAJLVEGE(F)
     DB<-DB+1
     ATL<-OSSZEG/DB
 
-KER[1]<-ATL
-
-/*for J<-1,6*/
-/*  if KER[1] <> [1..9]*/
-/*  if KER[5]>=5*/
-/*    KER[J]<-0*/
-/*    KER[J]<-KER[4]+1*/
-
 Ki: "A mért értékek összege a második negyedévben: ",OSSZEG
 Ki: "A mért értékek darabszáma a második negyedévben: ",DB
 Ki: "A mért értékek átlaga a második negyedévben: ",ATL

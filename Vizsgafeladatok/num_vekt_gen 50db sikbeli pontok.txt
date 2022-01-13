@@ -68,18 +68,12 @@ NUM_VEKT_GEN(Y,N,TOL,IG,YSEED)
 for I<-1, N
   MTX[I,1]<-X[I]
   MTX[I,2]<-Y[I]
+  TAV[I]<-SQRT(SQR((MTX[I,1]-0))+SQR((MTX[I,2]-0)))
 
 for I<-1, N
   Ki:"X Koordináta: ",MTX[I,1]
   Ki:"Y Koordináta: ",MTX[I,2]
-  Ki:" " 
-
-for I<-1,N
-  TAV[I]<-SQRT(SQR((MTX[I,1]-0))+SQR((MTX[I,2]-0)))
-
-for I<-1, N
   Ki:"Adott pont távolsága origótól: ",TAV[I]
-  Ki:" " 
 
 for I<-1,N-1
   for J<-N,I+1,-1
@@ -89,7 +83,6 @@ for I<-1,N-1
       TAV[J-1]<-CS
 
 Ki: "A leghosszabb pont távolsága az origótól: ", TAV[1]
-
 
 Funkció                          Azonosító     Típus                           Jelleg  
 _______________________________________________________________________________________

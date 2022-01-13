@@ -29,7 +29,7 @@ Ossz Adat Darab                            ODB           Egész                  
 /*Mr_HumanRebel*/
 
 FAJLNEV<-"F:\Data\Google Drive\University\Algoritmusok és adatstruktúrák\PszKodIDE\Adatok\fájl mérési adatok.dat"
-N<-2020-2000
+N<-21
 AKTEV<-2000
 DB<-0
 ODB<-0
@@ -90,11 +90,10 @@ for I<-1,ODB
       ADAT[I,1]<-AKTEV
       ADAT[I,2]<-ADAT[I,2]+VAL(ADATOK[J,2])
       ADAT[I,3]<-ADAT[I,3]+1
-  if AKTEV<=2020
-    AKTEV<-AKTEV+1
+  AKTEV<-AKTEV+1
 
 DB<-0
-for I<-1,N
+for I<-1,ODB
   if ADAT[I,1]<>0
     ADAT[I,4]<-(ADAT[I,2])/(ADAT[I,3])
     Ki:"Következo adat:"
@@ -112,14 +111,14 @@ Ki:"Rendezetlen adatok :"
 Ki:" "
 
 
-for I<-1,N
+for I<-1,ODB
   if ADAT[I,1]<>0
     Ki:ADAT[I,4]
 
 /*Növekvo bubirendezés*/
 
-for I<-1,N-1
-  for J<-N,I+1,-1
+for I<-1,ODB-1
+  for J<-ODB,I+1,-1
     if ADAT[J,4]<ADAT[J-1,4]
       for K<-1,4
         CS<-STR(ADAT[J,K])
@@ -131,10 +130,10 @@ Ki:"Rendezett adatok :"
 Ki:" "
 
 
-for I<-1,N
+for I<-1,ODB
   if ADAT[I,1]<>0
     Ki:ADAT[I,4]
 
 Ki:" "
-Ki: "A 3. legnagyobb átlag adat: ",ADAT[N-2,4]," A hozzá tartozó év: ", ADAT[N-2,1]
-Ki: "A 4. legnagyobb átlag adat: ",ADAT[N-3,4]," A hozzá tartozó év: ", ADAT[N-3,1]
+Ki: "A 3. legnagyobb átlag adat: ",ADAT[ODB-2,4]," A hozzá tartozó év: ", ADAT[ODB-2,1]
+Ki: "A 4. legnagyobb átlag adat: ",ADAT[ODB-3,4]," A hozzá tartozó év: ", ADAT[ODB-3,1]

@@ -48,6 +48,7 @@ CiklV                           K             Egész                             
 CiklV                           J             Egész                                                M       
 Cserevált                       CS            Egész                                                M       
 Aktuális legközelebb origóhoz   AKT           Egész                                                M,O     
+Legközelebbi X                  AKTX          Egész                                                M,O     
                                                                                                            
 
 /*NUM_VEKT_GEN-el 20db síkbeli pontot úgy, hogy a koordináták [-500,500] intervallumba essenek*/
@@ -66,9 +67,8 @@ N<-20
 NUM_VEKT_GEN(X,N,TOL,IG,XSEED)
 NUM_VEKT_GEN(Y,N,TOL,IG,YSEED)
 
-Ki:"Rendezetlen mátrix adatok(elso szám=> X második szám=> Y :"
+Ki:"Rendezetlen mátrix adatok(elso szám=> X második szám=> Y) :"
 Ki:" "
-
 
 for I<-1,N
   P[I,1]<-X[I]
@@ -93,7 +93,7 @@ for I<-1,N
   Ki:"Y: ",P[I,2]
   Ki:" "
 
-Ki:"A legnagyobb X koordináta, tehát a legmesszebb origótól: ",P[1,1]
+Ki:"A legnagyobb X koordináta: ",P[1,1]
 Ki:" "
 
 Ki:"Rendezett mátrix adatok Y szerint növekvoben :"
@@ -121,8 +121,13 @@ for I<-1,N
     if P[I,2] < AKT
       AKT<-P[I,2]
 
+for I<-1,N
+  if P[I,2]=AKT
+    AKTX<-P[I,1]
 
-Ki:"A legközelebb Y koordináta origóhoz : ",AKT
+
+Ki:"A legközelebb Y koordináta origóhoz: ",AKT
+Ki:"Ehhez tartotó X koordináta: ",AKTX
 
 Funkció                          Azonosító     Típus                           Jelleg  
 _______________________________________________________________________________________

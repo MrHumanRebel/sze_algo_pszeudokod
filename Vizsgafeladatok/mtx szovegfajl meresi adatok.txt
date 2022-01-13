@@ -31,13 +31,9 @@ I<-1
 while NOT FAJLVEGE(F)
   Be F: SOR
   EV<- VAL(COPY(SOR,1,4))
-  Ki: EV
   HNAP<- VAL(COPY(SOR,6,2))
-  Ki: HNAP
   NAP<- VAL(COPY(SOR,9,2))
-  Ki: NAP
   VALSZAM<- VAL(COPY(SOR,11,6))
-  Ki: VALSZAM
   MTX[I,1]<-EV
   MTX[I,2]<-HNAP
   MTX[I,3]<-VALSZAM
@@ -49,8 +45,10 @@ while NOT FAJLVEGE(F)
 
 ZAR(F)
 
+for J<-1,I-1
+  Ki:"Dátum: ",MTX[J,1],".","Hónap: ",MTX[J,2]
+  Ki:"Adat: ",MTX[J,3]
+
 Ki: "A mért értékek összege a második negyedévben: ",OSSZEG
 Ki: "A mért értékek darabszáma a második negyedévben: ",DB
 Ki: "A mért értékek átlaga a második negyedévben: ",ATL
-
-

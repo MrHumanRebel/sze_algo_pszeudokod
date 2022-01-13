@@ -67,7 +67,7 @@ Ki:"Rendezetlen adatok:"
 
 for I<-1, N
   for J<-1, HOSSZ
-    if A[I][J] IN (['A'..'Z','a'..'z'])
+    if A[I][J] IN ['A'..'Z','a'..'z']
       AKTDB<-AKTDB+1
   DB[I]<-AKTDB
   AKTDB<-0

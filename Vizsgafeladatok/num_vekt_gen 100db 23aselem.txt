@@ -78,7 +78,7 @@ for X<-1, 100
 for K<-1, 100
   if (A[K]=KERES) AND (UJHELY<>KERES)
     UJHELY<-K 
-Ki: "A keresett szám új helye:", UJHELY
+Ki: "A keresett szám új helye: ", UJHELY
 
 Funkció                          Azonosító     Típus                           Jelleg  
 _______________________________________________________________________________________

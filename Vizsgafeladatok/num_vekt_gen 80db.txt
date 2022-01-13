@@ -62,7 +62,7 @@ ATL<-OSSZ/DB
 Ki: "Számok összege: ",OSSZ
 Ki: "Számok darabszáma: ",DB
 Ki: "Számok átlaga: ",ATL
-/*Nem tudom hogy kell kerekíteni!*/
+
 
 Funkció                          Azonosító     Típus                           Jelleg  
 _______________________________________________________________________________________

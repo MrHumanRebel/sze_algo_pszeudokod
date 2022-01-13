@@ -7,7 +7,7 @@ Eredmány darab                      DB            Egész                         
 /*Hány olyan egész szám van az 123,456 számok között, melyekben szerepel 0?*/
 DB<-0
 
-for I<-123,4567
+for I<-123,456
   if POS('0',STR(I)) > 0 
     DB<-DB+1
 
