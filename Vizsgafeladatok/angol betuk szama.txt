@@ -49,6 +49,7 @@ DB                              N             Egész                           M
 
 /*Hány darab angol betû található a legtöbb ilyen karaktert tartalmazó oszlopban?*/
 /*STR_MTX_GEN 5 sor,10 oszlop,20karakter,2es seed*/
+/*Mr_HumanRebel*/
 SOROK<-5
 OSZLOPOK<-10
 SEED<-2
