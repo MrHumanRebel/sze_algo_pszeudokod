@@ -1,5 +1,5 @@
 # Pszeudokod
-**Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák**
+**Széchenyi István Egyetem // Győr // Algoritmusok és adatstruktúrák // GKNB_MSTM016**
 
 <img src="Repo/pszkod.png" alt="PszKod" width="200" height="200">
 
