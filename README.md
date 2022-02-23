@@ -11,11 +11,13 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/MrHumanRebel/sze_algo_pszeudokod/total)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/MrHumanRebel/sze_algo_pszeudokod)
 
-## 
+** **
 
 **⚠️ Figyelmeztetés: A repo a 2021/2022/1 őszi félévben készült, és azóta nem frissül! ⚠️**
 
 **Ha szeretnél saját megoldásaiddal és új feladatokkal hozzájárulni a repo-hoz, [ne habozz!](https://github.com/login?return_to=%2FMrHumanRebel%2Fsze_algo_pszeudokod)**
+
+** **
 
 ## Információk
 
