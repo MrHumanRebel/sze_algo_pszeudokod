@@ -5,7 +5,6 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/MrHumanRebel/sze_algo_pszeudokod)
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/MrHumanRebel/sze_algo_pszeudokod)
-![Lines of code](https://img.shields.io/tokei/lines/github/MrHumanRebel/sze_algo_pszeudokod)
 ![GitHub](https://img.shields.io/github/license/MrHumanRebel/sze_algo_pszeudokod)
 
 ![GitHub all releases](https://img.shields.io/github/downloads/MrHumanRebel/sze_algo_pszeudokod/total)
